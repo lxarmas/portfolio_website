@@ -1,9 +1,9 @@
 import React from "react";
-import Calltoaction from "./CalltoAction";
+import Header from "./Header";
 import Specials from "./Specials";
 import CustomerSays from "./Customersay";
 import Chicago from "./Chicago";
-import Footer from "./Footer";
+
 import { FaArrowUp } from 'react-icons/fa';
 
 function HomePage(){
@@ -17,11 +17,10 @@ function HomePage(){
 
     return(
     <main>
-        <Calltoaction /><br></br><br></br>
+        <Header /><br></br><br></br>
         <Specials /><br></br><br></br>
         <CustomerSays /><br></br><br></br>
         <Chicago /><br></br><br></br>
-        <Footer /><br></br>
         <button className="scroll-to-top" onClick={scrollToTop}><h7>Back to top</h7>
           <FaArrowUp />
       </button>

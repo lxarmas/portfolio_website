@@ -6,9 +6,9 @@ import { useNavigate } from "react-router-dom";
 
 
 function Specials(){
-    const specials = [{title: "Greek Salad", description: "Greek salad is a popular salad in Greek cuisine generally made with pieces of tomatoes, cucumbers, onion, feta cheese, and olives and dressed with salt, Greek oregano, lemon juice and olive oil.", img:salad},
-                        {title: "Bruschetta", description: "Bruschetta is an Italian antipasto consisting of grilled bread often topped with olive oil and salt. Most commonly it is served with toppings of tomato, vegetables, beans, cured meat, and/or cheese.", img:brus},
-                        {title: "Lemon Cake", description: "This comes straight from my grandma's cookbook. Made from sour lemons and the thickest cream, this sweet and savoury dessert will have you craving for more", img:lemon}
+    const specials = [{title: "Greek Salad", description: "The Greek salad, a staple of Greek cuisine, typically comprises tomatoes, cucumbers, onions, feta cheese, and olives, seasoned with salt, Greek oregano, lemon juice, and olive oil", img:salad},
+                        {title: "Bruschetta", description: "Bruschetta, an Italian antipasto, features grilled bread typically drizzled with olive oil and seasoned with salt, often accompanied by toppings such as tomatoes, vegetables, beans, cured meats, and cheese.", img:brus},
+                        {title: "Lemon Cake", description: "Crafted with the zing of sour lemons and the richness of thick cream, this sweet and savory dessert promises to tantalize your taste buds, leaving you eager for every indulgent bite", img:lemon}
     ]
 
     const navigate = useNavigate();

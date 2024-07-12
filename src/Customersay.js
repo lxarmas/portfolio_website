@@ -4,7 +4,7 @@ import star from "./images/5star.png";
 function CustomerSays(){
     return(
         <div>
-            <h2 id="test">Testimonials</h2>
+
             <section className="customer">
                 <div className="testimonial">
                     <div className="r1">

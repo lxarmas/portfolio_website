@@ -10,9 +10,7 @@ function About() {
         setCurrentImage((prev) => (prev + 1) % images.length);
     };
 
-    const handlePrev = () => {
-        setCurrentImage((prev) => (prev - 1 + images.length) % images.length);
-    };
+  
 
     return (
         <div className="about p-8 max-w-7xl mx-auto">
@@ -21,7 +19,7 @@ function About() {
             <p className="text-lg mb-6 text-center">At Little Lemon, we bring the vibrant flavors of the Mediterranean to your table. Located in the heart of Chicago, our restaurant is a culinary haven where traditional Mediterranean dishes are crafted with love and served with a modern twist.</p>
 
             <div className="relative mb-6">
-                <img src={images[currentImage]} alt="Owner" className="w-full md:w-98 rounded-lg shadow-lg" />
+                <img src={images[currentImage]} alt="Owner" className="w-full md:w-68rounded-md shadow-lg" />
                 <div className="absolute bottom-0 w-full flex justify-between bg-gray-700 text-white px-2 py-1">
                     {/* <button onClick={handlePrev} className="rounded-l-lg">Prev</button> */}
                     <button onClick={handleNext} className="rounded-r-lg">Next</button>

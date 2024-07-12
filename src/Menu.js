@@ -1,65 +1,41 @@
 import React from "react";
-import hummus from "./images/hummus.jpeg";
-import dolmas from "./images/dolmas.jpeg";
-import falafel from "./images/falafel.jpeg";
-import kofta from "./images/kofta.jpeg";
-import mousakka from "./images/mousakka.jpeg";
-import skewer from "./images/skewer.jpeg";
-import spanak from "./images/spanak.jpeg";
-import shakshuka from "./images/shakshuka.jpeg";
-import baklava from "./images/baklava.jpeg";
-
+import bruchetta from "./images/bruschetta.jpg";
+import lemmondessert from "./images/lemondessert.jpg";
+import salad from "./images/salad.jpg";
+import pasta from "./images/intro-1684783348.webp";
+import pizza from "./images/pizza.avif";
 
 function Menu() {
   return (
     <>
-      <h2 id="enjoy">Enjoy our different recipes</h2>
+      <h2 id="enjoy">Our Menu</h2>
       <div className="menu-container">
         <div className="menu-item">
-          <h4>Hummus Plate</h4>
-          <img src={hummus} alt="Hummus Plate" className="menu-img" />
-          <p>A classic Mediterranean appetizer served with warm pita bread.</p>
+          <h4>Bruchetta</h4>
+          <img src={bruchetta} alt="Bruschetta" className="menu-img" />
+          <p>Original italian bruschetta with ham and cheese.</p>
         </div>
         <div className="menu-item">
-          <h4>Falafel Wrap</h4>
-          <img src={falafel} alt="Falafel Wrap" className="menu-img" />
-          <p>Crispy chickpea patties wrapped in pita with fresh vegetables and tahini sauce.</p>
+          <h4>Lemon Dessert</h4>
+          <img src={lemmondessert} alt="Lemon Dessert" className="menu-img" />
+          <p>Italian lemon cake is light, bright and citrusy from fresh lemon.</p>
         </div>
         <div className="menu-item">
-          <h4>Moussaka</h4>
-          <img src={mousakka} alt="Moussaka" className="menu-img" />
-          <p>A traditional baked dish with layers of eggplant, minced meat, and béchamel sauce.</p>
+          <h4>Greek Salad</h4>
+          <img src={salad} alt="Greek Salad" className="menu-img" />
+          <p>Just a handful of fresh ingredients and a no-fuss dressing of good olive oil and a splash of vinegar is all you need</p>
         </div>
         <div className="menu-item">
-          <h4>Grilled Lamb Skewers</h4>
-          <img src={skewer} alt="Grilled Lamb Skewers" className="menu-img" />
-          <p>Tender lamb marinated in Mediterranean spices and grilled to perfection.</p>
+          <h4>Original Pasta</h4>
+          <img src={pasta} alt="original Pasta" className="menu-img" />
+          <p>Flattened bell-shaped pasta with a frilly edge on one end.</p>
         </div>
         <div className="menu-item">
-          <h4>Shakshuka</h4>
-          <img src={shakshuka} alt="Shakshuka" className="menu-img" />
-          <p>Eggs poached in a spiced tomato sauce with bell peppers and onions, served with crusty bread.</p>
+          <h4>Pizza</h4>
+          <img src={pizza} alt="Pizza" className="menu-img" />
+          <p>The result is a soft, elastic heart with a tall, fluffy crust called the cornicione in Italian</p>
         </div>
-        <div className="menu-item">
-          <h4>Lamb Kofta</h4>
-          <img src={kofta} alt="Lamb Kofta" className="menu-img" />
-          <p>Spiced ground lamb formed into kebabs and grilled, served with rice or couscous.</p>
-        </div>
-        <div className="menu-item">
-          <h4>Dolmas</h4>
-          <img src={dolmas} alt="Stuffed Grape Leaves (Dolmas)" className="menu-img" />
-          <p>Grape leaves stuffed with a savory mixture of rice, pine nuts, and herbs, served with yogurt sauce.</p>
-        </div>
-        <div className="menu-item">
-          <h4>Baklava</h4>
-          <img src={baklava} alt="Baklava" className="menu-img" />
-          <p>Layers of flaky pastry filled with nuts and sweetened with honey syrup, a classic Mediterranean dessert.</p>
-        </div>
-        <div className="menu-item">
-          <h4>Spanakopita</h4>
-          <img src={spanak} alt="Spanakopita" className="menu-img" />
-          <p>A savory Greek pastry filled with spinach, feta cheese, and herbs, wrapped in flaky phyllo dough.</p>
-        </div>
+
       </div>
     </>
   );
