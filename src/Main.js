@@ -9,6 +9,7 @@ import Menu from './Menu';
 import About from './About';
 import Login from './loginpage';
 import Signup from './Signup';
+import OrderOnline from './OrderOnline';
 
 
 const initializeTimes = () => {
@@ -38,6 +39,7 @@ function Main() {
         <Route path='/about' element={<About />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
+         <Route path='/order-online' element={<OrderOnline/>} />
       </Routes>
     </Router>
   );

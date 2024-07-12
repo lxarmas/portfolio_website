@@ -6,11 +6,11 @@ import Footer from './Footer';
 
 
 const App = () => {
-
   return (
     <div className='App'>
       <Main />
-      <Footer/>
+      <Footer />
+
     </div>
   );
 };

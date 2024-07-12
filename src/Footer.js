@@ -1,7 +1,7 @@
 // Footer.js
 import React from "react";
 import logo from "./logo.jpg";
-import "./Footer.css"; // Import the CSS file for styling
+import "./Footer.css";
 
 function Footer() {
     return (

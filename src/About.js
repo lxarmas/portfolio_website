@@ -10,7 +10,7 @@ function About() {
         setCurrentImage((prev) => (prev + 1) % images.length);
     };
 
-  
+
 
     return (
         <div className="about p-8 max-w-7xl mx-auto">

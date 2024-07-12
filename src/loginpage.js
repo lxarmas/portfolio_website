@@ -43,7 +43,7 @@ function Login(){
                 /><br></br><br></br>
 
                 <input type="checkbox" required />
-                <label>i agree</label><br></br><br></br>
+                <label>I consent</label><br></br><br></br>
 
                 <input type="submit" value="Login" />
 
