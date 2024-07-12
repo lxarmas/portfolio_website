@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import owner1 from "./Owners.jpg";
-import owner2 from "./main.jpg";
+import owner1 from "./images/Owners.jpg";
+import owner2 from "./images/main.jpg";
 
 function About() {
     const [currentImage, setCurrentImage] = useState(0);

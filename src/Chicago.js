@@ -1,5 +1,5 @@
 import React from "react";
-import about from "./Owners.jpg";
+import about from "./images/Owners.jpg";
 import "./Chicago.css"; // Import the CSS file for styling
 
 function Chicago() {
