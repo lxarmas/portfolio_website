@@ -1,8 +1,10 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent} from '@testing-library/react';
 import App from './App';
+import Bookingform from './BookingForm';
+import BookingPage from './BookingPage';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('Static Text', () => {
+  render(<BookingPage />);
+  const heading = screen.getByText("Book a Table");
+  expect(heading).toBeInTheDocument();
 });

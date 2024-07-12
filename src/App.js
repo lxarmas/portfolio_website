@@ -1,10 +1,16 @@
+import React from 'react';
+import Main from './Main';
+import "./App.css";
+import "./style.css"
 
-import './App.css';
 
-function App() {
+const App = () => {
+
   return (
-    <div>HomePage</div>
-  )
-}
+    <div className='App'>
+      <Main />
+    </div>
+  );
+};
 
 export default App;
