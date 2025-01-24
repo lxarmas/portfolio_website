@@ -16,8 +16,8 @@ const initializeTimes = () => {
   return ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
 };
 
-const updateTimes = (state, action) => {
-  switch (action.type) {
+const updateTimes = ( state, action ) => {
+  switch ( action.type ) {
     case 'UPDATE':
       return initializeTimes();
     default:
@@ -26,7 +26,7 @@ const updateTimes = (state, action) => {
 };
 
 function Main() {
-  const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
+  const [availableTimes, dispatch] = useReducer( updateTimes, initializeTimes() );
 
   return (
     <Router>
@@ -39,7 +39,7 @@ function Main() {
         <Route path='/about' element={<About />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
-         <Route path='/order-online' element={<OrderOnline/>} />
+        <Route path='/order-online' element={<OrderOnline />} />
       </Routes>
     </Router>
   );

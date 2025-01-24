@@ -1,33 +1,31 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import main from "./images/main.jpg";
-
+import jobs_cover from "./images/jobs_cover.avif";
+import './Header.css'
 
 function Header() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const Submit = () => {
-        navigate("/booking");
-    }
+  const Submit = () => {
+    navigate( "/menu" );
+  }
 
-    return (
-            <header className="header">
+  return (
+    <header className="header">
       <section>
         <div className="banner">
-          <h2 className="titleHeader">Little Lemon</h2>
-          <h3>Chicago</h3>
+          <h2 className="titleHeader">Experience</h2>
           <p>
-            We are a family owned Mediterraneran restaurant, focused on
-            traditional recipes servred with a modern twist.
+            I have worked extensively making smart and efficient applcations.
           </p>
-        <button id="button1" onClick={Submit}>Reserve a  Table</button>
+          <button id="button1" onClick={Submit}>Check my projects</button>
         </div>
         <div className="banner-img">
-           <img src={main} alt="img" width={178} height={100} id="main"/>
+          <img src={jobs_cover} alt="img" width={120} height={80} id="main" />
         </div>
       </section>
     </header>
-    )
+  )
 }
 
 export default Header;
