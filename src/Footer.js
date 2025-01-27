@@ -1,13 +1,13 @@
 // Footer.js
 import React from "react";
-import logo from "./images/logo.jpg";
+import alex_logo from "./images/alex_logo.png";
 import "./Footer.css";
 
 function Footer() {
     return (
         <footer className="footer">
             <div className="footer-container">
-                <img src={logo} alt="footerlogo" className="footer-logo" />
+                <img src={alex_logo} alt="footerlogo" className="footer-logo" />
                 <div className="footer-contact">
                     <h4>Contact</h4>
                     <p><em><b>+123-9876543210</b></em></p>
@@ -17,7 +17,7 @@ function Footer() {
                     <h4>Social Media Links</h4>
                     <ul className="social-links">
                         <li><a href="https://instagram.com">Instagram</a></li>
-                        <li><a href="https://facebook.com">Facebook</a></li>
+
                         <li><a href="https://twitter.com">Twitter</a></li>
                     </ul>
                 </div>
