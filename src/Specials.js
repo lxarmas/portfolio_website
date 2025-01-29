@@ -1,40 +1,43 @@
 import React from "react";
-import salad from "./images/salad.jpg"
-import lemon from "./images/lemondessert.jpg"
-// import brus from "./images/bruschetta.jpg"
-import { useNavigate } from "react-router-dom";
+import coding from "./images/coding.webp";
+// import debug from "./images/debug.jpg";
+import "./Header.css";
 
+function PortfolioShowcase() {
+    const projects = [
+        {
+            title: "Innovative Coding",
+            description: "Bringing ideas to life with clean, efficient, and innovative code. From web apps to full-stack solutions, I love turning challenges into functional, elegant solutions.",
+            img: coding
+        },
+        {
+            title: "Debugging Mastery",
+            description: "Finding and squashing bugs is my superpower! With an analytical approach and problem-solving mindset, I turn frustrating issues into smooth experiences.",
+            // img: debug
+        }
+    ];
 
-function Specials() {
-    const specials = [{ title: "Greek Salad", description: "The Greek salad, a staple of Greek cuisine, typically comprises tomatoes, cucumbers, onions, feta cheese, and olives, seasoned with salt, Greek oregano, lemon juice, and olive oil", img: salad },
-    // { title: "Bruschetta", description: "Bruschetta, an Italian antipasto, features grilled bread typically drizzled with olive oil and seasoned with salt, often accompanied by toppings such as tomatoes, vegetables, beans, cured meats, and cheese.", img: brus },
-    { title: "Lemon Cake", description: "Crafted with the zing of sour lemons and the richness of thick cream, this sweet and savory dessert promises to tantalize your taste buds, leaving you eager for every indulgent bite", img: lemon }
-    ]
-
-    const navigate = useNavigate();
-
-    const Submit = ( e ) => {
-        e.preventDefault()
-        navigate( '/menu' )
-    }
+    const handleLinkedInClick = () => {
+        window.open( "https://www.linkedin.com/in/alejandroarmas66/", "_blank", "noopener,noreferrer" );
+    };
 
     return (
-        <section className="specials">
-            <div className="top">
-                <h2>This week's Specials!</h2>
-                <button id="menu" onClick={Submit}>Contact Us</button>
+        <section className="portfolio-showcase">
+            <div className="header">
+                <h2>Alex Armas - Software Engineer</h2>
+                <button id="button1" onClick={handleLinkedInClick}>Contact Us</button>
             </div>
-            <div className="specials-list">
-                {specials.map( ( special, index ) => (
-                    <div key={index} className="special">
-                        <h3>{special.title}</h3>
-                        <img src={special.img} alt="img" />
-                        <p>{special.description}</p>
+            <div className="projects-list">
+                {projects.map( ( project, index ) => (
+                    <div key={index} className="project">
+                        <h3>{project.title}</h3>
+                        <img src={project.img} alt={project.title} />
+                        <p>{project.description}</p>
                     </div>
                 ) )}
             </div>
         </section>
-    )
+    );
 }
 
-export default Specials;
+export default PortfolioShowcase;
