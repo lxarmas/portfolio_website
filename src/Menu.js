@@ -2,8 +2,6 @@ import React from "react";
 import worthyreads from "./images/worthyreads_image.png";
 import ninjagame from "./images/ninjagame.png";
 import sportsSupply from "./images/sportsSupply.png";
-// import portfolioSite from "./images/portfolio_site.png";
-// import ecommerce from "./images/ecommerce.png";
 
 function Portfolio() {
   const projects = [
@@ -37,8 +35,8 @@ function Portfolio() {
   ];
 
   return (
-    <section className="py-8 px-4">
-      <h2 className="text-4xl font-bold text-center mb-6 text-black" id="projects">
+    <section className="py-8 px-4 bg-[#4e6151]">
+      <h2 className="text-4xl font-bold text-center mb-6 text-white" id="projects">
         Projects
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -53,7 +51,7 @@ function Portfolio() {
               className="w-full h-48 object-cover"
             />
             <div className="p-4">
-              <h4 className="text-xl font-semibold text-black">{project.title}</h4>
+              <h4 className="text-xl font-semibold text-[#4e6151]">{project.title}</h4>
               <p className="text-gray-700 text-sm mt-2">
                 {project.description}
               </p>
@@ -62,7 +60,7 @@ function Portfolio() {
                   href={project.links.demo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white bg-blue-500 px-4 py-2 rounded hover:bg-blue-600"
+                  className="text-white bg-[#ffcc00] px-4 py-2 rounded hover:bg-[#ffb900]"
                 >
                   Demo
                 </a>
@@ -70,7 +68,7 @@ function Portfolio() {
                   href={project.links.code}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white bg-gray-800 px-4 py-2 rounded hover:bg-gray-900"
+                  className="text-white bg-green-900 px-4 py-2 rounded hover:bg-gren-900"
                 >
                   Code
                 </a>

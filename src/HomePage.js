@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./Header";
-import Specials from "./Specials";
+import Specials from "./PortfolioShowcase";
 import CustomerSays from "./Customersay";
 import Chicago from "./Chicago";
 
