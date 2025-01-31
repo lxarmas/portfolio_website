@@ -1,35 +1,60 @@
 import React from "react";
-import star from "./images/5star.png";
+import logo from "./images/alex_logo.png"
+function CustomerSays() {
+    return (
+        <div className="bg-green-950 py-12"> {/* Dark Green Background */}
+            <section className="max-w-7xl mx-auto text-center text-white">
+                <h2 className="text-3xl font-extrabold mb-10">What Clients Say About My Work</h2>
 
-function CustomerSays(){
-    return(
-        <div>
+                <div className="flex flex-col md:grid md:grid-cols-3 gap-10">
+                    {/* Testimonial 1 */}
+                    <div className="bg-white bg-opacity-20 backdrop-blur-md p-6 rounded-xl shadow-xl hover:scale-105 transition-all duration-300 ease-in-out transform">
+                        <div className="flex items-center justify-center mb-4">
+                            <img
+                                src={logo}
+                                alt="5-star rating"
+                                className="w-24 h-24 object-contain"
+                            />
+                        </div>
+                        <h5 className="text-2xl font-semibold mb-4">"Exceptional Code Quality and Efficiency!"</h5>
+                        <p>
+                            "Alejandro's coding skills are second to none. He consistently delivers clean, efficient, and maintainable code. His attention to detail ensures every project meets high standards."
+                        </p>
+                    </div>
 
-            <section className="customer">
-                <div className="testimonial">
-                    <div className="r1">
-                        <h5>"Delicious Food, Excellent Service!"</h5>
-                        <img src={star} alt="5-star rating" width={200}/>
-                        <p>"Little Lemon serves incredibly delicious food with excellent service. Every dish was a delight, and the staff made our dining experience truly memorable."</p>
+                    {/* Testimonial 2 */}
+                    <div className="bg-white bg-opacity-20 backdrop-blur-md p-6 rounded-xl shadow-xl hover:scale-105 transition-all duration-300 ease-in-out transform">
+                        <div className="flex items-center justify-center mb-4">
+                            <img
+                                src={logo}
+                                alt="5-star rating"
+                                className="w-24 h-24 object-contain"
+                            />
+                        </div>
+                        <h5 className="text-2xl font-semibold mb-4">"Incredible Problem-Solving and Debugging Skills!"</h5>
+                        <p>
+                            "No challenge is too big for Alejandro. His approach to debugging and problem-solving is methodical, ensuring that even the toughest bugs are quickly resolved. He brings a calm confidence to every project."
+                        </p>
                     </div>
-                </div>
-                <div className="testimonial">
-                    <div className="r2">
-                        <h5>"Fantastic Ambiance and Flavors!"</h5>
-                        <img src={star} alt="5-star rating" width={200}/>
-                        <p>"Little Lemon offers a fantastic ambiance and flavors that surpass expectations. The atmosphere was cozy, and each dish was expertly crafted and full of flavor."</p>
-                    </div>
-                </div>
-                <div className="testimonial">
-                    <div className="r3">
-                        <h5>"Highly Recommend!"</h5>
-                        <img src={star} alt="5-star rating" width={200}/>
-                        <p>"Little Lemon is a must-visit for outstanding dining. From the moment we arrived, the service was attentive, and the food was exceptional."</p>
+
+                    {/* Testimonial 3 */}
+                    <div className="bg-white bg-opacity-20 backdrop-blur-md p-6 rounded-xl shadow-xl hover:scale-105 transition-all duration-300 ease-in-out transform">
+                        <div className="flex items-center justify-center mb-4">
+                            <img
+                                src={logo}
+                                alt="5-star rating"
+                                className="w-24 h-24 object-contain"
+                            />
+                        </div>
+                        <h5 className="text-2xl font-semibold mb-4">"Highly Recommend for Full-Stack Projects!"</h5>
+                        <p>
+                            "Alejandro is a go-to developer for full-stack projects. His expertise in both front-end and back-end development, along with his seamless integrations, make him an invaluable asset to any project."
+                        </p>
                     </div>
                 </div>
             </section>
         </div>
-    )
+    );
 }
 
 export default CustomerSays;
