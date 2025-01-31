@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import coding from "./images/coding.webp";
-import debug from "./images/debug.avif";
+import coding from "./images/coding.svg";
+import debug from "./images/debug.svg";
+import frontEnd from "./images/frontEnd.svg"
+import performance from "./images/performance.svg"
 import "./PortfolioShowcase.css";
 
 // Toggle for dark mode
@@ -25,12 +27,7 @@ function PortfolioShowcase() {
     };
 
     const projects = [
-        {
-            title: "Innovative Coding",
-            description:
-                "Bringing ideas to life with clean, efficient, and innovative code. From web apps to full-stack solutions, I love turning challenges into functional, elegant solutions.",
-            img: coding,
-        },
+
         {
             title: "Debugging Mastery",
             description:
@@ -38,16 +35,17 @@ function PortfolioShowcase() {
             img: debug,
         },
         {
-            title: "Optimizing Performance",
+            title: "Innovative Coding",
             description:
-                "I ensure fast and smooth user experiences by optimizing both front-end and back-end performance. From lazy loading to reducing HTTP requests, I maximize efficiency.",
+                "Bringing ideas to life with clean, efficient, and innovative code. From web apps to full-stack solutions, I love turning challenges into functional, elegant solutions.",
             img: coding,
+            img: performance,
         },
         {
             title: "Front-end Development",
             description:
                 "Transforming user experiences with clean, responsive, and visually stunning interfaces. I build fast and interactive web apps using modern libraries and frameworks.",
-            img: coding,
+            img: frontEnd,
         },
         {
             title: "Database Management",
