@@ -3,26 +3,26 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./loginsignup.css"
 
-function Login(){
+function Login() {
 
-    const [user, setUser] = useState('')
-    const [password, setPassword] = useState('')
+    const [user, setUser] = useState( '' )
+    const [password, setPassword] = useState( '' )
 
-    const handleSubmit = (e) => {
+    const handleSubmit = ( e ) => {
         e.preventDefault()
     }
 
-    const handleUserChange = (e) => {
-        setUser(e.target.value)
+    const handleUserChange = ( e ) => {
+        setUser( e.target.value )
     }
 
-    const handlePasswordChange = (e) => {
-        setPassword(e.target.value)
+    const handlePasswordChange = ( e ) => {
+        setPassword( e.target.value )
     }
 
-    return(
+    return (
         <>
-            <h1>Login</h1>
+            <h1>Client Section</h1>
             <form onSubmit={handleSubmit} className="loginform">
                 <label htmlFor="username">Username<br></br></label>
                 <input

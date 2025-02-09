@@ -1,5 +1,5 @@
 import React from "react";
-import about from "./images/Owners.jpg";
+import about from "./images/OwnerProfile3.jpg";
 import "./Chicago.css"; // Import the CSS file for styling
 
 function Chicago() {
@@ -7,14 +7,16 @@ function Chicago() {
         <section className="chicago">
             <div className="content">
                 <div className="text-container">
-                    <h1>Little Lemon</h1>
-                    <h3>Chicago</h3>
+                    <h1>Why I am here</h1>
+                    <h3>My story</h3>
                     <p>
-                        Founded in 2020 by Mario Rossi and Adrian Garcia, Little Lemon was born out of a shared passion for authentic Mediterranean cuisine. Mario and Adrian envisioned a place where people could come together to enjoy the rich, diverse flavors of the Mediterranean, using the freshest ingredients and time-honored recipes passed down through generations.
+                        Alex Armas is a professional commercial photographer with more than fifteen years of experience and after covid he had
+                        a revelation that coding is was his next chapter in his life, since then he has created unique application systems which combine technology,
+                        art and commerce.
                     </p>
                 </div>
                 <div className="image-container">
-                    <img src={about} width={480} height={270} alt="Owners of the restaurant" />
+                    <img src={about} width={240} height={270} alt="Alex Armas headshot" />
                 </div>
             </div>
         </section>

@@ -1,109 +1,63 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 
+function ContactForm() {
+    const [state, handleSubmit] = useForm( "xzzdvwbd" );
 
-function Bookingform({ availableTimes, dispatch }) {
-    const [date, setDate] = useState("");
-    const [time, setTime] = useState("");
-    const [guests, setGuests] = useState(1);
-    const [occasion, setOccasion] = useState("");
-    const [errors, setErrors] = useState({});
-    const today = new Date().toISOString().split('T')[0];
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const formErrors = validateForm();
-        if (Object.keys(formErrors).length === 0) {
-            navigate("/confirmed");
-        } else {
-            setErrors(formErrors);
-        }
-    };
-
-    const handleDateChange = (e) => {
-        setDate(e.target.value);
-        dispatch({ type: 'UPDATE', date: e.target.value });
-    };
-
-    const handleTimeChange = (e) => {
-        setTime(e.target.value);
-    };
-
-    const navigate = useNavigate();
-
-    const validateForm = () => {
-        const errors = {};
-        if (!date) errors.date = "Please choose a date.";
-        if (!time) errors.time = "Please choose a time.";
-        if (guests < 1 || guests > 10) errors.guests = "Number of guests must be between 1 and 10.";
-        if (!occasion) errors.occasion = "Please choose an occasion.";
-        return errors;
-    };
-
-    const handleGuestsChange = (e) => {
-        setGuests(parseInt(e.target.value, 10));
-    };
+    if ( state.succeeded ) {
+        return <p className="text-green-500">Thanks for your message!</p>;
+    }
 
     return (
-        <form onSubmit={handleSubmit} className="form-container">
-            <label htmlFor="date" id="date1">Choose Date</label>
-            <input
-                type="date"
-                id="date"
-                value={date}
-                onChange={handleDateChange}
-                required
-                min={today}
-                //aria-label="dd/mm/yyyy"
-            />
-            {errors.date && <span>{errors.date}</span>}
+        <form onSubmit={handleSubmit} className="max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg space-y-4">
+            <div>
+                <label htmlFor="name" className="block text-sm font-semibold text-gray-700">Name</label>
+                <input
+                    id="name"
+                    type="text"
+                    name="name"
+                    required
+                    className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
+            </div>
 
-            <label htmlFor="time">Choose Time</label>
-            <select
-                id="time"
-                value={time}
-                onChange={handleTimeChange}
-                required
-                aria-label="Select Time"
+            <div>
+                <label htmlFor="email" className="block text-sm font-semibold text-gray-700">Email Address</label>
+                <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    required
+                    className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
+                <ValidationError prefix="Email" field="email" errors={state.errors} className="text-red-500 text-xs mt-1" />
+            </div>
+
+            <div>
+                <label htmlFor="message" className="block text-sm font-semibold text-gray-700">Message</label>
+                <textarea
+                    id="message"
+                    name="message"
+                    required
+                    rows="4"
+                    className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
+                <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-500 text-xs mt-1" />
+            </div>
+
+            <button
+                type="submit"
+                disabled={state.submitting}
+                className="w-full p-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 disabled:bg-gray-400"
             >
-                <option value="" disabled>Select a time</option>
-                {availableTimes.map((timeOption) => (
-                    <option key={timeOption} value={timeOption}>{timeOption}</option>
-                ))}
-            </select>
-            {errors.time && <span>{errors.time}</span>}
-
-            <label htmlFor="guests">Number of People</label>
-            <input
-                type="number"
-                id="guests"
-                value={guests}
-                placeholder="1"
-                min="1" max="10"
-                onChange={handleGuestsChange}
-                required
-            />
-            {errors.guests && <span>{errors.guests}</span>}
-
-            <label htmlFor="occasion">Occasion</label>
-            <select
-                id="occasion"
-                value={occasion}
-                onChange={(e) => setOccasion(e.target.value)}
-                required
-                aria-label="Select Occasion"
-            >
-                <option value="" disabled>Select an occasion</option>
-                <option value="birthday">Birthday</option>
-                <option value="anniversary">Anniversary</option>
-                <option value="engagement">Engagement</option>
-                <option value="others">Others (Please Specify)</option>
-            </select>
-            {errors.occasion && <span>{errors.occasion}</span>}
-
-            <input type="submit" value="Make your reservation" disabled={Object.keys(errors).length > 0} />
+                Submit
+            </button>
         </form>
     );
 }
 
-export default Bookingform;
+function App() {
+    return <ContactForm />;
+}
+
+export default App;

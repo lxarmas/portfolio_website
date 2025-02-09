@@ -12,8 +12,8 @@ function Nav() {
         <li><Link to="/menu">Projects</Link></li>
         <li><Link to="/about">About</Link></li>
         <li><Link to="/booking">Reservations</Link></li>
-        <li><Link to="/order-online">Order Online</Link></li>
-        <li><Link to="/login">Login</Link></li>
+        {/* <li><Link to="/order-online">Order Online</Link></li> */}
+        <li><Link to="/login">Client Section</Link></li>
       </ul>
     </nav>
   );

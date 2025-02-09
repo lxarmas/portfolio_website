@@ -35,15 +35,6 @@ function HomePage() {
 
   return (
     <>
-      {/* 🌙 Dark Mode Toggle Button */}
-      <button
-        onClick={toggleDarkMode}
-        className="fixed top-4 right-4 px-4 py-2 bg-[#ffcc00] text-[#4e6151] rounded-full shadow-md hover:bg-[#ffb900] transition duration-300"
-      >
-        {isDarkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
-      </button>
-
-      {/* 🌙 Main Content with Dark Mode Class */}
       <main className={`portfolio-showcase flex flex-col items-center px-6 py-10 ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
         <Header /><br></br><br></br>
         <Specials /><br></br><br></br>

@@ -1,5 +1,4 @@
 
-/* Header Styling */
 .header {
     background-color: transparent;
     color: rgb(0, 0, 0);
@@ -9,7 +8,8 @@
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 2px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+   
+     margin-right: 25rem;
 }
 
 
@@ -21,23 +21,13 @@ position: relative;
 
 
 
-@media (min-width: 640px) {
-  .header section {
-    padding-left: 3rem;
-    padding-right: 3rem;
-  }
-}
 
-@media (min-width: 1024px) {
-  .header section {
-    padding-left: 6rem;
-    padding-right: 6rem;
-  }
-}
 
 .banner {
-  text-align: center;
+  text-align: left;
+ 
   max-width: 32rem;
+
 }
 
 @media (min-width: 640px) {
@@ -52,11 +42,13 @@ position: relative;
   line-height: 1.75rem;
   max-width: 42rem;
   margin: 0 auto;
-  color: #e5e7eb;
+  color: #000000;
+
+   
 }
 
 .banner p span {
-  color: #ffd700;
+  color: #555555;
   font-weight: 600;
 }
 
@@ -72,45 +64,36 @@ position: relative;
   font-style: italic;
 }
 
+
+
+
 #button1 {
-  background-color: #ffcc00;
-  color: #4e6151;
-  padding: 0.75rem 1.5rem;
-  border-radius: 9999px;
-  font-size: 1.125rem;
-  font-weight: 600;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease-in-out;
-  border: none;
-  cursor: pointer;
-  margin-top: 1rem;
-}
-#button1 {
-    background-color: #f0a500;
+    background-color: #5998ff;
     color: white;
     border: none;
-    padding: 10px 20px;
-    font-size: 1.3em;
+   
+    font-size: 0.9em;
     font-weight: bold;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     height: 70px;
-    width: 250px;
+    width: 140px;
 }
 
 #button1:hover {
-  background-color: #ffb900;
+  background-color: #4eba82;
 }
 .banner-img {
   position: absolute;
-  right: 10%; /* Adjust for better positioning */
+  left: 30%; /* Adjust for better positioning */
   top: 12%; /* Slightly lower */
   width: 450px; /* Increase container size if needed */
 }
 
 .banner-img img {
+  margin-left: 400px;
   width: 45rem; /* Increase width */
   height: 24rem; /* Increase height */
   object-fit: cover;
@@ -118,8 +101,10 @@ position: relative;
   border: 4px solid white;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Stronger shadow for depth */
   transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+ 
 }
 
 .banner-img img:hover {
   transform: scale(1.05); /* Subtle zoom-in effect */
 }
+

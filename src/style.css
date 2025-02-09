@@ -4,16 +4,8 @@ body {
     color: #333;
 }
 
-h2, h3, h4, h5, h6 {
-    color: #1b675e;
-    margin-bottom: 0.5em;
-}
 
-h1 {
-    font-size: 3.4rem;
-    color: #f4ce14;
-    font-weight: bold;
-}
+
 
 h2 {
     font-size: 2rem;
@@ -41,9 +33,6 @@ p {
     margin-bottom: 1em;
 }
 
-span {
-    color: #f4a261;
-}
 
 
 
@@ -111,86 +100,6 @@ span {
     grid-column: 1/0;
     padding-left: 40px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-der-radius: 20px;
-
-#button1 {
-    background-color: #f0a500;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1.3em;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    height: 70px;
-    width: 250px;
-}
-
-#button1:hover {
-    background-color: #d48b00;
-    transform: translateY(-2px); 
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); 
-}
-
-/*Customer says*/
-
-.customer {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    background-color: #ccc;
-    border-radius: 20px;
-}
-
-.testimonial {
-    flex: 1;
-    margin: 0 10px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.testimonial img {
-    margin: 10px 0;
-    width: 100px;
-    height: auto;
-}
-
-.testimonial h5 {
-    margin-bottom: 10px;
-}
-
-.testimonial p {
-    font-size: 0.9em;
-    line-height: 1.4;
-    color: #555;
-}
-
-
-#test {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-
-
 
 
 /*BOOKING CONFIRMED*/
@@ -308,12 +217,6 @@ h7{
 }
 
 
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
 
   h2#enjoy {
     text-align: center;
