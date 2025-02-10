@@ -9,6 +9,7 @@ import About from './About';
 import Login from './loginpage';
 import Signup from './Signup';
 
+
 const initializeTimes = () => {
   return ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
 };
@@ -37,10 +38,7 @@ function Main() {
 
   return (
     <Router>
-      {/* Pass the dark mode state to Nav */}
       <Nav isDarkMode={isDarkMode} />
-
-
       <button
         onClick={toggleTheme}
         style={{
@@ -69,9 +67,7 @@ function Main() {
 
       <Routes>
         <Route path="/" element={<HomePage isDarkMode={isDarkMode} />} />
-        <Route
-          path="/booking"
-          element={<BookingPage isDarkMode={isDarkMode} availableTimes={availableTimes} dispatch={dispatch} />}
+        <Route path="/booking" element={<BookingPage isDarkMode={isDarkMode} availableTimes={availableTimes} dispatch={dispatch} />}
         />
         <Route path="/confirmed" element={<ConfirmedBooking isDarkMode={isDarkMode} />} />
         <Route path="/menu" element={<Portfolio isDarkMode={isDarkMode} />} />
@@ -79,6 +75,7 @@ function Main() {
         <Route path="/login" element={<Login isDarkMode={isDarkMode} />} />
         <Route path="/signup" element={<Signup isDarkMode={isDarkMode} />} />
       </Routes>
+
     </Router>
   );
 }

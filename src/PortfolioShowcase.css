@@ -2,16 +2,17 @@
 
 /* Floating Button - Connect */
 #connect-button {
-  width: 200px;
-  height: 60px;
+  width: 180px;
+  height: 40px;
   font-size: 18px;
   margin-left: 550px; /* adjust if needed */
   position: fixed;
-  top: 10px; /* adjust to set how far from the top you want it */
+  top: 120px; /* adjust to set how far from the top you want it */
   left: 50%; /* centers the button horizontally */
   transform: translateX(-50%); /* ensures it is perfectly centered */
   z-index: 9999; /* makes sure the button is above other content */
-  background-color: #ffcc00; /* example background */
+ 
+    background-color: #594ceb;
   color: #ffffff;
   border: none;
   padding: 12px 24px;
@@ -70,6 +71,7 @@
     height: 350px;
     border-radius: 10px;
     margin-bottom: 15px;
+
 }
 
 .special h3 {
@@ -91,11 +93,10 @@
 
 
 
-#main{
-    grid-column: 1/0;
-    padding-left: 40px;
-}
 
+.title-header{
+      color:#0e00a3
+}
 
 
 

@@ -12,7 +12,11 @@
     text-align: left;
   }
 }
-
+.banner h2{
+  font-size: 3rem;
+  font-weight: bold;
+  color:#0e00a3;
+}
 
 .banner p {
   font-size: 1.300rem;
@@ -61,7 +65,7 @@
 }
 .banner-img {
   position: absolute;
-  left: 50%; /* Adjust for better positioning */
+  left: 56%; /* Adjust for better positioning */
   top: 30%; /* Slightly lower */
   width: 450px; /* Increase container size if needed */
 }

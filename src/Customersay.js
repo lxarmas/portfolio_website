@@ -4,7 +4,7 @@ function CustomerSays() {
     return (
         <div className="bg-grey-500 py-12"> {/* Dark Green Background */}
             <section className="max-w-7xl mx-auto text-center text-black">
-                <h2 className="text-3xl font-extrabold mb-10 text-blue-800">What Clients Say About My Work</h2>
+                <h2 className="text-5xl font-extrabold mb-10 text-blue-800">What Clients Say About My Work</h2>
 
                 <div className="flex flex-col md:grid md:grid-cols-3 gap-10">
                     {/* Testimonial 1 */}

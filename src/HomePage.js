@@ -24,8 +24,8 @@ function HomePage( { isDarkMode } ) {
 
       {/* Scroll to Top Button */}
       <button className="scroll-to-top" onClick={scrollToTop}>
-        <p>Back to top</p>
         <FaArrowUp />
+        <p>Back to top</p>
       </button>
 
 

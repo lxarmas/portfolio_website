@@ -4,7 +4,7 @@ import coding from "./images/coding.svg";
 import debug from "./images/debug.svg";
 import frontEnd from "./images/frontEnd.svg";
 import performance from "./images/performance.svg";
-// import "./PortfolioShowcase.css";
+import "./PortfolioShowcase.css";
 
 function PortfolioShowcase( { isDarkMode } ) {
     const projects = [
@@ -46,7 +46,7 @@ function PortfolioShowcase( { isDarkMode } ) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
             >
-                My Skills & Expertise
+                <span className="title-header"> My Skills and Expertise</span>
             </motion.h2>
 
             <motion.button
