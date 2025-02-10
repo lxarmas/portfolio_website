@@ -1,8 +1,20 @@
+/* App.css */
+
+/* Default light theme styles */
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+  background-color: white;
+  color: black;
+  transition: background-color 0.3s, color 0.3s;
 }
+
+/* Dark theme styles */
+body.dark {
+  background-color: #121212;
+  color: white;
+}
+
+
+
 
 header, nav, main, footer {
   padding: 1em;

@@ -2,9 +2,9 @@ import React from "react";
 import about from "./images/OwnerProfile3.jpg";
 import "./Chicago.css"; // Import the CSS file for styling
 
-function Chicago() {
+function Chicago( { isDarkMode } ) {
     return (
-        <section className="chicago">
+        <section className={`chicago ${isDarkMode ? "dark-mode" : ""}`}>
             <div className="content">
                 <div className="text-container">
                     <h1>Why I am here</h1>

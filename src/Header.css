@@ -1,6 +1,7 @@
 
+/* Header Styling */
 .header {
-    background-color: transparent;
+    background-color: rgb(249, 0, 0);
     color: rgb(0, 0, 0);
     text-align: center;
     padding: 20px;
@@ -8,8 +9,8 @@
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 2px;
-   
-     margin-right: 25rem;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+     margin-right: 15rem;
 }
 
 
@@ -21,13 +22,25 @@ position: relative;
 
 
 
+@media (min-width: 640px) {
+  .header section {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
 
+@media (min-width: 1024px) {
+  .header section {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+}
 
 .banner {
   text-align: left;
  
   max-width: 32rem;
-
+;
 }
 
 @media (min-width: 640px) {
@@ -64,26 +77,36 @@ position: relative;
   font-style: italic;
 }
 
-
-
-
 #button1 {
-    background-color: #5998ff;
+  background-color: #b2b2b2;
+  color: #4e6151;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease-in-out;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+#button1 {
+    background-color: #969696;
     color: white;
     border: none;
-   
-    font-size: 0.9em;
+    padding: 10px 20px;
+    font-size: 1.3em;
     font-weight: bold;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     height: 70px;
-    width: 140px;
+    width: 250px;
 }
 
 #button1:hover {
-  background-color: #4eba82;
+  background-color: #008cff;
 }
 .banner-img {
   position: absolute;

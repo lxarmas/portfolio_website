@@ -1,33 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import coding from "./images/coding.svg";
 import debug from "./images/debug.svg";
-import frontEnd from "./images/frontEnd.svg"
-import performance from "./images/performance.svg"
+import frontEnd from "./images/frontEnd.svg";
+import performance from "./images/performance.svg";
 import "./PortfolioShowcase.css";
 
-// Toggle for dark mode
-const ThemeToggle = ( { toggleTheme } ) => {
-    return (
-        <button
-            onClick={toggleTheme}
-            className="py-2 px-4 bg-gray-800 text-white rounded-md shadow-md transition-all duration-300 hover:bg-gray-700"
-        >
-            Toggle Theme
-        </button>
-    );
-};
-
-function PortfolioShowcase() {
-    const [isDarkMode, setIsDarkMode] = useState( false );
-
-    const toggleTheme = () => {
-        setIsDarkMode( prevState => !prevState );
-        document.body.classList.toggle( "dark", !isDarkMode );  // Toggle dark mode on body
-    };
-
+function PortfolioShowcase( { isDarkMode } ) {
     const projects = [
-
         {
             title: "Debugging Mastery",
             description:
@@ -39,7 +19,6 @@ function PortfolioShowcase() {
             description:
                 "Bringing ideas to life with clean, efficient, and innovative code. From web apps to full-stack solutions, I love turning challenges into functional, elegant solutions.",
             img: coding,
-            img: performance,
         },
         {
             title: "Front-end Development",
@@ -51,7 +30,7 @@ function PortfolioShowcase() {
             title: "Database Management",
             description:
                 "Designing, optimizing, and managing databases for scalable and efficient data handling. I specialize in PostgreSQL and MySQL for robust back-end support.",
-            img: coding,
+            img: performance,
         },
     ];
 
@@ -61,7 +40,6 @@ function PortfolioShowcase() {
 
     return (
         <section className={`portfolio-showcase flex flex-col items-center px-6 py-10 ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
-            {/* Header Section with Animation */}
             <motion.h2
                 className="text-5xl font-extrabold text-center mb-8"
                 initial={{ opacity: 0, y: -30 }}
@@ -71,10 +49,6 @@ function PortfolioShowcase() {
                 My Skills & Expertise
             </motion.h2>
 
-            {/* Dark/Light Mode Toggle */}
-            <ThemeToggle toggleTheme={toggleTheme} />
-
-            {/* CTA Button with Hover & Tap Effects */}
             <motion.button
                 id="connect-button"
                 onClick={handleLinkedInClick}
@@ -85,7 +59,6 @@ function PortfolioShowcase() {
                 Let's Connect
             </motion.button>
 
-            {/* Projects Grid with Animations */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
                 {projects.map( ( project, index ) => (
                     <motion.div
@@ -101,29 +74,6 @@ function PortfolioShowcase() {
                     </motion.div>
                 ) )}
             </div>
-
-            {/* Web Vitals optimization */}
-            <div className="w-full mt-16">
-                <h3 className="text-3xl font-semibold text-center mb-4">Web Vitals Optimization</h3>
-                <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5 }}
-                    className="text-center text-gray-400"
-                >
-                    I focus on improving Core Web Vitals by ensuring minimal page load time and interaction latency for a seamless user experience.
-                </motion.p>
-            </div>
-
-            {/* Responsive Design Improvements */}
-            <style jsx>{`
-                @media (max-width: 768px) {
-                    .project-card {
-                        margin: 0 auto;
-                        max-width: 350px;
-                    }
-                }
-            `}</style>
         </section>
     );
 }

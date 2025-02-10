@@ -35,8 +35,8 @@ function Portfolio() {
   ];
 
   return (
-    <section className="py-8 px-4 bg-[#4e6151]">
-      <h2 className="text-4xl font-bold text-center mb-6 text-white" id="projects">
+    <section className="py-8 px-4 bg-[#e4e4e4]">
+      <h2 className="text-4xl font-bold text-center mb-6 text-black" id="projects">
         Projects
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -51,7 +51,7 @@ function Portfolio() {
               className="w-full h-48 object-cover"
             />
             <div className="p-4">
-              <h4 className="text-xl font-semibold text-[#4e6151]">{project.title}</h4>
+              <h4 className="text-xl font-semibold text-[#0f0f0f]">{project.title}</h4>
               <p className="text-gray-700 text-sm mt-2">
                 {project.description}
               </p>

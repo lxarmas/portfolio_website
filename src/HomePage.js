@@ -1,53 +1,34 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react"; // Add useState here
 import Header from "./Header";
-import Specials from "./PortfolioShowcase";
+import PortfolioShowcase from "./PortfolioShowcase";
 import CustomerSays from "./Customersay";
 import Chicago from "./Chicago";
 import { FaArrowUp } from 'react-icons/fa';
+import './style.css'
 
 function HomePage() {
-  // 🌙 Dark Mode State
-  const [isDarkMode, setIsDarkMode] = useState(
-    localStorage.getItem( "darkMode" ) === "true"
-  );
+  const [isDarkMode, setIsDarkMode] = useState( false ); // Now useState will work
 
-  // 🌙 Toggle Dark Mode
-  const toggleDarkMode = () => {
-    setIsDarkMode( prevMode => {
-      const newMode = !prevMode;
-      localStorage.setItem( "darkMode", newMode );
-      return newMode;
-    } );
-  };
-
-  // 🌙 Apply Dark Mode Class to Body
-  useEffect( () => {
-    document.body.className = isDarkMode ? "bg-gray-900 text-white" : "bg-gray-50 text-gray-900";
-  }, [isDarkMode] );
-
-  // 🔝 Smooth Scroll Function
   const scrollToTop = () => {
     window.scrollTo( {
       top: 0,
-      behavior: 'smooth'
+      behavior: 'smooth',
     } );
   };
 
   return (
-    <>
-      <main className={`portfolio-showcase flex flex-col items-center px-6 py-10 ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
-        <Header /><br></br><br></br>
-        <Specials /><br></br><br></br>
-        <CustomerSays /><br></br><br></br>
-        <Chicago /><br></br><br></br>
+    <main>
+      <Header isDarkMode={isDarkMode} /><br /><br />
+      <PortfolioShowcase isDarkMode={isDarkMode} /><br /><br />
+      <CustomerSays isDarkMode={isDarkMode} /><br /><br />
+      <Chicago isDarkMode={isDarkMode} /><br /><br />
 
-        {/* 🔝 Scroll to Top Button */}
-        <button className="scroll-to-top" onClick={scrollToTop}>
-          <h7>Back to top</h7>
-          <FaArrowUp />
-        </button>
-      </main>
-    </>
+      {/* Scroll to Top Button */}
+      <button className="scroll-to-top" onClick={scrollToTop}>
+        <p>Back to top</p>
+        <FaArrowUp />
+      </button>
+    </main>
   );
 }
 

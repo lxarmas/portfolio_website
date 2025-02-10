@@ -44,7 +44,8 @@
 }
 
 .footer-media {
-    justify-content: center; /* Center the social links */
+    justify-content: center;
+    color:#312aff; /* Center the social links */
 }
 
 .social-links {
@@ -59,19 +60,19 @@
 }
 
 .social-links li a {
-    color: #fff;
+    color: #000000;
     text-decoration: none;
     font-size: 1.2em;         /* Adjust font size to match */
     transition: color 0.3s ease;
 }
 
 .social-links li a:hover {
-    color: #ddd;
+    color: #312aff;
 }
 
 .footer-contact p {
     font-size: 1em;
-    color: #333;
+    color: #000000;
     line-height: 1.5;
     margin-bottom: 10px;
 }

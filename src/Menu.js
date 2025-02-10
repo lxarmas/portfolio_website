@@ -35,9 +35,9 @@ function Portfolio() {
   ];
 
   return (
-    <section className="py-8 px-4 bg-[#4e6151]">
-      <h2 className="text-4xl font-bold text-center mb-6 text-white" id="projects">
-        Projects
+    <section className="py-8 px-4 bg-gray-200"> {/* Changed the background color here */}
+      <h2 className="text-4xl font-bold text-center mb-6 text-red" id="projects">
+        Projects hello
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map( ( project, index ) => (
@@ -51,7 +51,7 @@ function Portfolio() {
               className="w-full h-48 object-cover"
             />
             <div className="p-4">
-              <h4 className="text-xl font-semibold text-[#4e6151]">{project.title}</h4>
+              <h4 className="text-xl font-semibold text-[#2a2dde]">{project.title}</h4>
               <p className="text-gray-700 text-sm mt-2">
                 {project.description}
               </p>
@@ -62,7 +62,7 @@ function Portfolio() {
                   rel="noopener noreferrer"
                   className="text-white bg-[#ffcc00] px-4 py-2 rounded hover:bg-[#ffb900]"
                 >
-                  Demo
+                  Demo fdgdfgdfgd
                 </a>
                 <a
                   href={project.links.code}
