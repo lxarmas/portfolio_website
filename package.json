@@ -1,5 +1,6 @@
 {
-  "name": "little_lemon",
+  "name": "portfolio_website",
+   "homepage": "https://lxarmas.github.io/portfolio_website/", 
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -40,6 +41,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "tailwindcss": "^3.4.4"
   }
 }
