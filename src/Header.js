@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import jobs_cover from "./images/jobs_cover.avif";
 import './Header.css';
 
-function Header() {
+function Header( { isDarkMode } ) {
   const navigate = useNavigate();
 
   const Submit = () => {
@@ -11,7 +11,7 @@ function Header() {
   };
 
   return (
-    <header className="header">
+    <header className={isDarkMode ? "dark-mode" : ""}>
       <section>
         <div className="banner">
           <h2>

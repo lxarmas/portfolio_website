@@ -1,11 +1,12 @@
 /* Default (light) theme styles for the nav */
 .nav {
-  background-color: #ffffff;  /* Light background */
+  background-color: hsl(0, 0%, 100%);  /* Light background */
   padding: 1em;
   display: grid;
   grid-template-columns: 2fr 6fr;
   align-items: center;
 }
+
 
 .nav img {
   grid-column: 1/2;

@@ -4,7 +4,7 @@ import coding from "./images/coding.svg";
 import debug from "./images/debug.svg";
 import frontEnd from "./images/frontEnd.svg";
 import performance from "./images/performance.svg";
-import "./PortfolioShowcase.css";
+// import "./PortfolioShowcase.css";
 
 function PortfolioShowcase( { isDarkMode } ) {
     const projects = [

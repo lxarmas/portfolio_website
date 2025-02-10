@@ -1,7 +1,7 @@
 // Footer.js
 import React from "react";
 import alex_logo from "./images/alex_logo.png";
-// import "./Footer.css";
+import "./Footer.css";
 
 function Footer() {
     return (

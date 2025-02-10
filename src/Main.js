@@ -9,7 +9,6 @@ import About from './About';
 import Login from './loginpage';
 import Signup from './Signup';
 
-
 const initializeTimes = () => {
   return ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
 };
@@ -38,7 +37,9 @@ function Main() {
 
   return (
     <Router>
+      {/* Pass the dark mode state to Nav */}
       <Nav isDarkMode={isDarkMode} />
+
 
       <button
         onClick={toggleTheme}
@@ -56,8 +57,8 @@ function Main() {
           fontSize: '16px',
           transition: 'background-color 0.3s ease, transform 0.2s ease',
           position: 'fixed',
-          left: '10px',
-          top: '50%',
+          right: '10px',
+          bottom: '90%',
           transform: 'translateY(-50%)',
         }}
         onMouseEnter={( e ) => ( e.target.style.backgroundColor = '#555' )}
