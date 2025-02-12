@@ -1,10 +1,12 @@
 import Header from "./Header";
 import PortfolioShowcase from "./PortfolioShowcase";
+
 import CustomerSays from "./Customersay";
 import Chicago from "./Chicago";
 import { FaArrowUp } from "react-icons/fa";
 
 function HomePage( { isDarkMode } ) {
+
   const scrollToTop = () => {
     window.scrollTo( {
       top: 0,
@@ -13,7 +15,7 @@ function HomePage( { isDarkMode } ) {
   };
 
   return (
-    <main className={`min-h-screen ${isDarkMode ? "bg-gray-900 text-white" : "bg-white text-black"}`}>
+    <main className={isDarkMode ? "dark-mode" : ""}>
       <Header /><br /><br />
       {/* MY skills and expertise */}
       <PortfolioShowcase /><br /><br />

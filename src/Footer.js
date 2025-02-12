@@ -3,9 +3,9 @@ import React from "react";
 import alex_logo from "./images/alex_logo.png";
 import "./Footer.css";
 
-function Footer() {
+function Footer( { isDarkMode } ) {
     return (
-        <footer className="footer">
+        <footer className={`footer ${isDarkMode ? "dark" : ""}`}>
             <div className="footer-container">
                 <img src={alex_logo} alt="footerlogo" className="footer-logo" />
                 <div className="footer-contact">
@@ -17,7 +17,6 @@ function Footer() {
                     <h4>Social Media Links</h4>
                     <ul className="social-links">
                         <li><a href="https://www.instagram.com/westlaportraits/">Instagram</a></li>
-
                         <li><a href="https://www.linkedin.com/in/alejandroarmas66/">Twitter</a></li>
                     </ul>
                 </div>

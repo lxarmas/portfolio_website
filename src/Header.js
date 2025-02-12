@@ -1,6 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import jobs_cover from "./images/jobs_cover.avif";
+import coding_two from "./images/coding_2.webp"
+import debug_two from "./images/debug_two.avif"
 import './Header.css';
 
 function Header( { isDarkMode } ) {
@@ -17,7 +19,17 @@ function Header( { isDarkMode } ) {
           <h2>
             <span>Experience</span>
           </h2>
+          <div className="banner-img">
+            <div className="img-container">
+              <img src={jobs_cover} alt="job cover" />
+              <img src={coding_two} alt="coding cover" />
+              <img src={debug_two} alt="debug cover" />
 
+              <img src={jobs_cover} alt="job cover" />
+              <img src={coding_two} alt="coding cover" />
+              <img src={debug_two} alt="debug cover" />
+            </div>
+          </div>
           <p>
             <span className="font-semibold">Versatile Full Stack Engineer</span> with expertise in
             <span className="font-medium"> React, Node.js, PostgreSQL,</span> and <span className="font-medium">AWS</span>.
@@ -30,9 +42,9 @@ function Header( { isDarkMode } ) {
             My Projects
           </button>
         </div>
-        <div className="banner-img">
-          <img src={jobs_cover} alt="job cover" />
-        </div>
+
+
+
       </section>
     </header>
   );

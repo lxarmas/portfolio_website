@@ -1,131 +1,129 @@
 
-
+header {
+  width: 100%;
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 
 .banner {
-  text-align: center;
-  font-size: 0.8rem;
-  max-width: 45rem;
-}
-
-@media (min-width: 640px) {
-  .banner {
-    text-align: left;
-  }
-}
-.banner h2{
-  font-size: 3rem;
-  font-weight: bold;
-  color:#0e00a3;
-}
-
-.banner p {
-  font-size: 1.300rem;
-  line-height: 1.75rem;
-  max-width: 42rem;
+  max-width: 1200px;
   margin: 0 auto;
-  color: #1e1e1e;
+}
+
+.banner h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+
+}
+
+.banner h2 span {
+  color: #0374b5;
+}
+.banner p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #000000;
+  margin: 20px 0;
+  font-weight: 400;
 }
 
 .banner p span {
-  color: #000000;
+  font-weight: 600;
+    color: #0374b5;
+}
+
+.banner .font-semibold {
   font-weight: 600;
 }
 
-.banner p span.font-medium {
+.banner .font-medium {
   font-weight: 500;
 }
 
-.banner p span.font-bold {
+.banner .font-bold {
   font-weight: 700;
 }
 
-.banner p span.italic {
+.banner .italic {
   font-style: italic;
 }
 
-
-#button1 {
-  margin-top: 1rem;
-    background-color: #594ceb;
-    color: white;
-    border: none;
-    padding: 10px 10px;
-    font-size: 1.3em;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    height: 50px;
-    width: 125px;
+button#button1 {
+  width: 8rem;
+  background-color: #e79e00;
+  color: #fff;
+  padding: 12px 10px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: 500;
 }
 
-#button1:hover {
-  background-color: #4153f5;
+button#button1:hover {
+  background-color: #eca900;
 }
+
+button#button1:active {
+  transform: scale(0.98);
+}
+
 .banner-img {
-  position: absolute;
-  left: 46%; /* Adjust for better positioning */
-  top: 25%; /* Slightly lower */
-  width: 450px; /* Increase container size if needed */
+  
+  position: relative;
+  width: 100%;
+  height: 60vh; /* Default height, adjust for larger screens */
+  overflow: hidden;
 }
 
-.banner-img img {
-  width: 20rem; /* Increase width */
-  height: 20rem; /* Increase height */
-  object-fit: cover;
-  border-radius: 15%; /* Softer rounded corners */
-  border: 4px solid white;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Stronger shadow for depth */
-  transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+.img-container { 
+  border-radius: 50%;
+
+  margin-top: 1rem;
+  display: flex;
+  animation: ticker 10s linear infinite; /* Increased speed: faster scroll */
 }
 
-.banner-img img:hover {
-  transform: scale(1.05); /* Subtle zoom-in effect */
-}
-/* rrrrrrrrr */
-/* Default light mode */
-header {
-  background-color: white;
-  color: black;
-  transition: background-color 0.3s ease, color 0.3s ease;
+.img-container img {
+ 
+  width: 100vw; /* Ensure the images take the full viewport width */
+  height: 100%;
+  object-fit: cover; /* Maintain aspect ratio and cover the space */
 }
 
-.banner p {
-  color: #1e1e1e;
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%); /* Shift by the width of 3 images */
+  }
 }
 
-.banner p span {
-  color: black;
+/* Mobile / Tablet Adjustments */
+@media (max-width: 768px) {
+  .banner-img {
+    height: 50vh; /* Reduced height for tablets */
+  }
+
+  .img-container img {
+    width: 100vw; /* Full width on smaller devices */
+    height: 100%;
+  }
 }
 
-/* Dark mode */
-.dark-mode header {
-  background-color: #1e1e1e;
-  color: white;
-}
+@media (max-width: 480px) {
+  .banner-img {
+    height: 40vh; /* Adjust height for smaller screens */
+  }
 
-.dark-mode .banner p {
-  color: #f5f5f5;
-}
-
-.dark-mode .banner p span {
-  color: #d1d1d1;
-}
-
-#button1 {
-  background-color: #1804fb;
-  color: white;
-}
-
-.dark-mode #button1 {
-  background-color: #4a4ad8;
-}
-
-#button1:hover {
-  background-color: #4153f5;
-}
-
-.dark-mode #button1:hover {
-  background-color: #3b3bbd;
+  .img-container img {
+    width: 100vw; /* Full width for mobile devices */
+    height: 100%;
+  }
 }

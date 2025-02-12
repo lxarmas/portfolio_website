@@ -1,84 +1,110 @@
-/* Default (light) theme styles for the nav */
-.nav {
-  background-color: hsl(0, 0%, 100%);  /* Light background */
-  padding: 1em;
-  display: grid;
-  grid-template-columns: 2fr 6fr;
-  align-items: center;
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
 
 .nav img {
-  grid-column: 1/2;
-  margin-left: 15px;
-  margin-top: 10px;
+  height: 120px;
+  transition: transform 0.3s ease-in-out;
+  margin-right: auto;
+  margin-left: 40px;
 }
 
-.nav-links {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: space-around;
-  grid-column: 2/3;
-  margin-bottom: 10px;
+.nav img:hover {
+  transform: scale(1.1);
 }
 
+
 .nav-links {
-  display: flex;
-  gap: 1.5rem;
+  background-color: #ffffff;
   list-style: none;
-  padding: 0;
-  margin: 0;
+  display: flex;
+  gap: 30x;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+   width: 100%;
+  max-width: auto; /* Adjust as needed */
+  margin: 0 auto; /* Centers content */
+  display: flex;
+  flex-wrap: wrap; 
+  margin-left: 90px;
 }
 
 .nav-links li {
   position: relative;
+  font-size: 1.5rem;
 }
 
-.nav-links li a {
+/* Link Styles */
+.nav-links a {
   text-decoration: none;
-  color: #1b675e;
-  font-weight: bold;
-  font-size: 1.1rem;
-  padding: 0.5rem 1rem;
-  transition: color 0.3s ease-in-out;
+  color: #000000;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-right: 12rem;
   position: relative;
-  display: inline-block;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.nav-links li a::after {
-  content: "";
+
+
+/* Hover Effects */
+.nav-links a:hover {
+  color: #777777;
+  transform: scale(1.05);
+}
+
+/* Underline Animation */
+.nav-links a::after {
+  content: '';
   position: absolute;
-  left: 50%;
-  bottom: -3px;
-  width: 0%;
-  height: 2px;
-  background-color: #e76f51;
-  transition: width 0.4s ease-in-out, left 0.4s ease-in-out;
-}
-
-.nav-links li a:hover {
-  color: #e76f51;
-}
-
-.nav-links li a:hover::after {
-  width: 100%;
   left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+ 
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
 }
 
-/* Dark theme styles for the nav */
-.nav.dark {
-  background-color: #333;  /* Dark background for dark mode */
+.nav-links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
-.nav.dark .nav-links li a {
-  color: #fff;  /* Change text color to white for dark mode */
+.dark .nav-links a {
+  color: #ffffff; /* Change text color in dark mode */
 }
 
-.nav.dark .nav-links li a:hover {
-  color: #f0a500;  /* Hover color for dark mode */
+.dark .nav-links {
+  background-color: #000000; /* Dark background for nav */
 }
 
-.nav.dark .nav-links li a::after {
-  background-color: #f0a500;  /* Hover underline color for dark mode */
+.dark .nav-links a:hover {
+  color: #ffc107;
+  transform: scale(1.05);
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    text-align: center;
+  }
 }

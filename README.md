@@ -69,33 +69,18 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
+.scroll-to-top{
+    background-color:#f8aa02;
+    width: 120px; height: 60px; border-radius: 40px;
+    margin-bottom: 20px; margin-left: 525px;
+    display: flex;
+  align-items: center; /* Vertically center items */
+  justify-content: center; /* Horizontally center items */
+  gap: 8px; /* Space between arrow and text */
+  padding: 10px 15px;
 
-
-   <button
-        onClick={toggleTheme}
-        style={{
-          width: "40px",
-          height: "40px",
-          borderRadius: "50%", // Makes it round
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: "#333", // Dark background
-          color: "white",
-          border: "none",
-          cursor: "pointer",
-          fontSize: "16px",
-          transition: "background-color 0.3s ease, transform 0.2s ease",
-          position: "fixed", // Fixed positioning
-          left: "10px", // 10px from the left edge of the page
-          top: "50%", // Vertically centered
-          transform: "translateY(-50%)" // Adjust vertical centering
-        }}
-        onMouseEnter={( e ) => ( e.target.style.backgroundColor = "#555" )} // Hover effect
-        onMouseLeave={( e ) => ( e.target.style.backgroundColor = "#333" )}
-      >
-        🌙
-      </button>
-
-
-       className={`homepage flex flex-col items-center px-6 py-10 ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}

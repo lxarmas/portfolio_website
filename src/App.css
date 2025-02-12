@@ -1,61 +1,65 @@
-/* App.css */
+/* Ensure the whole page takes full width */
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevents horizontal scroll */
+}
 
-/* Default light theme styles */
+.App {
+  font-family: 'Arial', sans-serif;
+}
 body {
   background-color: white;
   color: black;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Dark theme styles */
+
+/* Dark Mode Styles */
 body.dark {
-  background-color: #121212;
+  background-color: #000000;
   color: white;
 }
 
-
-
-
-header, nav, main, footer {
-  padding: 1em;
+body.dark .App {
+  background-color: #1a1a1a;
+  color: #f0f0f0;
 }
 
-.container {
-  display: grid;
-  grid-template-areas:
-    "header"
-    "nav"
-    "main"
-    "footer";
-  grid-gap: 1em;
+h2{
+    color:rgb(0, 128, 255);
+    font-weight: bold;
+}
+/* Button Styles */
+button {
+  font-family: 'Arial', sans-serif;
+ 
 }
 
-header {
-  grid-area: header;
-  background: #f4f4f4;
+button:hover {
+  background-color: #eeac1c;
 }
 
-nav {
-  grid-area: nav;
-  background: #e2e2e2;
+/* Other dark mode specific styles */
+body.dark button {
+  background-color: #eeac1c;
+  color: white;
 }
 
-main {
-  grid-area: main;
-  background: #fff;
-}
+/* it is located in HOmepage, homepage does not have css  */
+.scroll-to-top{
+    background-color:#f8aa02;
+    width: 120px; height: 60px; border-radius: 40px;
+    margin-bottom: 20px; margin-left: 525px;
+    display: flex;
+  align-items: center; /* Vertically center items */
+  justify-content: center; /* Horizontally center items */
+  gap: 8px; /* Space between arrow and text */
+  padding: 10px 15px;
 
-footer {
-  grid-area: footer;
-  background: #ddd;
-}
-
-@media (min-width: 600px) {
-  .container {
-    grid-template-areas: 
-      "header header"
-      "nav main"
-      "footer footer";
-    grid-template-columns: 1fr 3fr;
-  }
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
 }
