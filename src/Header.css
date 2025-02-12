@@ -65,14 +65,14 @@
 }
 .banner-img {
   position: absolute;
-  left: 56%; /* Adjust for better positioning */
-  top: 30%; /* Slightly lower */
+  left: 46%; /* Adjust for better positioning */
+  top: 25%; /* Slightly lower */
   width: 450px; /* Increase container size if needed */
 }
 
 .banner-img img {
-  width: 35rem; /* Increase width */
-  height: 19rem; /* Increase height */
+  width: 20rem; /* Increase width */
+  height: 20rem; /* Increase height */
   object-fit: cover;
   border-radius: 15%; /* Softer rounded corners */
   border: 4px solid white;
