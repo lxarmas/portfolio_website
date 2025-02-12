@@ -1,0 +1,100 @@
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allows elements to stack on smaller screens */
+    padding: 20px;
+}
+
+/* Text container styling */
+.text-container {
+    flex: 1;
+    padding-right: 20px;
+    margin-left: 12rem;
+}
+
+/* Responsive typography */
+.text-container h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #0e00a3;
+}
+
+.text-container h3 {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #414141;
+}
+
+.text-container p {
+    color: black;
+    font-weight: bold;
+}
+
+/* Image container */
+.image-container {
+    flex: 1;
+    text-align: center;
+    margin-left: 4rem;
+}
+
+.image-container img {
+    max-width: 100%; /* Ensures images don’t overflow */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .content {
+        flex-direction: column; /* Stack elements on smaller screens */
+        align-items: center;
+        text-align: center;
+    }
+
+    .text-container {
+        margin: 0;
+        padding-right: 0;
+    }
+
+    .text-container h1 {
+        font-size: 2.5rem;
+    }
+
+    .text-container h3 {
+        font-size: 1.8rem;
+    }
+
+    .image-container {
+        margin: 20px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .text-container h1 {
+        font-size: 2rem;
+    }
+
+    .text-container h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .text-container h1 {
+        font-size: 1.8rem;
+    }
+
+    .text-container h3 {
+        font-size: 1.3rem;
+    }
+
+    .text-container p {
+        font-size: 0.9rem;
+    }
+
+    .image-container img {
+        width: 90%; /* Make the image fit better on small screens */
+    }
+}
