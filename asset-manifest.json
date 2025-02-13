@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/portfolio_website/static/css/main.d7a86213.css",
-    "main.js": "/portfolio_website/static/js/main.5dc47485.js",
+    "main.css": "/portfolio_website/static/css/main.af59b583.css",
+    "main.js": "/portfolio_website/static/js/main.83b51b6d.js",
     "static/js/453.aac68abc.chunk.js": "/portfolio_website/static/js/453.aac68abc.chunk.js",
     "static/media/OwnerProfile3.jpg": "/portfolio_website/static/media/OwnerProfile3.5204a3b30ae8d56ac102.jpg",
     "static/media/worthyreads_image.png": "/portfolio_website/static/media/worthyreads_image.48950ce3449ebbdde5dd.png",
@@ -13,15 +13,17 @@
     "static/media/coding.svg": "/portfolio_website/static/media/coding.61ed2e381afb94fc46546d345b64fcfb.svg",
     "static/media/performance.svg": "/portfolio_website/static/media/performance.8c98cc93fe1b6ae71e0ae2526bc3539c.svg",
     "static/media/jobs_cover.avif": "/portfolio_website/static/media/jobs_cover.64094ed789949d4a571f.avif",
+    "static/media/coding_2.webp": "/portfolio_website/static/media/coding_2.5454fe9d9fbcb35385cd.webp",
     "static/media/OwnerProfile1.JPG": "/portfolio_website/static/media/OwnerProfile1.fc3663b4831f4b12780d.JPG",
+    "static/media/debug_two.avif": "/portfolio_website/static/media/debug_two.24ed6e193f5e06dde4b6.avif",
     "static/media/alex_logo.png": "/portfolio_website/static/media/alex_logo.29274b17e5c094a239b6.png",
     "index.html": "/portfolio_website/index.html",
-    "main.d7a86213.css.map": "/portfolio_website/static/css/main.d7a86213.css.map",
-    "main.5dc47485.js.map": "/portfolio_website/static/js/main.5dc47485.js.map",
+    "main.af59b583.css.map": "/portfolio_website/static/css/main.af59b583.css.map",
+    "main.83b51b6d.js.map": "/portfolio_website/static/js/main.83b51b6d.js.map",
     "453.aac68abc.chunk.js.map": "/portfolio_website/static/js/453.aac68abc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d7a86213.css",
-    "static/js/main.5dc47485.js"
+    "static/css/main.af59b583.css",
+    "static/js/main.83b51b6d.js"
   ]
 }
