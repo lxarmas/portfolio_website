@@ -35,7 +35,7 @@ function Portfolio() {
   ];
 
   return (
-    <section className="py-8 px-4 bg-[#e4e4e4]">
+    <section className="py-8 px-4 ">
       <h2 className="text-4xl font-bold text-center mb-6 text-black" id="projects">
         Projects
       </h2>

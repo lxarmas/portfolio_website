@@ -4,9 +4,8 @@ import coding from "./images/coding.svg";
 import debug from "./images/debug.svg";
 import frontEnd from "./images/frontEnd.svg";
 import performance from "./images/performance.svg";
-import "./PortfolioShowcase.css";
 
-function PortfolioShowcase( { isDarkMode } ) {
+function PortfolioShowcase() {
     const projects = [
         {
             title: "Debugging Mastery",
@@ -39,14 +38,15 @@ function PortfolioShowcase( { isDarkMode } ) {
     };
 
     return (
-        <section className={`portfolio-showcase flex flex-col items-center px-6 py-10 ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
+        <section className="portfolio-showcase flex flex-col items-center px-6 py-10">
+
             <motion.h2
                 className="text-5xl font-extrabold text-center mb-8"
                 initial={{ opacity: 0, y: -30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
             >
-                <span className="title-header"> My Skills and Expertise</span>
+                <span className="title-header text-black dark:text-white">My Skills and Expertise</span>
             </motion.h2>
 
             <motion.button
@@ -54,7 +54,7 @@ function PortfolioShowcase( { isDarkMode } ) {
                 onClick={handleLinkedInClick}
                 whileHover={{ scale: 1.05, y: -1 }}
                 whileTap={{ scale: 0.95 }}
-                className="py-2 text-sm bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-medium rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:brightness-110 mt-8"
+                className="py-3 px-6 text-lg bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-medium rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:brightness-110 mt-8"
             >
                 Let's Connect
             </motion.button>
@@ -68,7 +68,14 @@ function PortfolioShowcase( { isDarkMode } ) {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.2, duration: 0.5 }}
                     >
-                        <img src={project.img} alt={project.title} className="w-full h-40 object-cover rounded-lg mb-4" />
+                        <img
+                            src={project.img}
+                            alt={project.title}
+                            className="showcase-image"
+
+                        />
+
+
                         <h3 className="text-xl font-semibold">{project.title}</h3>
                         <p className="mt-2">{project.description}</p>
                     </motion.div>

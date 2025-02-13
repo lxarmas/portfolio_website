@@ -1,12 +1,11 @@
+import React from "react";
 import Header from "./Header";
 import PortfolioShowcase from "./PortfolioShowcase";
-
 import CustomerSays from "./Customersay";
 import Chicago from "./Chicago";
 import { FaArrowUp } from "react-icons/fa";
 
 function HomePage( { isDarkMode } ) {
-
   const scrollToTop = () => {
     window.scrollTo( {
       top: 0,
@@ -16,21 +15,19 @@ function HomePage( { isDarkMode } ) {
 
   return (
     <main className={isDarkMode ? "dark-mode" : ""}>
-      <Header /><br /><br />
+      <Header />
       {/* MY skills and expertise */}
-      <PortfolioShowcase /><br /><br />
+      <PortfolioShowcase className="mt-12" />
       {/* clients say about my work */}
-      <CustomerSays /><br /><br />
+      <CustomerSays className="mt-12" />
       {/* why I am here */}
-      <Chicago /><br /><br />
+      <Chicago className="mt-12" />
 
       {/* Scroll to Top Button */}
       <button className="scroll-to-top" onClick={scrollToTop}>
         <FaArrowUp />
         <p>Back to top</p>
       </button>
-
-
     </main>
   );
 }

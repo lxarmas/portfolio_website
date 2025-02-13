@@ -17,23 +17,19 @@ header {
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 20px;
+  margin-top: 1rem;
 
 }
 
 .banner h2 span {
-  color: #0374b5;
-}
-.banner p {
-  font-size: 1.2rem;
-  line-height: 1.7;
   color: #000000;
-  margin: 20px 0;
-  font-weight: 400;
 }
+
+
 
 .banner p span {
   font-weight: 600;
-    color: #0374b5;
+    color: #005383;
 }
 
 .banner .font-semibold {
@@ -74,7 +70,7 @@ button#button1:active {
 }
 
 .banner-img {
-  
+
   position: relative;
   width: 100%;
   height: 60vh; /* Default height, adjust for larger screens */

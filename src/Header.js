@@ -5,7 +5,7 @@ import coding_two from "./images/coding_2.webp"
 import debug_two from "./images/debug_two.avif"
 import './Header.css';
 
-function Header( { isDarkMode } ) {
+function Header() {
   const navigate = useNavigate();
 
   const Submit = () => {
@@ -13,12 +13,10 @@ function Header( { isDarkMode } ) {
   };
 
   return (
-    <header className={isDarkMode ? "dark-mode" : ""}>
+    <header>
       <section>
         <div className="banner">
-          <h2>
-            <span>Experience</span>
-          </h2>
+
           <div className="banner-img">
             <div className="img-container">
               <img src={jobs_cover} alt="job cover" />
@@ -30,6 +28,12 @@ function Header( { isDarkMode } ) {
               <img src={debug_two} alt="debug cover" />
             </div>
           </div>
+
+          <h2>
+            <span className="title-header text-black dark:text-white">Experience</span>
+          </h2>
+
+
           <p>
             <span className="font-semibold">Versatile Full Stack Engineer</span> with expertise in
             <span className="font-medium"> React, Node.js, PostgreSQL,</span> and <span className="font-medium">AWS</span>.
