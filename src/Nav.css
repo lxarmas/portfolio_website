@@ -1,109 +1,118 @@
-/* Reset and Base Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
+/* Light Mode */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 80px;
+  width: 100%;
+  background-color: #ffffff;
+  transition: background-color 0.3s ease;
 }
 
-
 .nav img {
-  height: 120px;
+  height: 140px;
   transition: transform 0.3s ease-in-out;
-  margin-right: auto;
-  margin-left: 40px;
+  cursor: pointer; /* Cursor change on logo */
 }
 
 .nav img:hover {
   transform: scale(1.1);
 }
 
-
 .nav-links {
-  background-color: #ffffff;
-  list-style: none;
   display: flex;
-  gap: 30x;
   justify-content: center;
   align-items: center;
-  flex-grow: 1;
-   width: 100%;
-  max-width: auto; /* Adjust as needed */
-  margin: 0 auto; /* Centers content */
-  display: flex;
-  flex-wrap: wrap; 
-  margin-left: 90px;
+  list-style: none;
+  gap: 50px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  flex-wrap: wrap;
 }
 
 .nav-links li {
   position: relative;
-  font-size: 1.5rem;
 }
 
+/* Hover Effect (Fixing Logo Shift) */
 .nav-links a {
   text-decoration: none;
   color: #000000;
-  font-size: 1.5rem;
-  font-weight: 800;
-  margin-right: 12rem;
-  position: relative;
+  font-size: 1.8rem;
+  font-weight: 900;
   transition: color 0.3s ease, transform 0.3s ease;
+  padding: 10px 15px; /* Keep padding constant */
+  cursor: pointer;
+  display: inline-block; /* Ensures transform works smoothly */
 }
 
-
-
-/* Hover Effects */
+/* Hover Effect */
 .nav-links a:hover {
-  color: #777777;
-  transform: scale(1.05);
+  color: #ca9e00;
+  transform: scale(1.1); /* Only scale instead of changing padding */
+  background-color: rgba(202, 158, 0, 0.1);
+  border-radius: 5px;
 }
 
-/* Underline Animation */
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 100%;
-  height: 2px;
- 
-  transform: scaleX(0);
-  transform-origin: bottom right;
-  transition: transform 0.3s ease;
-}
 
-.nav-links a:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-
-.dark .nav-links a {
-  color: #ffffff; /* Change text color in dark mode */
+/* Dark Mode Fix */
+.dark .nav {
+  background-color: #000000;
 }
 
 .dark .nav-links {
-  background-color: #000000; /* Dark background for nav */
+  background-color: transparent;
 }
 
+.dark .nav-links a {
+  color: #ffffff;
+}
+
+/* Dark Mode Hover Effect */
 .dark .nav-links a:hover {
   color: #ffc107;
-  transform: scale(1.05);
+  background-color: rgba(255, 193, 7, 0.2);
 }
 
-
-
-/* Responsive Design */
+/* Responsive Fixes */
 @media (max-width: 768px) {
   .nav {
     flex-direction: column;
-    align-items: center;
+    padding: 20px 40px;
     text-align: center;
+  }
+
+  .nav img {
+    height: 120px;
+    margin-bottom: 15px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .nav-links a {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav {
+    padding: 15px 20px;
+  }
+
+  .nav img {
+    height: 100px;
   }
 
   .nav-links {
     flex-direction: column;
     gap: 15px;
-    width: 100%;
-    text-align: center;
+  }
+
+  .nav-links a {
+    font-size: 1.4rem;
   }
 }
