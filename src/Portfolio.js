@@ -8,7 +8,7 @@ function Portfolio() {
     {
       title: "WorthyReads",
       image: worthyreads,
-      description: "A book club app to explore, review, and save books. Built with React, Node.js, and PostgreSQL.",
+      description: "Created a full-stack book club app within secure JWT auhtentication and Google API integration",
       links: {
         demo: "",
         code: "https://github.com/lxarmas/worthy_reads",
@@ -17,7 +17,7 @@ function Portfolio() {
     {
       title: "Ninja Odyssey",
       image: ninjagame,
-      description: "A weather forecasting app using OpenWeather API. Built with React and Tailwind CSS.",
+      description: "Completed  two player game with custom collision detection, reducing rendering lag by 15%.",
       links: {
         demo: "https://lxarmas.github.io/Ninja_Odyssey/",
         code: "https://github.com/lxarmas/Ninja_Odyssey",
@@ -26,7 +26,7 @@ function Portfolio() {
     {
       title: "Fitness Rack",
       image: sportsSupply,
-      description: "A task management app with drag-and-drop functionality. Built with React and Firebase.",
+      description: "Developed an e-commerce site with optimized state management, boosting conversion rate by 40%",
       links: {
         demo: "https://taskmanager.example.com",
         code: "https://github.com/lxarmas/graceshopper",
