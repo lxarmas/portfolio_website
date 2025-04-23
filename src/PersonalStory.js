@@ -1,7 +1,7 @@
 import React from "react";
 import about from "./images/OwnerProfile3.jpg";
 
-function Chicago() {
+function PersonalStory() {
     return (
         <section className="py-12 px-6 bg-white dark:bg-black border-none">
             <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8">
@@ -33,4 +33,4 @@ function Chicago() {
     );
 }
 
-export default Chicago;
+export default PersonalStory;

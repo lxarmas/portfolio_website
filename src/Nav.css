@@ -3,16 +3,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 80px;
+
   width: 100%;
-  background-color: #ffffff;
+  background-color:#ebebeb;
   transition: background-color 0.3s ease;
 }
 
 .nav img {
-  height: 140px;
+  height: 180px;
   transition: transform 0.3s ease-in-out;
-  cursor: pointer; /* Cursor change on logo */
+  border-radius: 30%;
+  cursor: pointer;
+  overflow: hidden;
 }
 
 .nav img:hover {
@@ -20,39 +22,42 @@
 }
 
 .nav-links {
+
+
   display: flex;
   justify-content: center;
   align-items: center;
   list-style: none;
-  gap: 50px;
+
   width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
+  max-width: auto;
+   
   flex-wrap: wrap;
 }
 
 .nav-links li {
   position: relative;
+
 }
 
 /* Hover Effect (Fixing Logo Shift) */
 .nav-links a {
   text-decoration: none;
   color: #000000;
-  font-size: 1.8rem;
-  font-weight: 900;
+  font-size: 40px;
   transition: color 0.3s ease, transform 0.3s ease;
-  padding: 10px 15px; /* Keep padding constant */
+  padding:100px; /* Keep padding constant */
   cursor: pointer;
   display: inline-block; /* Ensures transform works smoothly */
+  white-space: nowrap; /* Prevents text wrapping in links */
 }
 
 /* Hover Effect */
 .nav-links a:hover {
-  color: #ca9e00;
+  color: #8e8e8e;
   transform: scale(1.1); /* Only scale instead of changing padding */
-  background-color: rgba(202, 158, 0, 0.1);
-  border-radius: 5px;
+
+  border-radius: 50%;
 }
 
 
@@ -71,8 +76,8 @@
 
 /* Dark Mode Hover Effect */
 .dark .nav-links a:hover {
-  color: #ffc107;
-  background-color: rgba(255, 193, 7, 0.2);
+  color: #a1a1a1;
+  background-color: rgba(134, 134, 134, 0.2);
 }
 
 /* Responsive Fixes */

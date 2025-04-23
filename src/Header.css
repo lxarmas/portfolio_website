@@ -1,7 +1,6 @@
 
 header {
   width: 100%;
-  padding: 50px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,12 +9,12 @@ header {
 
 
 .banner {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
 .banner h2 {
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: 700;
   margin-bottom: 20px;
   margin-top: 1rem;
@@ -27,7 +26,8 @@ header {
 
 .banner p span {
   font-weight: 600;
-  color: #005383;
+  color: #f4b028;
+  font-size: 23px;
 }
 
 .banner .font-semibold {
@@ -67,28 +67,51 @@ button#button1:active {
   transform: scale(0.98);
 }
 
-.banner-img {
-  position: relative;
-  width: 100%;
-  height: 60vh; /* Default height for desktops */
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .img-container {
-  display: flex;
-  animation: ticker 12s linear infinite; /* Smooth scrolling animation */
+  position: relative;
+  height: 50vh;
+  width: 100%;
+  overflow: hidden;
 }
 
-/* Image Styling */
-.img-container img {
-  width: 750px; /* Uniform width for desktop */
-  height: 525px; /* Ensures all images have the same height */
-  object-fit: cover; /* Prevents distortion */
-  border-radius: 8px; /* Optional for smooth edges */
+.background-images {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 300%;
+  height: 100%;
+  animation: scrollImages 40s linear infinite;
 }
+
+.background-images img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  opacity: 0.6;
+}
+
+.experience-overlay {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.title-header {
+  font-size: 4rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 10px black;
+}
+
+/* Optional image scrolling animation */
+@keyframes scrollImages {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-66.66%); }
+}
+
 
 /* Ticker Animation */
 @keyframes ticker {

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import jobs_cover from "./images/jobs_cover.avif";
 import coding_two from "./images/coding_2.webp"
 import debug_two from "./images/debug_two.avif"
+
 import './Header.css';
 
 function Header() {
@@ -16,23 +17,19 @@ function Header() {
     <header>
       <section>
         <div className="banner">
-
           <div className="banner-img">
             <div className="img-container">
-              <img src={jobs_cover} alt="job cover" />
-              <img src={coding_two} alt="coding cover" />
-              <img src={debug_two} alt="debug cover" />
+              <div className="background-images">
+                <img src={jobs_cover} alt="job cover" />
+                <img src={coding_two} alt="coding cover" />
+                <img src={debug_two} alt="debug cover" />
 
-              <img src={jobs_cover} alt="job cover" />
-              <img src={coding_two} alt="coding cover" />
-              <img src={debug_two} alt="debug cover" />
+              </div>
+              <div className="experience-overlay">
+                <span className="title-header">Experience</span>
+              </div>
             </div>
           </div>
-
-          <h2>
-            <span className="title-header text-black dark:text-white">Experience</span>
-          </h2>
-
 
           <p>
             <span className="font-semibold">Versatile Full Stack Engineer</span> with expertise in

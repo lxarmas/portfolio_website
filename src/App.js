@@ -36,11 +36,12 @@ const App = () => {
           color: 'white',
           border: 'none',
           cursor: 'pointer',
-          fontSize: '16px',
+          fontSize: '20px',
           transition: 'background-color 0.3s ease, transform 0.2s ease',
           position: 'fixed',
-          right: '10px',
-          bottom: '90%',
+          top: '40px',
+
+          bottom: '80%',
           transform: 'translateY(-50%)',
         }}
         onMouseEnter={( e ) => ( e.target.style.backgroundColor = '#555' )}

@@ -12,6 +12,7 @@ function Nav( { isDarkMode } ) {
         <li><Link to="/menu">Projects</Link></li>
         <li><Link to="/about">About</Link></li>
         <li><Link to="/booking">Appointments</Link></li>
+
       </ul>
     </nav>
   );
