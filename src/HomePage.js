@@ -1,3 +1,5 @@
+import "./HomePage.css"
+
 import React from "react";
 import Header from "./Header";
 import PortfolioShowcase from "./PortfolioShowcase";
@@ -15,14 +17,12 @@ function HomePage( { isDarkMode } ) {
 
   return (
     <main className={isDarkMode ? "dark-mode" : ""}>
-      {/*  */}
-      <Header />
-      {/* MY skills and expertise */}
-      <PortfolioShowcase className="mt-12" />
-      {/* clients say about my work */}
-      <CustomerSays className="mt-12" />
-      {/* why I am here */}
-      <PersonalStory className="mt-12" />
+      <div className="homepage-container">
+        <Header />
+        <PortfolioShowcase className="mt-12" />
+        <CustomerSays className="mt-12" />
+        <PersonalStory className="mt-12" />
+      </div>
 
       {/* Scroll to Top Button */}
       <button className="scroll-to-top" onClick={scrollToTop}>

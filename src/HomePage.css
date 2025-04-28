@@ -1,0 +1,50 @@
+/* HomePage.css */
+
+/* Global container for homepage sections */
+.homepage-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Make sections breathe a little */
+.homepage-container > * + * {
+  margin-top: 60px;
+}
+
+/* Scroll to Top button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #000;
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1rem;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-to-top:hover {
+  opacity: 1;
+}
+
+/* Responsive Settings */
+@media (max-width: 768px) {
+  .homepage-container {
+    padding: 30px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .homepage-container {
+    padding: 20px 10px;
+  }
+}
