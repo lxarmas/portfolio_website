@@ -5,16 +5,16 @@
   justify-content: space-between;
 
   width: 100%;
-  background-color:#ebebeb;
+  background-color: #dfdfdf;
   transition: background-color 0.3s ease;
 }
 
 .nav img {
-  height: 180px;
+  height: 120px;
   transition: transform 0.3s ease-in-out;
-  border-radius: 30%;
   cursor: pointer;
   overflow: hidden;
+  margin-right: 60px;
 }
 
 .nav img:hover {
@@ -22,44 +22,38 @@
 }
 
 .nav-links {
-
-
   display: flex;
   justify-content: center;
   align-items: center;
   list-style: none;
-
   width: 100%;
-  max-width: auto;
-   
   flex-wrap: wrap;
+  gap:80px;
 }
 
 .nav-links li {
   position: relative;
-
 }
 
-/* Hover Effect (Fixing Logo Shift) */
+/* Refined Hover Effect */
 .nav-links a {
   text-decoration: none;
-  color: #000000;
-  font-size: 40px;
-  transition: color 0.3s ease, transform 0.3s ease;
-  padding:100px; /* Keep padding constant */
+  color: #0041aa;
+  font-size: 30px;
+  padding: 10px 20px; /* More balanced padding */
   cursor: pointer;
   display: inline-block; /* Ensures transform works smoothly */
   white-space: nowrap; /* Prevents text wrapping in links */
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition */
 }
 
-/* Hover Effect */
+/* Refined Hover Effect */
 .nav-links a:hover {
-  color: #8e8e8e;
-  transform: scale(1.1); /* Only scale instead of changing padding */
-
-  border-radius: 50%;
+  color: #ffffff;
+  transform: scale(1.1); /* Smooth scaling */
+  background-color: rgba(134, 134, 134, 0.2); /* Slight background highlight */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Soft shadow on hover */
 }
-
 
 /* Dark Mode Fix */
 .dark .nav {
@@ -78,6 +72,7 @@
 .dark .nav-links a:hover {
   color: #a1a1a1;
   background-color: rgba(134, 134, 134, 0.2);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Lighter shadow for dark mode */
 }
 
 /* Responsive Fixes */

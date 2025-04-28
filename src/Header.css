@@ -13,16 +13,6 @@ header {
   margin: 0 auto;
 }
 
-.banner h2 {
-  font-size: 4rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  margin-top: 1rem;
-}
-
-.banner h2 span {
-  color: #000000;
-}
 
 .banner p span {
   font-weight: 600;
@@ -75,6 +65,7 @@ button#button1:active {
 }
 
 .background-images {
+
   position: absolute;
   top: 0;
   left: 0;
@@ -88,21 +79,24 @@ button#button1:active {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-  opacity: 0.6;
+  opacity: 0.9;
+  transform: scale(1);
+  animation: scrollImages 40s linear infinite, zoomSlow 20s ease-in-out infinite alternate;
 }
+
 
 .experience-overlay {
   position: absolute;
-  top: 40%;
-  left: 50%;
+  top: 20%;
+  left: 31%;
   transform: translate(-50%, -50%);
   z-index: 10;
 }
 
 .title-header {
-  font-size: 4rem;
+  font-size: 10rem;
   font-weight: bold;
-  color: white;
+  color: rgb(255, 255, 255);
   text-shadow: 2px 2px 10px black;
 }
 
@@ -144,5 +138,66 @@ button#button1:active {
   .img-container img {
     width: 200px;
     height: 150px;
+  }
+}
+
+.experience-overlay .title-header {
+  position: absolute;
+  opacity: 0;
+  white-space: nowrap;
+  font-size: 6rem;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 2px 10px black;
+  animation: fadeLoop 16s infinite;
+  animation-timing-function: ease-in-out;
+  filter: blur(2px);
+  transition: filter 1s ease, opacity 1s ease;
+}
+
+.experience-overlay .title-header:nth-child(1) {
+  animation-delay: 0s;
+}
+.experience-overlay .title-header:nth-child(2) {
+  animation-delay: 4s;
+}
+.experience-overlay .title-header:nth-child(3) {
+  animation-delay: 8s;
+}
+.experience-overlay .title-header:nth-child(4) {
+  animation-delay: 12s;
+}
+
+/* New smoother fade + blur animation */
+@keyframes fadeLoop {
+  0% {
+    opacity: 0;
+    filter: blur(4px);
+  }
+  10% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+  25% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+  35% {
+    opacity: 0;
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 0;
+    filter: blur(4px);
+  }
+}
+
+
+@keyframes zoomSlow {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
   }
 }

@@ -23,11 +23,15 @@ function Header() {
                 <img src={jobs_cover} alt="job cover" />
                 <img src={coding_two} alt="coding cover" />
                 <img src={debug_two} alt="debug cover" />
-
               </div>
               <div className="experience-overlay">
                 <span className="title-header">Experience</span>
+                <span className="title-header">Hard Work</span>
+                <span className="title-header">Passion</span>
+                <span className="title-header">Determination</span>
               </div>
+
+
             </div>
           </div>
 
