@@ -1,118 +1,46 @@
-/* Light Mode */
 .nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
   width: 100%;
-  background-color: #dfdfdf;
-  transition: background-color 0.3s ease;
+  background-color: white;
+  padding: 1rem 3rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.nav img {
-  height: 120px;
-  transition: transform 0.3s ease-in-out;
-  cursor: pointer;
-  overflow: hidden;
-  margin-right: 60px;
+.nav.dark {
+  background-color: #111;
 }
 
-.nav img:hover {
-  transform: scale(1.1);
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 90px;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
 }
 
 .nav-links {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  gap: 2rem;
   list-style: none;
-  width: 100%;
-  flex-wrap: wrap;
-  gap:80px;
 }
 
-.nav-links li {
-  position: relative;
-}
-
-/* Refined Hover Effect */
-.nav-links a {
+.nav-links li a {
   text-decoration: none;
-  color: #0041aa;
-  font-size: 30px;
-  padding: 10px 20px; /* More balanced padding */
-  cursor: pointer;
-  display: inline-block; /* Ensures transform works smoothly */
-  white-space: nowrap; /* Prevents text wrapping in links */
-  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-/* Refined Hover Effect */
-.nav-links a:hover {
-  color: #ffffff;
-  transform: scale(1.1); /* Smooth scaling */
-  background-color: rgba(134, 134, 134, 0.2); /* Slight background highlight */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Soft shadow on hover */
-}
-
-/* Dark Mode Fix */
-.dark .nav {
-  background-color: #000000;
-}
-
-.dark .nav-links {
-  background-color: transparent;
-}
-
-.dark .nav-links a {
-  color: #ffffff;
-}
-
-/* Dark Mode Hover Effect */
-.dark .nav-links a:hover {
-  color: #a1a1a1;
-  background-color: rgba(134, 134, 134, 0.2);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Lighter shadow for dark mode */
-}
-
-/* Responsive Fixes */
-@media (max-width: 768px) {
-  .nav {
-    flex-direction: column;
-    padding: 20px 40px;
-    text-align: center;
-  }
-
-  .nav img {
-    height: 120px;
-    margin-bottom: 15px;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .nav-links a {
-    font-size: 1.6rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .nav {
-    padding: 15px 20px;
-  }
-
-  .nav img {
-    height: 100px;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .nav-links a {
-    font-size: 1.4rem;
-  }
+.nav-links li a:hover {
+  color: #007bff;
+  border-bottom: 2px solid #007bff;
 }

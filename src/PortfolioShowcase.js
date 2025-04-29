@@ -46,7 +46,7 @@ function PortfolioShowcase() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
             >
-                <span className="title-header text-black dark:text-white">My Skills and Expertise</span>
+                <span className="portfolio-title-header text-black dark:text-white">My Skills and Expertise</span>
             </motion.h2>
 
             <motion.button

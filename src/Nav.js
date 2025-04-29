@@ -6,14 +6,17 @@ import './Nav.css';
 function Nav( { isDarkMode } ) {
   return (
     <nav className={`nav ${isDarkMode ? 'dark' : ''}`}>
-      <ul className="nav-links">
-        <img src={alex_logo} alt="header logo" />
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/menu">Projects</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/booking">Appointments</Link></li>
-
-      </ul>
+      <div className="nav-container">
+        <Link to="/">
+          <img src={alex_logo} alt="Alex Logo" className="logo" />
+        </Link>
+        <ul className="nav-links">
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/menu">Projects</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/booking">Appointments</Link></li>
+        </ul>
+      </div>
     </nav>
   );
 }

@@ -1,22 +1,31 @@
 
-header {
-  width: 100%;
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+
+
+
+ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-}
+  gap: 0;
+  padding: 0;
+  margin: 0;
+} 
 
 
-.banner {
-  max-width: 1600px;
-  margin: 0 auto;
-}
 
 
 .banner p span {
   font-weight: 600;
-  color: #f4b028;
+  color: #ffffff;
   font-size: 23px;
 }
 
@@ -37,6 +46,7 @@ header {
 }
 
 button#button1 {
+  margin-left: 50px;
   width: 8rem;
   background-color: #e79e00;
   color: #fff;
@@ -59,116 +69,93 @@ button#button1:active {
 
 .img-container {
   position: relative;
-  height: 50vh;
-  width: 100%;
-  overflow: hidden;
+  width: 100vh;
+  min-height: 80vh;
+ 
 }
 
 .background-images {
-
   position: absolute;
   top: 0;
   left: 0;
   display: flex;
-  width: 300%;
+  width: 100%;
   height: 100%;
   animation: scrollImages 40s linear infinite;
 }
 
 .background-images img {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height:50%;
   object-fit: cover;
   opacity: 0.9;
-  transform: scale(1);
   animation: scrollImages 40s linear infinite, zoomSlow 20s ease-in-out infinite alternate;
 }
 
-
 .experience-overlay {
+  margin-bottom: 0;
+  padding-bottom: 0;
   position: absolute;
-  top: 20%;
-  left: 31%;
+  top: 15%;
+  left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
+  text-align: center;
+  color: white;
+  padding: 0 20px;
 }
+.experience-overlay p {
+  margin:0; /* Or tighter if needed */
+}
+
+.title-wrapper {
+  position: relative;
+  width: 100%;
+  height: 50px; /* Or whatever height fits your title size */
+
+  text-align: center; /* Center text horizontally */
+
+  overflow: visible; /* Allow titles to fully show */
+}
+
 
 .title-header {
-  font-size: 10rem;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 6rem;
   font-weight: bold;
   color: rgb(255, 255, 255);
-  text-shadow: 2px 2px 10px black;
+  text-shadow: 4px 4px 4px black;
+  opacity: 0;
+  animation: fadeLoop 16s infinite;
+  animation-timing-function: ease-in-out;
+  white-space: nowrap;
 }
 
-/* Optional image scrolling animation */
+.title-header:nth-child(1) {
+  animation-delay: 0s; /* First title */
+}
+
+.title-header:nth-child(2) {
+  animation-delay: 4s; /* Second title */
+}
+
+.title-header:nth-child(3) {
+  animation-delay: 8s; /* Third title */
+}
+
+.title-header:nth-child(4) {
+  animation-delay: 12s; /* Fourth title */
+}
+
+
 @keyframes scrollImages {
   0% { transform: translateX(0); }
   100% { transform: translateX(-66.66%); }
 }
 
-
-/* Ticker Animation */
-@keyframes ticker {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-60%); /* Moves the images leftwards */
-  }
-}
-
-/* Tablet (768x1024) */
-@media (max-width: 1024px) {
-  .banner-img {
-    height: 50vh;
-  }
-
-  .img-container img {
-    width: 280px; /* Slightly smaller */
-    height: 200px;
-  }
-}
-
-/* Mobile (360x800) */
-@media (max-width: 480px) {
-  .banner-img {
-    height: 40vh;
-  }
-
-  .img-container img {
-    width: 200px;
-    height: 150px;
-  }
-}
-
-.experience-overlay .title-header {
-  position: absolute;
-  opacity: 0;
-  white-space: nowrap;
-  font-size: 6rem;
-  font-weight: bold;
-  color: rgb(255, 255, 255);
-  text-shadow: 2px 2px 10px black;
-  animation: fadeLoop 16s infinite;
-  animation-timing-function: ease-in-out;
-  filter: blur(2px);
-  transition: filter 1s ease, opacity 1s ease;
-}
-
-.experience-overlay .title-header:nth-child(1) {
-  animation-delay: 0s;
-}
-.experience-overlay .title-header:nth-child(2) {
-  animation-delay: 4s;
-}
-.experience-overlay .title-header:nth-child(3) {
-  animation-delay: 8s;
-}
-.experience-overlay .title-header:nth-child(4) {
-  animation-delay: 12s;
-}
-
-/* New smoother fade + blur animation */
 @keyframes fadeLoop {
   0% {
     opacity: 0;
@@ -192,12 +179,28 @@ button#button1:active {
   }
 }
 
-
 @keyframes zoomSlow {
   0% {
     transform: scale(1);
   }
   100% {
     transform: scale(1.05);
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .title-header {
+    font-size: 4rem;
+  }
+
+  /* .description {
+    font-size: 1rem;
+    padding: 0 15px;
+  } */
+
+  button#button1 {
+    width: 7rem;
+    font-size: 1rem;
   }
 }
