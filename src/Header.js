@@ -14,9 +14,8 @@ function Header() {
   };
 
   return (
-    <header>
+    <header className="responsive-header">
       <section className="banner">
-
         <div className="img-container">
           <div className="background-images">
             <img src={tecnology} alt="job cover" />
@@ -37,12 +36,10 @@ function Header() {
               <button id="button1" onClick={Submit}>My Projects</button>
             </p>
           </div>
-
         </div>
-
       </section>
+    </header>
 
-    </header >
   );
 }
 
