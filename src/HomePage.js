@@ -1,5 +1,4 @@
 import "./HomePage.css"
-
 import React from "react";
 import Header from "./Header";
 import PortfolioShowcase from "./PortfolioShowcase";

@@ -33,37 +33,16 @@ function PortfolioShowcase() {
         },
     ];
 
-    const handleLinkedInClick = () => {
-        window.open( "https://www.linkedin.com/in/alejandroarmas66/", "_blank", "noopener,noreferrer" );
-    };
 
     return (
-        <section className="portfolio-showcase flex flex-col items-center px-6 py-10">
-
-            <motion.h2
-                className="text-5xl font-extrabold text-center mb-8"
-                initial={{ opacity: 0, y: -30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-            >
-                <span className="portfolio-title-header text-black dark:text-white">My Skills and Expertise</span>
-            </motion.h2>
-
-            <motion.button
-                id="connect-button"
-                onClick={handleLinkedInClick}
-                whileHover={{ scale: 1.05, y: -1 }}
-                whileTap={{ scale: 0.95 }}
-                className="py-3 px-6 text-lg bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-medium rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:brightness-110 mt-8"
-            >
-                Let's Connect
-            </motion.button>
+        <section className="showcase flex flex-col items-center px-6 py-200">
+            <span className="portfolio first:py-200">My Skills and Expertise</span>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
                 {projects.map( ( project, index ) => (
                     <motion.div
                         key={index}
-                        className="project-card p-6 rounded-2xl shadow-lg bg-white/10 backdrop-blur-md border border-gray-700 text-center hover:scale-105 transition-all duration-300"
+                        className="project-card p-1 rounded-4xl shadow-lg bg-white/10 backdrop-blur-md border border-gray-400 text-center hover:scale-1 transition-all duration-300"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.2, duration: 0.5 }}
