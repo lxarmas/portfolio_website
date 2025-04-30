@@ -5,15 +5,11 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
+ 
 }
 
-/* Make sections breathe a little */
-.homepage-container > * + * {
-  margin-top: 60px;
-}
 
-/* Scroll to Top button */
+
 .scroll-to-top {
   position: fixed;
   bottom: 30px;

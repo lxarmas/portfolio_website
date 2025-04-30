@@ -4,6 +4,7 @@ import alex_logo from './images/alex_logo.png';
 import './Nav.css';
 
 function Nav( { isDarkMode } ) {
+  console.log( "Dark Mode", isDarkMode );
   return (
     <nav className={`nav ${isDarkMode ? 'dark' : ''}`}>
       <div className="nav-container">

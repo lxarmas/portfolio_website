@@ -1,16 +1,27 @@
 .nav {
+
   width: 100%;
-  background-color: white;
+  background-color: rgb(235, 244, 255);
   padding: 1rem 3rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
   position: sticky;
   top: 0;
   z-index: 1000;
+  
 }
 
 .nav.dark {
-  background-color: #111;
+  background-color: #000000;
 }
+.nav.dark .nav-links li a {
+  color: #f0f0f0; /* or any light color you prefer */
+}
+
+.nav.dark .nav-links li a:hover {
+  color: #66ccff; /* lighter hover color for dark background */
+  border-bottom: 2px solid #66ccff;
+}
+
 
 .nav-container {
   display: flex;
@@ -19,7 +30,7 @@
 }
 
 .logo {
-  height: 90px;
+  height: auto;
   transition: transform 0.3s ease;
 }
 
@@ -34,6 +45,7 @@
 }
 
 .nav-links li a {
+    font-size: 2rem;
   text-decoration: none;
   color: #333;
   font-weight: 500;

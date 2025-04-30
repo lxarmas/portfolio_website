@@ -1,9 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 
-}
 
 header {
   display: flex;
@@ -14,19 +9,17 @@ header {
   margin: 0;
 }
 
-.banner-img{
-  width: 100%;
-  height: 100%;
-  overflow: hidden;       /* clip everything that moves outside */
-  position: relative;
-}
+
+
+
 .img-container {
   position: relative;
   width: 100vh;
-  min-height: 120vh;
-  margin-right: 60rem;
-
+  min-height: 80vh;
+  margin-right: 120rem;
+  transform: translateY(-300px); /* Moves it up by 50px */
 }
+
 
 .background-images {
  
@@ -37,14 +30,14 @@ header {
   width: 100%;
   height:80%;
   object-fit: cover;
-  opacity: 0.9;
+  opacity: 0.8;
   animation: scrollImages 40s linear infinite;
 }
 
 .experience-overlay {
   position: absolute;
-  top: 50%;
-  left: 115%;
+  top: 55%;
+  left: 140%;
   transform: translate(-50%, -50%);
   
   display: flex;                /* ← new */
@@ -52,22 +45,22 @@ header {
   align-items: center;          /* ← new */
   justify-content: center;      /* optional, centers vertically within overlay box */
 
-  width: 80%;                   
-  max-width: 600px;             
-  padding: 1rem;                
+  width: 80%;
+  max-width: 600px;
+  padding: 1rem;
   
   text-align: center;
-  color: white;
+  color: rgb(0, 0, 0);
   z-index: 10;
 }
 
 .experience-overlay p {
   display: block;               /* ensure it’s a block-level wrapper */
   max-width: 100%;              /* fill the overlay’s width */
-  margin: 1rem 0;               
-  line-height: 1.5;             
-  white-space: normal;          
-  word-break: break-word;       
+  margin: 1rem 0;
+  line-height: 1.5;
+  white-space: normal;
+  word-break: break-word;
 }
 
 /* ensure button sits on its own line, centered */
@@ -76,10 +69,6 @@ header {
   align-self: center;           /* center in the flex column */
 }
 
-
-
-
-
 .title-header {
   position: absolute;
   top: 100%;
@@ -87,7 +76,7 @@ header {
   transform: translateX(-50%);
   font-size: 6rem;
   font-weight: bold;
-  color: rgb(255, 255, 255);
+  color: rgb(145, 198, 255);
   text-shadow: 4px 4px 4px black;
   opacity: 0;
   animation: fadeLoop 16s infinite;
@@ -112,7 +101,7 @@ header {
 }
 .banner p span {
   font-weight: 600;
-  color: #ffffff;
+  color: #080079;
   font-size: 23px;
 }
 

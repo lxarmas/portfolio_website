@@ -18,13 +18,12 @@ function HomePage( { isDarkMode } ) {
   return (
     <main className={isDarkMode ? "dark-mode" : ""}>
       <div className="homepage-container">
-        <Header classname="mt-12" />
-        <PortfolioShowcase className="mt-12" />
-        <CustomerSays className="mt-12" />
-        <PersonalStory className="mt-12" />
+        <Header />
+        <PortfolioShowcase />
+        <CustomerSays />
+        <PersonalStory />
       </div>
 
-      {/* Scroll to Top Button */}
       <button className="scroll-to-top" onClick={scrollToTop}>
         <FaArrowUp />
         <p>Back to top</p>
