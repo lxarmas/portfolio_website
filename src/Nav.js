@@ -32,7 +32,10 @@ function Nav( { isDarkMode } ) {
             onClick={handleLinkedInClick}
             whileHover={{ scale: 1.05, y: -1 }}
             whileTap={{ scale: 0.95 }}
-            className="py-3 px-6 text-lg bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-medium rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:brightness-110"
+            className="px-1 py-1.5 text-sm bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-medium rounded-md shadow-md transition-all duration-300 hover:shadow-lg hover:brightness-110 w-fit"
+
+
+
           >
             Let's Connect
           </motion.button>

@@ -1,111 +1,49 @@
-.nav {
-  width: 100%;
-  background-color: rgb(235, 244, 255);
-  padding: 1rem 3rem;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.nav.dark {
-  background-color: #000000;
-}
-.nav.dark .nav-links li a {
-  color: #f0f0f0; /* or any light color you prefer */
-}
-
-.nav.dark .nav-links li a:hover {
-  color: #66ccff; /* lighter hover color for dark background */
-  border-bottom: 2px solid #66ccff;
-}
-
-
+/* Container must be relatively positioned to anchor the dropdown */
 .nav-container {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap:wrap;
 }
 
-.logo {
-  max-width: 120px;
-  height: auto;
-  transition: transform 0.3s ease;
+/* Hamburger menu styles */
+.menu-toggle {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
 }
 
-.logo:hover {
-  transform: scale(1.05);
-}
-
+/* NAV LINKS DROPDOWN MENU */
 .nav-links {
-  display: none;
-  flex-direction: column;
-  gap: 2rem;
+  position: absolute;
+  top: 100%;
+  left: 0;
   width: 100%;
-  list-style: none;
-  margin-top: 1rem;
+  background-image: url('./images/jobs_cover.avif'); /* adjust the path */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  z-index: 999;
+  display: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Optional: for dark mode */
+.nav.dark .nav-links {
+   background-image: url('./images/jobs_cover.avif'); /* adjust thedark-mode friendly version */
 }
 
 .nav-links.active {
   display: flex;
 }
 
-.menu-toggle {
-  display: block;
-  font-size: 2rem;
-  cursor: pointer;
-  background: none;
-  border: none;
-  color: #333;
-}
-
-.nav.dark .menu-toggle {
-  color: #f0f0f0;
-}
-
-
-
-.nav-links li a {
-    font-size: 2rem;
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.nav-links li a:hover {
-  color: #007bff;
-  border-bottom: 2px solid #007bff;
-}
-
-
-
-
-/* Responsive styles */
-@media (max-width: 768px) {
-  .nav-links {
-    flex-direction: column;
-    width: 100%;
-    display: none;
-    margin-top: 1rem;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-    font-size: 2rem;
-    cursor: pointer;
-    background: none;
-    border: none;
-    color: #333;
-  }
-
-
-  #connect-button {
-    width: 100%;
-    margin-top: 1rem;
-  }
+/* Make the Connect button fill width on mobile */
+#connect-button {
+  width: 90%;
 }

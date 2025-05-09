@@ -4,18 +4,20 @@
   align-items: center;
   padding: 0;
   margin: 0;
+
 }
 
 .banner {
   width: 100%;
   overflow: hidden;
   position: relative;
+  
 }
 
 .img-container {
   position: relative;
   width: 100%;
-  height:auto;
+  height:60vh;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -85,16 +87,18 @@
 }
 
 .title-header {
-  font-size: 3.5rem;
-  font-weight: bold;
-  color: white;
-  text-shadow: 2px 2px 4px black;
-  opacity: 0;
-  animation: fadeLoop 16s infinite;
-  animation-timing-function: ease-in-out;
-  white-space: nowrap;
-  margin: 0.5rem 0;
-  position: relative; /* remove absolute positioning */
+ position:absolute;
+ font-size: clamp(2rem, 12vw, 6rem);
+ font-weight: bold;
+ color:white;
+ text-shadow: 2px 2px 4px black;
+ opacity: 0;
+ animation: fadeLoop 16s infinite;
+ white-space: nowrap;
+ top:-40%;
+ left:15%;
+ right: 70%;
+ transform: translateX(-50);
 }
 
 .title-header:nth-child(1) {
@@ -133,16 +137,15 @@
 @media (max-width: 768px) {
   .experience-overlay {
     padding: 1rem;
-    max-width: 90%;
+    max-width: 95%;
   }
 
   .title-header {
-    font-size: 2rem;
-    top: 5%;
+    display: none;
   }
 
   .experience-overlay p {
-    font-size: 1rem;
+    font-size: clamp(0.9rem,2.5vw, 0.9rem);
   }
 
   .experience-overlay button {
