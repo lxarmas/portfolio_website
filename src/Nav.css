@@ -1,49 +1,92 @@
-/* Container must be relatively positioned to anchor the dropdown */
+/* Nav.css */
+.nav {
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 0.8rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav.dark {
+  background-color: #222;
+  border-color: #333;
+}
+
 .nav-container {
-  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* Hamburger menu styles */
+.logo {
+  height: 120px;
+  max-width: 100%;
+  width: auto
+}
+
 .menu-toggle {
-  font-size: 2rem;
+  font-size: 1.5rem;
   background: none;
   border: none;
   cursor: pointer;
-  color: #333;
-}
-
-/* NAV LINKS DROPDOWN MENU */
-.nav-links {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background-image: url('./images/jobs_cover.avif'); /* adjust the path */
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  color: white;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem 1rem;
-  z-index: 999;
   display: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* Optional: for dark mode */
-.nav.dark .nav-links {
-   background-image: url('./images/jobs_cover.avif'); /* adjust thedark-mode friendly version */
-}
-
-.nav-links.active {
+.nav-links {
+  list-style: none;
   display: flex;
+  gap: 2rem;
 }
 
-/* Make the Connect button fill width on mobile */
-#connect-button {
-  width: 90%;
+.nav-links li a {
+  font-size: 1.125rem;
+
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav.dark .nav-links li a {
+  color: white;
+}
+
+.nav-links li a:hover {
+  color: #f5a623;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  .logo{
+    height: 80px
+  }
+
+  .nav-links {
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 1rem;
+    display: none;
+  }
+
+  .nav.dark .nav-links {
+    background-color: #222;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+    .nav-links li a {
+    font-size: 1rem; /* 16px */
+    padding: 0.5rem;
+  }
+
 }

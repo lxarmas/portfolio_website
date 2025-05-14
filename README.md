@@ -69,18 +69,22 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-.scroll-to-top{
-    background-color:#f8aa02;
-    width: 120px; height: 60px; border-radius: 40px;
-    margin-bottom: 20px; margin-left: 525px;
-    display: flex;
-  align-items: center; /* Vertically center items */
-  justify-content: center; /* Horizontally center items */
-  gap: 8px; /* Space between arrow and text */
-  padding: 10px 15px;
+     <!-- <motion.button
+            id="connect-button"
+            onClick={handleLinkedInClick}
+            whileHover={{ scale: 1.05, y: -1 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-1 py-1.5 text-sm bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-medium rounded-md shadow-md transition-all duration-300 hover:shadow-lg hover:brightness-110 w-fit"
 
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-}
+
+
+          >
+            Let's Connect
+          </motion.button> -->
+          
+
+          <!-- const handleLinkedInClick = () => {
+  window.open( "https://www.linkedin.com/in/alejandroarmas66/", "_blank", "noopener,noreferrer" );
+}; -->
+
+<!-- import { motion } from "framer-motion"; -->

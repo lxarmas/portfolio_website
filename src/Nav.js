@@ -1,12 +1,8 @@
+// Nav.jsx
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from "framer-motion";
 import alex_logo from './images/alex_logo.png';
 import './Nav.css';
-
-const handleLinkedInClick = () => {
-  window.open( "https://www.linkedin.com/in/alejandroarmas66/", "_blank", "noopener,noreferrer" );
-};
 
 function Nav( { isDarkMode } ) {
   const [isMenuOpen, setIsMenuOpen] = useState( false );
@@ -14,7 +10,7 @@ function Nav( { isDarkMode } ) {
   return (
     <nav className={`nav ${isDarkMode ? 'dark' : ''}`}>
       <div className="nav-container">
-        <Link to="/">
+        <Link to="/" className="logo-link">
           <img src={alex_logo} alt="Alex Logo" className="logo" />
         </Link>
 
@@ -23,22 +19,18 @@ function Nav( { isDarkMode } ) {
         </button>
 
         <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
-          <li><Link to="/" onClick={() => setIsMenuOpen( false )}>Home</Link></li>
-          <li><Link to="/menu" onClick={() => setIsMenuOpen( false )}>Projects</Link></li>
-          <li><Link to="/about" onClick={() => setIsMenuOpen( false )}>About</Link></li>
-          <li><Link to="/booking" onClick={() => setIsMenuOpen( false )}>Appointments</Link></li>
-          <motion.button
-            id="connect-button"
-            onClick={handleLinkedInClick}
-            whileHover={{ scale: 1.05, y: -1 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-1 py-1.5 text-sm bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-medium rounded-md shadow-md transition-all duration-300 hover:shadow-lg hover:brightness-110 w-fit"
-
-
-
-          >
-            Let's Connect
-          </motion.button>
+          <li>
+            <Link to="/" onClick={() => setIsMenuOpen( false )}>Home</Link>
+          </li>
+          <li>
+            <Link to="/menu" onClick={() => setIsMenuOpen( false )}>Projects</Link>
+          </li>
+          <li>
+            <Link to="/about" onClick={() => setIsMenuOpen( false )}>About</Link>
+          </li>
+          <li>
+            <Link to="/booking" onClick={() => setIsMenuOpen( false )}>Appointments</Link>
+          </li>
         </ul>
       </div>
     </nav>
