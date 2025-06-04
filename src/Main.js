@@ -33,6 +33,8 @@ function Main( { isDarkMode } ) {
       <Nav isDarkMode={isDarkMode} />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/portfolio_website" element={<HomePage />} />
+
         <Route path="/booking" element={<BookingPage availableTimes={availableTimes} dispatch={dispatch} />} />
         <Route path="/confirmed" element={<ConfirmedBooking />} />
         <Route path="/menu" element={<Portfolio />} />

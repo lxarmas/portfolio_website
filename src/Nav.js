@@ -1,7 +1,7 @@
 // Nav.jsx
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import alex_logo from './images/alex_logo.png';
+import alex_logo from './images/logo.png';
 import './Nav.css';
 
 function Nav( { isDarkMode } ) {

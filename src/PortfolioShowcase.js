@@ -1,9 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
-import coding from "./images/coding.svg";
-import debug from "./images/debug.svg";
-import frontEnd from "./images/frontEnd.svg";
-import performance from "./images/performance.svg";
+import coding from "./images/coding.png";
+import debug from "./images/debug.png";
+import frontEnd from "./images/frontEnd.png";
+import performance from "./images/performance.png";
 
 function PortfolioShowcase() {
     const projects = [
@@ -33,30 +33,44 @@ function PortfolioShowcase() {
         },
     ];
 
-
     return (
-        <section className="showcase flex flex-col items-center px-6 py-200">
-            <span className="portfolio first:py-200">My Skills and Expertise</span>
+        <section className="showcase flex flex-col items-center px-6 py-24 md:py-36 bg-gradient-to-b from-white to-blue-50">
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="text-center"
+            >
+                <h2 className="text-5xl font-extrabold bg-gradient-to-r from-sky-800 to-cyan-600 bg-clip-text text-transparent mb-2">
+                    My Skills and Expertise
+                </h2>
+                <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 1.5, delay: 0.5, type: "spring", stiffness: 100 }}
+                    className="text-xl text-sky-700 font-medium"
+                >
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
+                </motion.div>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-16 w-full max-w-6xl">
                 {projects.map( ( project, index ) => (
                     <motion.div
                         key={index}
-                        className="project-card p-1 rounded-4xl shadow-lg bg-white/10 backdrop-blur-md border border-gray-400 text-center hover:scale-1 transition-all duration-300"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.2, duration: 0.5 }}
+                        className="p-6 rounded-3xl shadow-xl bg-white/30 backdrop-blur-lg border border-cyan-300 text-center hover:scale-105 transition-transform duration-300"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.2, duration: 0.6 }}
                     >
                         <img
                             src={project.img}
                             alt={project.title}
-                            className="showcase-image"
-
+                            className="mx-auto w-42 h-48 mb-4"
                         />
-
-
-                        <h3 className="text-xl font-semibold">{project.title}</h3>
-                        <p className="mt-2">{project.description}</p>
+                        <h3 className="text-2xl font-bold text-cyan-700">{project.title}</h3>
+                        <p className="mt-3 text-gray-700">{project.description}</p>
                     </motion.div>
                 ) )}
             </div>
