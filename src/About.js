@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import profile1 from "./images/OwnerProfile1.JPG";
-import profile2 from "./images/OwnerProfile2.png";
-import profile3 from "./images/OwnerProfile3.jpg";
-import profile4 from "./images/ale_headshot.png";
+import profile4 from "./images/OwnerProfile1.JPG";
+import profile1 from "./images/OwnerProfile2.png";
+import profile2 from "./images/OwnerProfile3.jpg";
+import profile3 from "./images/ale_headshot.png";
 //                 <div className="text-center md:text-left">
 
 function About() {
@@ -36,10 +36,11 @@ function About() {
                     <button
                         onClick={handleNext}
                         aria-label="Next profile image"
-                        className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-6 rounded-full shadow-md transition"
+                        className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-[#007FFF] hover:bg-[#339CFF] text-white font-semibold py-2 px-6 rounded-2xl shadow-lg active:scale-95 transition-all duration-200 ease-in-out"
                     >
                         Next
                     </button>
+
                 </div>
 
                 {/* Text Content */}

@@ -36,7 +36,7 @@ function Portfolio() {
 
   return (
     <section className="py-8 px-4 ">
-      <h2 className="text-4xl font-bold text-center mb-6 text-black" id="projects">
+      <h2 className="text-5xl font-extrabold bg-gradient-to-r from-sky-800 to-cyan-600 bg-clip-text text-transparent mb-4 text-center">
         Projects
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

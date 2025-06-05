@@ -11,7 +11,7 @@ function ContactForm() {
     return (
         <form onSubmit={handleSubmit} className="max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg space-y-4">
             <div>
-                <label htmlFor="name" className="block text-sm font-semibold text-gray-700">Name</label>
+                <label htmlFor="name" className="text-2xl font-extrabold bg-gradient-to-r from-sky-800 to-cyan-600 bg-clip-text text-transparent mb-4 text-center">Name</label>
                 <input
                     id="name"
                     type="text"
@@ -22,7 +22,7 @@ function ContactForm() {
             </div>
 
             <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-700">Email Address</label>
+                <label htmlFor="email" className="text-2xl font-extrabold bg-gradient-to-r from-sky-800 to-cyan-600 bg-clip-text text-transparent mb-4 text-center">Email Address</label>
                 <input
                     id="email"
                     type="email"
@@ -34,7 +34,7 @@ function ContactForm() {
             </div>
 
             <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-gray-700">Message</label>
+                <label htmlFor="message" className="text-2xl font-extrabold bg-gradient-to-r from-sky-800 to-cyan-600 bg-clip-text text-transparent mb-4 text-center">Message</label>
                 <textarea
                     id="message"
                     name="message"
@@ -46,12 +46,11 @@ function ContactForm() {
             </div>
 
             <button
-                type="submit"
-                disabled={state.submitting}
-                className="w-full p-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 disabled:bg-gray-400"
+                className="w-full px-4 py-3 bg-[#007FFF] text-white rounded-2xl shadow-md hover:bg-[#339CFF] active:scale-95 transition-all duration-200 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed"
             >
                 Submit
             </button>
+
         </form>
     );
 }
