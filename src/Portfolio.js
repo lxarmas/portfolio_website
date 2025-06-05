@@ -51,7 +51,7 @@ function Portfolio() {
               className="w-full h-48 object-cover"
             />
             <div className="p-4">
-              <h4 className="text-xl font-semibold text-[#0f0f0f]">{project.title}</h4>
+              <h4 className="text-2xl font-extrabold bg-gradient-to-r from-sky-800 to-cyan-600 bg-clip-text text-transparent mb-2">{project.title}</h4>
               <p className="text-gray-700 text-sm mt-2">
                 {project.description}
               </p>
