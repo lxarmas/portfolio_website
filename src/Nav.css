@@ -21,10 +21,21 @@
 }
 
 .logo {
-  height: 120px;
-  max-width: 100%;
-  width: auto
+  height: 120px; /* base height */
+  width: auto;
+  display: block;
 }
+
+/* Adjust only logoLight size */
+.logo-light {
+  height: 120px; /* match the dark logo height */
+  width: auto;
+  /* or add more tweaks below to fix rendering */
+  /* Example: scale, padding, margin, etc. */
+  /* transform: scale(1.1); */
+  /* padding-top: 5px; */
+}
+
 
 .menu-toggle {
   font-size: 1.5rem;

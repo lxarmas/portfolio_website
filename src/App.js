@@ -1,56 +1,43 @@
-import React, { useState, useEffect } from 'react';
-import Main from './Main';
-import Footer from './Footer';
-import './App.css';
+import React from "react";
+import Nav from "./Nav";
+import Main from "./Main";
+import Footer from "./Footer";
+import { ThemeProvider, useTheme } from "./context/ThemeContext";
+import { FaSun, FaMoon } from "react-icons/fa";
+import "./App.css";
 
-const App = () => {
-  const [isDarkMode, setIsDarkMode] = useState( false );
-
-  // Effect to add or remove dark class on the body element
-  useEffect( () => {
-    if ( isDarkMode ) {
-      document.body.classList.add( 'dark' );
-    } else {
-      document.body.classList.remove( 'dark' );
-    }
-  }, [isDarkMode] );
-
-  const toggleTheme = () => {
-    setIsDarkMode( prevState => !prevState );
-  };
+const ThemeToggle = () => {
+  const { isDarkMode, toggleTheme } = useTheme();
 
   return (
-    <div className="App">
-      <Main isDarkMode={isDarkMode} />
-      <Footer isDarkMode={isDarkMode} />
-      <button
-        onClick={toggleTheme}
-        style={{
-          width: '40px',
-          height: '40px',
-          borderRadius: '50%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: '#333',
-          color: 'white',
-          border: 'none',
-          cursor: 'pointer',
-          fontSize: '20px',
-          transition: 'background-color 0.3s ease, transform 0.2s ease',
-          position: 'fixed',
-          top: '40px',
-
-          bottom: '80%',
-          transform: 'translateY(-50%)',
-        }}
-        onMouseEnter={( e ) => ( e.target.style.backgroundColor = '#555' )}
-        onMouseLeave={( e ) => ( e.target.style.backgroundColor = '#333' )}
-      >
-        {isDarkMode ? '🌞' : '🌙'}
-      </button>
-    </div>
+    <button
+      aria-label="Toggle dark mode"
+      title={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
+      className="theme-toggle-button"
+      onClick={toggleTheme}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.backgroundColor = isDarkMode ? "#333" : "#ddd";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.backgroundColor = isDarkMode ? "#222" : "#f0f0f0";
+      }}
+    >
+      {isDarkMode ? <FaSun /> : <FaMoon />}
+    </button>
   );
 };
 
-export default App;
+const App = () => {
+  return (
+    <ThemeProvider>
+      <div className="App">
+        <Nav/>
+        <Main />
+        <Footer />
+        <ThemeToggle />
+      </div>
+    </ThemeProvider>
+  );
+};
+
+export default App

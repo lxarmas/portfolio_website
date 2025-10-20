@@ -12,7 +12,7 @@
 
 .scroll-to-top {
   position: fixed;
-  bottom: 30px;
+  bottom: 90px; /* Push it above the toggle button with enough gap */
   right: 30px;
   background: #000;
   color: #fff;
@@ -24,9 +24,17 @@
   flex-direction: column;
   align-items: center;
   font-size: 1rem;
+
+  /* Make it little transparent and smooth */
   opacity: 0.7;
   transition: opacity 0.3s ease;
 }
+
+/* Optional hover effect to indicate interactivity */
+.scroll-to-top:hover {
+  opacity: 1;
+}
+
 
 .scroll-to-top:hover {
   opacity: 1;

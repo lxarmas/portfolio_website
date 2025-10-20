@@ -1,31 +1,32 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
-import tecnology1 from './images/tecnology1.jpg'
-
-
-import './Header.css';
+import technology1 from "./images/tecnology1.jpg";
+import "./Header.css";
 
 function Header() {
   const navigate = useNavigate();
 
-  const Submit = () => {
-    navigate( "/menu" );
+  const handleSubmit = () => {
+    navigate("/menu");
   };
 
   return (
-    <header className="clean-header">
-      <div className="header-background">
-        <img src={tecnology1} alt="tech background" />
-        <div className="header-overlay">
-          <h1 className="main-title">Full Stack Engineer</h1>
-          <p className="subtitle">Building smart apps with React, Node.js, and AWS</p>
-          <button onClick={Submit} className="cta-button">View My Projects</button>
-        </div>
+    <header className="modern-header">
+      <div className="background-wrapper">
+        <img src={technology1} alt="Technology background" className="background-image" />
+        <div className="overlay-gradient" />
+      </div>
+
+      <div className="header-content animated">
+        <h1 className="title">Full Stack Engineer</h1>
+        <p className="description">
+          Crafting smart, scalable apps with React, Node.js, and AWS
+        </p>
+        <button onClick={handleSubmit} className="primary-cta pulsate">
+          View My Projects
+        </button>
       </div>
     </header>
-
-
   );
 }
 

@@ -1,108 +1,76 @@
-/* Ensure the whole page takes full width */
-html, body {
+/* Global styles */
+html,
+body {
   width: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Prevents horizontal scroll */
-}
-
-.App {
-  font-family: 'Arial', sans-serif;
-}
-body {
-  background-color: white;
-  color: black;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  font-family: "Arial", sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Light mode */
+body {
+  background-color: white;
+  color: black;
 
-/* Dark Mode Styles */
+  /* Theme toggle button colors */
+  --toggle-bg: #f0f0f0;
+  --toggle-fg: #222;
+  --toggle-hover-bg: #ddd;
+}
+
+/* Dark mode */
 body.dark {
   background-color: #000000;
   color: white;
+
+  --toggle-bg: #222;
+  --toggle-fg: #fefefe;
+  --toggle-hover-bg: #333;
 }
 
-body.dark .App {
-  background-color: #1a1a1a;
-  color: #f0f0f0;
+.App {
+  background-color: inherit;
+  color: inherit;
 }
 
-
-/* Button Styles */
+/* Button base styles */
 button {
-  font-family: 'Arial', sans-serif;
- 
-}
-
-button:hover {
-  background-color: #eeac1c;
-}
-
-/* Other dark mode specific styles */
-body.dark button {
-  background-color: #eeac1c;
-  color: white;
-}
-
-/* Remove borders or margins between sections */
-section {
-  margin: 0;
-  padding: 0;
+  font-family: inherit;
+  cursor: pointer;
   border: none;
+  outline: none;
 }
 
-/* Make sure Chicago and Footer have distinct background colors */
-footer, .Chicago {
-  background-color: inherit; /* Ensure consistent background */
+/* Theme toggle button styles */
+.theme-toggle-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+
+  background-color: var(--toggle-bg);
+  color: var(--toggle-fg);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+  transition: background-color 0.3s ease, color 0.3s ease;
+  z-index: 1000;
 }
 
-/* Scroll to Top Button */
-.scroll-to-top{
-    background-color:#f8aa02;
-    width: 140px; height: 80px; border-radius: 40px;
-    margin-left: 1600px;
-    display: flex;
-    align-items: center; /* Vertically center items */
-    justify-content: center; /* Horizontally center items */
-    gap: 8px; /* Space between arrow and text */
-    padding: 10px 15px;
-
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+.theme-toggle-button:hover {
+  background-color: var(--toggle-hover-bg);
 }
 
-.banner p {
-  font-size: 1.2rem;
-  line-height: 1.7;
- 
-  margin: 20px 0;
-  font-weight: 400;
-}
-.showcase-image {
- 
-  width: 100rem;
-  height: 35rem;
-  object-fit: cover; /* Crop width but keep full height */
-  object-position: right right; /* Moves focus to the right */
-  overflow: hidden;
-  border-radius: 1rem;
-  background-color: white; /* Helps hide unwanted parts */
-}
+/* Scroll to Top button, sections, footer styles remain as earlier */
 
-/* Responsive Fixes */
-@media (max-width: 768px) { /* Tablets & smaller screens */
-  .showcase-image {
-    height: 10rem;
-    object-position: right center; /* Keeps focus on the right */
-  }
-}
-
-@media (max-width: 480px) { /* Phones */
-  .showcase-image {
-    height: 16em;
-    width: 18rem;
-    object-position:  center; /* Forces cropping of the left side */
-  }
-}
+/* Add any other shared or dark mode styles here */

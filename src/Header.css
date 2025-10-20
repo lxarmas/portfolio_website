@@ -1,74 +1,179 @@
-.clean-header {
-  width: 100%;
-  height: 60vh;
+.modern-header {
   position: relative;
+  height: 70vh;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.header-background {
-  width: 100%;
-  height: 100%;
-  position: relative;
+.background-wrapper {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -2;
 }
 
-.header-background img {
+.background-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.5);
+  filter: brightness(0.35) saturate(1.2);
+  transition: filter 0.3s ease;
 }
 
-.header-overlay {
+.overlay-gradient {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: white;
+  inset: 0;
+  background: linear-gradient(to top right, rgba(0, 0, 0, 0.7), rgba(21, 32, 43, 0.6));
+  z-index: -1;
+  pointer-events: none;
+}
+
+.header-content {
+  max-width: 700px;
   padding: 2rem;
+  text-align: center;
 }
 
-.main-title {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 700;
+.title {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: 0.07em;
   margin-bottom: 1rem;
-  text-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.7);
 }
 
-.subtitle {
-  font-size: 1.2rem;
+.description {
+  font-size: 1.3rem;
   font-weight: 400;
-  margin-bottom: 1.5rem;
-  color: #eee;
-  max-width: 500px;
-  margin-inline: auto;
+  color: #d1d9e6;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.6);
 }
 
-.cta-button {
-  background-color: #e79e00;
-  color: white;
+.primary-cta {
+  background-color: #ffab00;
   border: none;
-  border-radius: 6px;
-  padding: 12px 24px;
-  font-size: 1rem;
+  border-radius: 4px;
+  padding: 14px 36px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #1a1a1a;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 10px rgba(255, 171, 0, 0.5);
 }
 
-.cta-button:hover {
-  background-color: #eca900;
+.primary-cta:hover,
+.primary-cta:focus {
+  background-color: #ffc107;
+  box-shadow: 0 6px 15px rgba(255, 193, 7, 0.7);
+  outline: none;
 }
+
 @media (max-width: 768px) {
-  .main-title {
-    font-size: 2rem;
+  .header-content {
+    padding: 1rem 1.5rem;
   }
 
-  .subtitle {
+  .title {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .description {
     font-size: 1rem;
   }
 
-  .cta-button {
-    font-size: 0.9rem;
-    padding: 10px 20px;
+  .primary-cta {
+    font-size: 1rem;
+    padding: 12px 28px;
+  }
+}
+/* Add fade and slide-in animation to header content */
+.header-content {
+  max-width: 700px;
+  padding: 2rem;
+  text-align: center;
+
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeSlideUp 1s forwards ease-out;
+  animation-delay: 0.4s;
+}
+
+/* Animate the title with a slight delay */
+.title {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: 0.07em;
+  margin-bottom: 1rem;
+  text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.7);
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideUp 0.8s forwards ease-out;
+  animation-delay: 0.6s;
+}
+
+/* Animate the description with a bit more delay */
+.description {
+  font-size: 1.2rem;
+  font-weight: 300;
+  font-style: italic;
+  color: #b0c4de;
+  margin-bottom: 2rem;
+  line-height: 1.75;
+  letter-spacing: 0.05em;
+  text-shadow: none;
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideUp 0.9s forwards ease-out;
+  animation-delay: 0.9s;
+}
+
+
+/* Pulse animation for call to action button */
+.primary-cta {
+  background-color: #ffab00;
+  border: none;
+  border-radius: 4px;
+  padding: 14px 36px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 10px rgba(255, 171, 0, 0.5);
+  animation: pulse 3s infinite;
+}
+
+.primary-cta:hover,
+.primary-cta:focus {
+  background-color: #ffc107;
+  box-shadow: 0 6px 15px rgba(255, 193, 7, 0.7);
+  outline: none;
+}
+
+/* Fade and slide-up keyframe */
+@keyframes fadeSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pulsate button keyframe */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 171, 0, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 20px 8px rgba(255, 171, 0, 0);
   }
 }

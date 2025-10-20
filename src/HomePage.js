@@ -1,17 +1,20 @@
-import "./HomePage.css"
+import "./HomePage.css";
 import React from "react";
+import { useTheme } from "./context/ThemeContext"; // Import the custom hook
 import Header from "./Header";
 import PortfolioShowcase from "./PortfolioShowcase";
 import CustomerSays from "./Customersay";
 import PersonalStory from "./PersonalStory";
 import { FaArrowUp } from "react-icons/fa";
 
-function HomePage( { isDarkMode } ) {
+function HomePage() {
+  const { isDarkMode } = useTheme(); // Get dark mode state from context
+
   const scrollToTop = () => {
-    window.scrollTo( {
+    window.scrollTo({
       top: 0,
       behavior: "smooth",
-    } );
+    });
   };
 
   return (
@@ -22,7 +25,6 @@ function HomePage( { isDarkMode } ) {
         <CustomerSays />
         <PersonalStory />
       </div>
-
       <button className="scroll-to-top" onClick={scrollToTop}>
         <FaArrowUp />
         <p>Back to top</p>
