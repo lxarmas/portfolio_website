@@ -1,7 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import technology1 from "./images/tecnology1.jpg";
+import technology1 from "./images/tecnology.jpg";
 import "./Header.css";
+
+
 
 function Header() {
   const navigate = useNavigate();
