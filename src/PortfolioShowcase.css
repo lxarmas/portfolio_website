@@ -1,0 +1,207 @@
+/* ─────────────────────────────────────────────────
+   PortfolioShowcase  ·  Dark Editorial  ·  2026
+   Tokens mirror Header (ph-*) and Nav (pn-*).
+   All classes namespaced  ps-*
+   ───────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap');
+
+/* ── Tokens ─────────────────────────────────────── */
+.ps {
+  --bg:        #dbdbdb;
+  --surface:   #111110;
+  --border:    rgba(255, 255, 255, 0.07);
+  --border-hover: rgba(255, 255, 255, 0.14);
+  --ink:       #f0ede6;
+  --ink-2:     rgba(240, 237, 230, 0.55);
+  --ink-3:     rgba(240, 237, 230, 0.28);
+  --serif:     'Instrument Serif', Georgia, serif;
+  --sans:      'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+/* ── Section shell ───────────────────────────────── */
+.ps {
+  background: var(--bg);
+  padding: clamp(80px, 14vh, 140px) clamp(28px, 7vw, 88px);
+  border-top: 0.5px solid var(--border);
+}
+
+/* ── Section header ──────────────────────────────── */
+.ps-header {
+  max-width: 680px;
+  margin-bottom: clamp(56px, 8vw, 96px);
+}
+
+.ps-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin: 0 0 28px;
+}
+
+.ps-line {
+  display: block;
+  width: 32px;
+  height: 0.5px;
+  background: var(--ink-3);
+  flex-shrink: 0;
+}
+
+.ps-title {
+  font-family: var(--serif);
+  font-size: clamp(44px, 6.5vw, 80px);
+  font-weight: 400;
+  line-height: 1.01;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0;
+}
+
+.ps-title em {
+  font-style: italic;
+  color: var(--ink-2);
+}
+
+/* ── Grid ────────────────────────────────────────── */
+.ps-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px; /* gap = visible border via background colour */
+  background: var(--border);
+  border: 0.5px solid var(--border);
+}
+
+/* ── Card ────────────────────────────────────────── */
+.ps-card {
+  position: relative;
+  background: var(--bg);
+  padding: clamp(32px, 4vw, 52px);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  overflow: hidden;
+  cursor: default;
+  transition: background 0.3s ease;
+}
+
+.ps-card:hover {
+  background: var(--surface);
+}
+
+/* Index number */
+.ps-card-index {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--ink-3);
+  text-transform: uppercase;
+}
+
+/* Image wrapper — constrains & dims image */
+.ps-card-img-wrap {
+  width: 240x;
+  height: 240px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 0.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s ease;
+}
+
+.ps-card:hover .ps-card-img-wrap {
+  border-color: var(--border-hover);
+}
+
+.ps-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+  filter: grayscale(30%);
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.ps-card:hover .ps-card-img {
+  opacity: 1;
+  filter: grayscale(0%);
+}
+
+/* Card text */
+.ps-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.ps-card-title {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0;
+  line-height: 1.1;
+}
+
+.ps-card-desc {
+  font-family: var(--sans);
+  font-size: clamp(13px, 1.2vw, 15px);
+  font-weight: 300;
+  color: var(--ink-2);
+  line-height: 1.7;
+  margin: 0;
+  max-width: 400px;
+}
+
+/* Bottom rule — slides in on hover */
+.ps-card-rule {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0.5px;
+  background: var(--ink-3);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ps-card:hover .ps-card-rule {
+  width: 100%;
+}
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 768px) {
+  .ps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ps-card {
+    padding: 32px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ps-title {
+    font-size: clamp(36px, 10vw, 52px);
+  }
+}
+
+/* ── Reduced motion ──────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .ps-card,
+  .ps-card-img,
+  .ps-card-img-wrap,
+  .ps-card-rule {
+    transition: none !important;
+  }
+}

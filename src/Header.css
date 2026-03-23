@@ -8,13 +8,13 @@
 
 /* ── Tokens ─────────────────────────────────────── */
 .ph {
-  --bg:        #0c0c0b;
-  --surface:   #141413;
+  --bg:        #e4e4e4;
+  --surface:   #9c9c9b;
   --border:    rgba(255, 255, 255, 0.07);
-  --ink:       #f0ede6;
-  --ink-2:     rgba(240, 237, 230, 0.55);
+  --ink:       #343434;
+  --ink-2:     rgba(48, 48, 48, 0.55);
   --ink-3:     rgba(240, 237, 230, 0.28);
-  --accent:    #e8e0d0;
+  --accent:    #848484;
   --green:     #4ade80;
   --serif:     'Instrument Serif', Georgia, serif;
   --sans:      'Plus Jakarta Sans', system-ui, sans-serif;

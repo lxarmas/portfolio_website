@@ -7,12 +7,12 @@
 
 /* ── Tokens (mirror Header's ph vars) ───────────── */
 .pn {
-  --bg:          #0c0c0b;
+  --bg:          #555555;
   --bg-raised:   rgba(12, 12, 11, 0.85);
   --border:      rgba(255, 255, 255, 0.07);
   --border-mid:  rgba(255, 255, 255, 0.12);
-  --ink:         #f0ede6;
-  --ink-2:       rgba(240, 237, 230, 0.55);
+  --ink:         #393939;
+  --ink-2:       rgba(15, 15, 15, 0.55);
   --ink-3:       rgba(240, 237, 230, 0.28);
   --sans:        'Plus Jakarta Sans', system-ui, sans-serif;
   --h-nav:       64px;

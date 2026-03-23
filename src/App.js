@@ -9,22 +9,22 @@ import "./App.css";
 const ThemeToggle = () => {
   const { isDarkMode, toggleTheme } = useTheme();
 
-  return (
-    <button
-      aria-label="Toggle dark mode"
-      title={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
-      className="theme-toggle-button"
-      onClick={toggleTheme}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.backgroundColor = isDarkMode ? "#333" : "#ddd";
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.backgroundColor = isDarkMode ? "#222" : "#f0f0f0";
-      }}
-    >
-      {isDarkMode ? <FaSun /> : <FaMoon />}
-    </button>
-  );
+  // return (
+  //   <button
+  //     aria-label="Toggle dark mode"
+  //     title={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
+  //     className="theme-toggle-button"
+  //     onClick={toggleTheme}
+  //     onMouseEnter={(e) => {
+  //       e.currentTarget.style.backgroundColor = isDarkMode ? "#333" : "#ddd";
+  //     }}
+  //     onMouseLeave={(e) => {
+  //       e.currentTarget.style.backgroundColor = isDarkMode ? "#222" : "#f0f0f0";
+  //     }}
+  //   >
+  //     {isDarkMode ? <FaSun /> : <FaMoon />}
+  //   </button>
+  // );
 };
 
 const App = () => {

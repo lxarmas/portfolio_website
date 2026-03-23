@@ -5,7 +5,7 @@ const Logo = () => {
   const { isDarkMode } = useTheme();
 
   const primary = isDarkMode ? '#F9FAFB' : '#0B1120';      // near-white / near-black
-  const accent = isDarkMode ? '#38BDF8' : '#2563EB';       // cyan-ish blue
+  const accent = isDarkMode ? '#38BDF8' : '#111111';       // cyan-ish blue
   const subtle = isDarkMode ? '#9CA3AF' : '#6B7280';       // muted gray
   const markBg = isDarkMode ? 'rgba(15,23,42,0.85)' : '#EEF2FF';
   const markBorder = isDarkMode ? '#38BDF820' : '#C7D2FE';

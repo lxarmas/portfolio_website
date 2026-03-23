@@ -1,6 +1,6 @@
 import React from "react";
-import worthyreads from "./images/worthyreads_image.png";
-import ninjagame from "./images/ninjagame.png";
+import worthyreads from "./images/worthyreads.png";
+import ninjagame from "./images/visigraph.png";
 import sportsSupply from "./images/sportsSupply.png";
 
 function Portfolio() {
@@ -10,17 +10,17 @@ function Portfolio() {
       image: worthyreads,
       description: "Created a full-stack book club app within secure JWT auhtentication and Google API integration",
       links: {
-        demo: "",
+        demo: "https://worthy-reads.vercel.app/",
         code: "https://github.com/lxarmas/worthy_reads",
       },
     },
     {
-      title: "Ninja Odyssey",
+      title: "Visigraph",
       image: ninjagame,
-      description: "Completed  two player game with custom collision detection, reducing rendering lag by 15%.",
+      description: "AI brand sentiment analysis tool with 85% accuracy, built using React, Node.js, and TensorFlow.js",
       links: {
-        demo: "https://lxarmas.github.io/Ninja_Odyssey/",
-        code: "https://github.com/lxarmas/Ninja_Odyssey",
+        demo: "https://visigraph.vercel.app/",
+        code: "https://github.com/lxarmas/visigraph.git",
       },
     },
     {
