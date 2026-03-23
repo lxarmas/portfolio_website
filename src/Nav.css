@@ -1,103 +1,242 @@
-/* Nav.css */
-.nav {
-  width: 100%;
-  background-color: #fff;
-  border-bottom: 1px solid #e5e5e5;
-  padding: 0.8rem 2rem;
+/* ─────────────────────────────────────────────────
+   Portfolio Nav  ·  Dark Editorial  ·  2026
+   Matches Header tokens exactly.
+   All classes namespaced  pn-*  — no global bleed.
+   ───────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500&display=swap');
+
+/* ── Tokens (mirror Header's ph vars) ───────────── */
+.pn {
+  --bg:          #0c0c0b;
+  --bg-raised:   rgba(12, 12, 11, 0.85);
+  --border:      rgba(255, 255, 255, 0.07);
+  --border-mid:  rgba(255, 255, 255, 0.12);
+  --ink:         #f0ede6;
+  --ink-2:       rgba(240, 237, 230, 0.55);
+  --ink-3:       rgba(240, 237, 230, 0.28);
+  --sans:        'Plus Jakarta Sans', system-ui, sans-serif;
+  --h-nav:       64px;
+}
+
+/* ── Shell ───────────────────────────────────────── */
+.pn {
   position: sticky;
   top: 0;
   z-index: 1000;
+  width: 100%;
+  height: var(--h-nav);
+  background: var(--bg);
+  border-bottom: 0.5px solid var(--border);
+  font-family: var(--sans);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
-.nav.dark {
-  background-color: #222;
-  border-color: #333;
+/* Frosted blur + stronger border once scrolled */
+.pn--scrolled {
+  background: var(--bg-raised);
+  border-color: var(--border-mid);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
-.nav-container {
+/* ── Inner row ───────────────────────────────────── */
+.pn-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(28px, 7vw, 88px);
 }
 
-.logo {
-  height: 120px; /* base height */
+/* ── Logo ────────────────────────────────────────── */
+.pn-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+  /* constrain whatever Logo renders */
+  height: 36px;
+}
+
+.pn-logo img,
+.pn-logo svg {
+  height: 100%;
   width: auto;
   display: block;
 }
 
-/* Adjust only logoLight size */
-.logo-light {
-  height: 120px; /* match the dark logo height */
-  width: auto;
-  /* or add more tweaks below to fix rendering */
-  /* Example: scale, padding, margin, etc. */
-  /* transform: scale(1.1); */
-  /* padding-top: 5px; */
+/* ── Desktop links ───────────────────────────────── */
+.pn-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
+.pn-link {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 2px;
+  transition: color 0.2s ease;
+}
 
-.menu-toggle {
-  font-size: 1.5rem;
+/* Underline grow */
+.pn-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0.5px;
+  background: var(--ink-2);
+  transition: width 0.25s ease;
+}
+
+.pn-link:hover {
+  color: var(--ink);
+}
+
+.pn-link:hover::after {
+  width: 100%;
+}
+
+/* Active state */
+.pn-link--active {
+  color: var(--ink);
+}
+
+.pn-link--active::after {
+  width: 100%;
+  background: var(--ink);
+}
+
+/* ── Mobile toggle (two bars → X) ───────────────── */
+.pn-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
   background: none;
   border: none;
   cursor: pointer;
+  padding: 4px;
+  flex-shrink: 0;
+}
+
+.pn-toggle-bar {
+  display: block;
+  width: 100%;
+  height: 0.5px;
+  background: var(--ink-2);
+  border-radius: 1px;
+  transform-origin: center;
+  transition: transform 0.25s ease, opacity 0.25s ease, background 0.2s ease;
+}
+
+.pn-toggle:hover .pn-toggle-bar {
+  background: var(--ink);
+}
+
+/* Animate to X when open */
+.pn--open .pn-toggle-bar:nth-child(1) {
+  transform: translateY(2.5px) rotate(45deg);
+}
+.pn--open .pn-toggle-bar:nth-child(2) {
+  transform: translateY(-2.5px) rotate(-45deg);
+}
+
+/* ── Mobile drawer ───────────────────────────────── */
+.pn-drawer {
   display: none;
+  position: absolute;
+  top: var(--h-nav);
+  left: 0;
+  right: 0;
+  background: var(--bg);
+  border-bottom: 0.5px solid var(--border);
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.nav-links {
+.pn--open .pn-drawer {
+  max-height: 320px;
+}
+
+.pn-drawer-links {
   list-style: none;
+  margin: 0;
+  padding: 16px clamp(28px, 7vw, 88px) 24px;
   display: flex;
-  gap: 2rem;
+  flex-direction: column;
+  gap: 0;
 }
 
-.nav-links li a {
-  font-size: 1.125rem;
+.pn-drawer-links li {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.3s ease calc(var(--i) * 0.06s + 0.1s),
+    transform 0.3s ease calc(var(--i) * 0.06s + 0.1s);
+}
 
+.pn--open .pn-drawer-links li {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pn-drawer-link {
+  display: block;
+  font-size: 15px;
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  color: var(--ink-2);
   text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  padding: 14px 0;
+  border-bottom: 0.5px solid var(--border);
+  transition: color 0.2s ease;
 }
 
-.nav.dark .nav-links li a {
-  color: white;
+.pn-drawer-links li:last-child .pn-drawer-link {
+  border-bottom: none;
 }
 
-.nav-links li a:hover {
-  color: #f5a623;
+.pn-drawer-link:hover,
+.pn-drawer-link.pn-link--active {
+  color: var(--ink);
 }
 
-/* Mobile */
+/* ── Responsive ──────────────────────────────────── */
 @media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-  .logo{
-    height: 80px
-  }
-
-  .nav-links {
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background-color: #fff;
-    padding: 1rem;
+  .pn-links {
     display: none;
   }
 
-  .nav.dark .nav-links {
-    background-color: #222;
-  }
-
-  .nav-links.active {
+  .pn-toggle {
     display: flex;
   }
-    .nav-links li a {
-    font-size: 1rem; /* 16px */
-    padding: 0.5rem;
-  }
 
+  .pn-drawer {
+    display: block;
+  }
+}
+
+/* ── Reduced motion ──────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .pn *,
+  .pn *::before,
+  .pn *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }
