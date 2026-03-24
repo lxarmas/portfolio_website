@@ -88,7 +88,7 @@ function About() {
           </p>
 
           <div className="pa-actions">
-            <a className="pa-btn-primary" href="mailto:hello@example.com">
+            <a className="pa-btn-primary" href="mailto:alejandroestebanarmas@gmail.com">
               Let's connect
               <svg viewBox="0 0 14 14" fill="none" aria-hidden="true">
                 <path d="M2 12L12 2M12 2H5M12 2v7"
@@ -96,7 +96,7 @@ function About() {
                   strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </a>
-            <a className="pa-btn-ghost" href="/work">View work</a>
+        
           </div>
         </div>
 

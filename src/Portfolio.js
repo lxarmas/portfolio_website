@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import worthyreads   from "./images/worthyreads.png";
 import ninjagame     from "./images/visigraph.png";
-import sportsSupply  from "./images/sportsSupply.png";
+import sportsSupply  from "./images/deliberateBodyWork.png";
 import "./Portfolio.css";
 
 const PROJECTS = [
@@ -30,13 +30,13 @@ const PROJECTS = [
   },
   {
     index:       "03",
-    title:       "Fitness Rack",
+    title:       "Deliberate Body Work",
     image:       sportsSupply,
-    tags:        ["React", "Redux", "E-Commerce"],
-    description: "E-commerce platform with optimized state management, boosting conversion rate by 40%.",
+    tags:        ["React", "Redux", "E-Commerce", "Next.js", "Node.js"],
+    description: "E-commerce website platform with optimized state management, boosting conversion rate by 40%.",
     links: {
-      demo:  "https://taskmanager.example.com",
-      code: "https://github.com/lxarmas/graceshopper",
+      demo:  "https://deliberate-bodywork.vercel.app/",
+      code: "https://github.com/lxarmas/deliberate_bodywork.git",
     },
   },
 ];

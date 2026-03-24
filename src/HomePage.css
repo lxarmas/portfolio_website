@@ -1,49 +1,90 @@
-/* HomePage.css */
+/* ─────────────────────────────────────────────────
+   HomePage · Dark Editorial · 2026
+   Shell only — sections own their own padding
+   Namespaced hp-* — no global bleed
+───────────────────────────────────────────────── */
 
-/* ── Global container ────────────────────────────── */
-.homepage-container {
+/* ── Main shell ──────────────────────────────────── */
+.hp-main {
   width: 100%;
-  margin: 0;        /* ← remove auto centering that clips full-bleed sections */
-  padding: 0;       /* ← no padding on the shell */
-  /* max-width removed — let Header/Footer handle their own width */
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background: #e4e4e4;        /* --bg token fallback */
+  overflow-x: hidden;         /* prevents any section from causing horizontal scroll */
+}
+
+/* ── Dark mode override ───────────────────────────── */
+.hp-main--dark {
+  background: #1a1a1a;
+  color: #e4e4e4;
+}
+
+/* ── Each direct section child fills full width ──── */
+.hp-main > * {
+  width: 100%;
+  flex-shrink: 0;
 }
 
 /* ── Scroll to top ───────────────────────────────── */
-.scroll-to-top {
+.hp-scroll-top {
   position: fixed;
-  bottom: 90px;
-  right: 30px;
-  background: #343434;        /* ← match --ink token from your design system */
-  color: #e4e4e4;             /* ← match --bg token */
-  padding: 12px 16px;
-  border-radius: 50px;
-  border: none;
-  cursor: pointer;
+  bottom: 40px;
+  right: 32px;
+  z-index: 200;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 1rem;
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;  /* ← match --sans */
-  letter-spacing: 0.06em;
-  opacity: 0.7;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  z-index: 100;
+  gap: 4px;
+
+  background: #343434;
+  color: #e4e4e4;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 16px;
+  cursor: pointer;
+
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  /* Hidden by default — fades in on scroll */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
-.scroll-to-top:hover {
+.hp-scroll-top--visible {
+  opacity: 0.75;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.hp-scroll-top:hover {
   opacity: 1;
-  transform: translateY(-2px);  /* ← matches ph-btn-primary hover lift */
+  transform: translateY(-2px);
 }
 
-/* ── Responsive ──────────────────────────────────── */
-@media (max-width: 768px) {
-  .homepage-container {
-    padding: 0;   /* ← inner sections handle their own mobile padding */
-  }
+.hp-scroll-top svg {
+  font-size: 14px;
 }
 
-@media (max-width: 480px) {
-  .homepage-container {
-    padding: 0;
+.hp-scroll-top span {
+  font-size: 9px;
+  letter-spacing: 0.14em;
+}
+
+/* ── Mobile ──────────────────────────────────────── */
+@media (max-width: 640px) {
+  .hp-scroll-top {
+    bottom: 24px;
+    right: 20px;
+    padding: 10px 14px;
   }
 }

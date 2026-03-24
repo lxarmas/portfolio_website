@@ -22,7 +22,7 @@ function HomePage() {
       <div className="homepage-container">
         <Header />
         <PortfolioShowcase />
-        <CustomerSay/>
+        {/* <CustomerSay/> */}
         <PersonalStory />
       </div>
       <button className="scroll-to-top" onClick={scrollToTop}>
