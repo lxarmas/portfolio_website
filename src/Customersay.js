@@ -87,15 +87,7 @@ function CustomerSay() {
         ))}
       </div>
 
-      {/* ── Bottom bar (mirrors Header) ── */}
-      <div className="cs-bar">
-        <span className="cs-bar-label">002 — Social Proof</span>
-        <div className="cs-avail">
-          <span className="cs-dot" aria-hidden="true" />
-          Verified clients
-        </div>
-        <span className="cs-bar-label">Los Angeles, CA</span>
-      </div>
+    
     </section>
   );
 }

@@ -93,19 +93,7 @@ function Header() {
         </div>
       </div>
 
-      {/* Bottom bar */}
-      <div className="ph-bar">
-        <div className="ph-avail">
-          <span className="ph-dot" aria-hidden="true" />
-          Open to offers
-        </div>
-        <div className="ph-scroll" aria-hidden="true">
-          <div className="ph-scroll-track">
-            <div className="ph-scroll-thumb" />
-          </div>
-        </div>
-        <span className="ph-loc">Los Angeles, CA</span>
-      </div>
+    
     </header>
   );
 }

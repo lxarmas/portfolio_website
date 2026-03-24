@@ -1,0 +1,410 @@
+/* ─────────────────────────────────────────────────
+   Portfolio Signup · Dark Editorial · 2026
+   Mirrors Header.css tokens & conventions
+   All classes namespaced ps-* — no global bleed
+───────────────────────────────────────────────── */
+
+/* ── Tokens ─────────────────────────────────────── */
+.ps {
+  --bg:     #e4e4e4;
+  --border: rgba(255, 255, 255, 0.07);
+  --ink:    #343434;
+  --ink-2:  rgba(48, 48, 48, 0.55);
+  --ink-3:  rgba(240, 237, 230, 0.28);
+  --green:  #4ade80;
+  --red:    rgba(220, 80, 80, 0.85);
+  --serif:  'Instrument Serif', Georgia, serif;
+  --sans:   'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+/* ── Shell ───────────────────────────────────────── */
+.ps {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: var(--bg);
+  font-family: var(--sans);
+  overflow: hidden;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(80px, 12vh, 120px) 0 0;
+}
+
+/* ── Spotlight ───────────────────────────────────── */
+.ps-spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Index mark ──────────────────────────────────── */
+.ps-index {
+  position: absolute;
+  top: clamp(20px, 3vh, 36px);
+  left: clamp(28px, 7vw, 88px);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 10;
+  opacity: 0;
+  animation: ps-fade 0.4s ease forwards 0.2s;
+}
+
+.ps-index span {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+/* ── Body ────────────────────────────────────────── */
+.ps-body {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(48px, 6vw, 96px);
+  padding: 0 clamp(28px, 7vw, 88px) clamp(80px, 12vh, 120px);
+  align-items: start;
+}
+
+/* ── Left col ────────────────────────────────────── */
+.ps-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin: 0 0 36px;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: ps-up 0.5s ease forwards 0.15s;
+}
+
+.ps-line {
+  display: block;
+  width: 32px;
+  height: 0.5px;
+  background: var(--ink-3);
+  flex-shrink: 0;
+}
+
+.ps-title {
+  margin: 0 0 24px;
+  display: flex;
+  flex-direction: column;
+  line-height: 0.98;
+}
+
+.ps-word {
+  display: block;
+  font-family: var(--serif);
+  font-size: clamp(44px, 6vw, 80px);
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.ps-word em {
+  font-style: italic;
+  color: var(--ink-2);
+}
+
+.ps-word--1 { animation: ps-up 0.6s cubic-bezier(0.16,1,0.3,1) forwards 0.25s; }
+.ps-word--2 { animation: ps-up 0.6s cubic-bezier(0.16,1,0.3,1) forwards 0.38s; }
+
+.ps-sub {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--ink-2);
+  opacity: 0;
+  transform: translateY(10px);
+  animation: ps-up 0.5s ease forwards 0.5s;
+}
+
+.ps-text-link {
+  background: none;
+  border: none;
+  border-bottom: 0.5px solid var(--border);
+  padding: 0 0 1px;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--ink-3);
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.ps-text-link:hover {
+  color: var(--ink);
+  border-color: var(--ink-2);
+}
+
+/* ── Form ────────────────────────────────────────── */
+.ps-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: ps-up 0.6s ease forwards 0.42s;
+}
+
+/* ── Field ───────────────────────────────────────── */
+.ps-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ps-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* ── Input ───────────────────────────────────────── */
+.ps-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 0.5px solid var(--border);
+  border-radius: 4px;
+  padding: 12px 14px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  box-sizing: border-box;
+}
+
+.ps-input::placeholder {
+  color: var(--ink-3);
+}
+
+.ps-input:focus {
+  border-color: var(--ink-2);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* ── Password wrap ───────────────────────────────── */
+.ps-input-wrap {
+  position: relative;
+}
+
+.ps-input-wrap .ps-input {
+  padding-right: 60px;
+}
+
+.ps-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 0;
+}
+
+.ps-toggle:hover { color: var(--ink); }
+
+/* ── Captcha ─────────────────────────────────────── */
+.ps-captcha-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0;
+}
+
+.ps-captcha-display {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ps-captcha-char {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: 0.08em;
+  font-style: italic;
+  user-select: none;
+}
+
+.ps-captcha-refresh {
+  background: none;
+  border: 0.5px solid var(--border);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--ink-3);
+  transition: color 0.2s, border-color 0.2s, transform 0.3s ease;
+  padding: 0;
+  margin-left: 4px;
+}
+
+.ps-captcha-refresh:hover {
+  color: var(--ink);
+  border-color: var(--ink-2);
+  transform: rotate(180deg);
+}
+
+.ps-captcha-refresh svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* ── Error ───────────────────────────────────────── */
+.ps-error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--red);
+  letter-spacing: 0.03em;
+  padding: 10px 14px;
+  border: 0.5px solid rgba(220, 80, 80, 0.25);
+  border-radius: 4px;
+  background: rgba(220, 80, 80, 0.05);
+}
+
+.ps-error svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+/* ── Submit button ───────────────────────────────── */
+.ps-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--bg);
+  background: var(--ink);
+  border: none;
+  border-radius: 100px;
+  padding: 14px 32px;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s;
+  margin-top: 8px;
+}
+
+.ps-btn-primary:hover {
+  opacity: 0.82;
+  transform: translateY(-1px);
+}
+
+.ps-btn-primary svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+  transition: transform 0.22s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+.ps-btn-primary:hover svg {
+  transform: translate(3px, -3px);
+}
+
+/* ── Bottom bar ──────────────────────────────────── */
+.ps-bar {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px clamp(28px, 7vw, 88px);
+  border-top: 0.5px solid var(--border);
+  opacity: 0;
+  animation: ps-fade 0.5s ease forwards 0.9s;
+}
+
+.ps-avail {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.ps-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  flex-shrink: 0;
+  animation: ps-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes ps-pulse {
+  0%, 100% { opacity: 1;   box-shadow: 0 0 0 0   rgba(74,222,128,0.4); }
+  50%       { opacity: 0.6; box-shadow: 0 0 0 4px rgba(74,222,128,0);   }
+}
+
+.ps-loc {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* ── Keyframes ───────────────────────────────────── */
+@keyframes ps-up   { to { opacity: 1; transform: translateY(0); } }
+@keyframes ps-fade { to { opacity: 1; } }
+
+/* ── Mobile ──────────────────────────────────────── */
+@media (max-width: 768px) {
+  .ps-body {
+    grid-template-columns: 1fr;
+  }
+
+  .ps-word {
+    font-size: clamp(36px, 11vw, 56px);
+  }
+
+  .ps-index { display: none; }
+}
+
+/* ── Reduced motion ──────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .ps *, .ps *::before, .ps *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay:    0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
