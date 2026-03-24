@@ -11,49 +11,50 @@ const SKILLS = [
     index: "01",
     title: "Debugging Mastery",
     description:
-      "Finding and squashing bugs is my superpower. With an analytical approach and a problem-solving mindset, I turn frustrating issues into smooth experiences.",
+      "Finding and squashing bugs is my superpower. Analytical approach, problem-solving mindset — I turn frustrating issues into smooth experiences.",
     img: debug,
   },
   {
     index: "02",
     title: "Innovative Coding",
     description:
-      "Bringing ideas to life with clean, efficient, and innovative code. From web apps to full-stack solutions, I turn challenges into functional, elegant results.",
+      "Bringing ideas to life with clean, efficient code. From web apps to full-stack solutions, I turn challenges into elegant results.",
     img: coding,
   },
   {
     index: "03",
     title: "Front-end Development",
     description:
-      "Transforming user experiences with responsive, visually precise interfaces. I build fast, interactive apps using modern libraries and frameworks.",
+      "Responsive, visually precise interfaces. Fast, interactive apps using modern libraries and frameworks.",
     img: frontEnd,
   },
   {
     index: "04",
     title: "Database Management",
     description:
-      "Designing, optimizing, and managing databases for scalable data handling. I specialise in PostgreSQL and MySQL for robust back-end support.",
+      "Scalable data handling with PostgreSQL and MySQL. Designed for performance from the ground up.",
     img: performance,
   },
 ];
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (i) => ({
+const container = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12 } },
+};
+
+const card = {
+  hidden: { opacity: 0, y: 32 },
+  visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      delay: i * 0.12,
-      duration: 0.6,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  }),
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+  },
 };
 
 function PortfolioShowcase() {
   return (
     <section className="ps">
-      {/* Section header */}
+      {/* Header */}
       <motion.div
         className="ps-header"
         initial={{ opacity: 0, y: 16 }}
@@ -62,33 +63,25 @@ function PortfolioShowcase() {
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
         <p className="ps-eyebrow">
-          <span className="ps-line" />
+          <span className="ps-rule" />
           Skills &amp; Expertise
         </p>
         <h2 className="ps-title">
-          What I bring<br />
-          to the <em>table.</em>
+          What I bring<br />to the <em>table.</em>
         </h2>
       </motion.div>
 
-      {/* Cards grid */}
-      <div className="ps-grid">
-        {SKILLS.map((skill, i) => (
-          <motion.div
-            key={skill.index}
-            className="ps-card"
-            custom={i}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            variants={fadeUp}
-          >
-            {/* Card index */}
-            <span className="ps-card-index" aria-hidden="true">
-              {skill.index}
-            </span>
-
-            {/* Image */}
+      {/* Grid */}
+      <motion.div
+        className="ps-grid"
+        variants={container}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-60px" }}
+      >
+        {SKILLS.map((skill) => (
+          <motion.div key={skill.index} className="ps-card" variants={card}>
+            {/* Illustration area */}
             <div className="ps-card-img-wrap">
               <img
                 src={skill.img}
@@ -97,17 +90,18 @@ function PortfolioShowcase() {
               />
             </div>
 
-            {/* Text */}
+            {/* Text area */}
             <div className="ps-card-body">
+              <span className="ps-card-index">{skill.index}</span>
               <h3 className="ps-card-title">{skill.title}</h3>
               <p className="ps-card-desc">{skill.description}</p>
             </div>
 
-            {/* Hover rule */}
-            <div className="ps-card-rule" aria-hidden="true" />
+            {/* Hover accent line */}
+            <div className="ps-card-accent" aria-hidden="true" />
           </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

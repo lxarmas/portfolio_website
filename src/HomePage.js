@@ -3,9 +3,9 @@ import React from "react";
 import { useTheme } from "./context/ThemeContext"; // Import the custom hook
 import Header from "./Header";
 import PortfolioShowcase from "./PortfolioShowcase";
-import CustomerSay from "./CustomerSay";
+// import CustomerSay from "./CustomerSay";
 import PersonalStory from "./PersonalStory";
-import { FaArrowUp } from "react-icons/fa";
+
 
 function HomePage() {
   const { isDarkMode } = useTheme(); // Get dark mode state from context
@@ -26,8 +26,8 @@ function HomePage() {
         <PersonalStory />
       </div>
       <button className="scroll-to-top" onClick={scrollToTop}>
-        <FaArrowUp />
-        <p>Back to top</p>
+       
+       
       </button>
     </main>
   );

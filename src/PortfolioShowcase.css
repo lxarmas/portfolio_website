@@ -1,34 +1,38 @@
 /* ─────────────────────────────────────────────────
-   PortfolioShowcase  ·  Dark Editorial  ·  2026
-   Tokens mirror Header (ph-*) and Nav (pn-*).
-   All classes namespaced  ps-*
+   PortfolioShowcase · Illustration Cards · 2026
+   Images are wide landscape line-art on white bg.
+   Strategy: tinted image panel on top, text below.
+   Tokens mirror Header / Nav exactly. ps-* namespace.
    ───────────────────────────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap');
 
-/* ── Tokens ─────────────────────────────────────── */
+/* ── Tokens ── */
 .ps {
-  --bg:        #dbdbdb;
-  --surface:   #111110;
-  --border:    rgba(255, 255, 255, 0.07);
-  --border-hover: rgba(255, 255, 255, 0.14);
-  --ink:       #f0ede6;
-  --ink-2:     rgba(240, 237, 230, 0.55);
-  --ink-3:     rgba(240, 237, 230, 0.28);
-  --serif:     'Instrument Serif', Georgia, serif;
-  --sans:      'Plus Jakarta Sans', system-ui, sans-serif;
+  --bg:          #0c0c0b;
+  --card-bg:     #cee5ff;
+  --card-bg-h:   #161614;
+  --img-bg:      #f0ede6;        /* matches illustration white — looks intentional */
+  --border:      rgba(255, 255, 255, 0.07);
+  --border-h:    rgba(255, 255, 255, 0.14);
+  --ink:   #c4c4c4;
+  --ink-2: rgba(255, 255, 255, 0.65);
+  --ink-3: rgba(230, 230, 230, 0.35);
+  --serif:       'Instrument Serif', Georgia, serif;
+  --sans:        'Plus Jakarta Sans', system-ui, sans-serif;
+  --radius:      14px;
 }
 
-/* ── Section shell ───────────────────────────────── */
+/* ── Shell ── */
 .ps {
   background: var(--bg);
   padding: clamp(80px, 14vh, 140px) clamp(28px, 7vw, 88px);
   border-top: 0.5px solid var(--border);
 }
 
-/* ── Section header ──────────────────────────────── */
+/* ── Section header ── */
 .ps-header {
   max-width: 680px;
-  margin-bottom: clamp(56px, 8vw, 96px);
+  margin-bottom: clamp(52px, 8vw, 88px);
 }
 
 .ps-eyebrow {
@@ -41,10 +45,10 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--ink-3);
-  margin: 0 0 28px;
+  margin: 0 0 24px;
 }
 
-.ps-line {
+.ps-rule {
   display: block;
   width: 32px;
   height: 0.5px;
@@ -58,95 +62,102 @@
   font-weight: 400;
   line-height: 1.01;
   letter-spacing: -0.02em;
-  color: var(--ink);
+
   margin: 0;
 }
 
 .ps-title em {
   font-style: italic;
-  color: var(--ink-2);
+ color: rgba(149, 188, 195, 0.6);
 }
 
-/* ── Grid ────────────────────────────────────────── */
+/* ── Grid — 2 col, auto rows ── */
 .ps-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1px; /* gap = visible border via background colour */
-  background: var(--border);
-  border: 0.5px solid var(--border);
+  gap: 12px;
 }
 
-/* ── Card ────────────────────────────────────────── */
+/* ── Card ── */
 .ps-card {
   position: relative;
-  background: var(--bg);
-  padding: clamp(32px, 4vw, 52px);
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  border: 0.5px solid var(--border);
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  overflow: hidden;
-  cursor: default;
-  transition: background 0.3s ease;
+  transition: border-color 0.3s ease, background 0.3s ease;
 }
 
 .ps-card:hover {
-  background: var(--surface);
+  border-color: var(--border-h);
+  background: var( --img-bg:);
 }
 
-/* Index number */
-.ps-card-index {
-  font-family: var(--sans);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  color: var(--ink-3);
-  text-transform: uppercase;
-}
-
-/* Image wrapper — constrains & dims image */
+/* ── Image panel ── */
 .ps-card-img-wrap {
-  width: 240x;
-  height: 240px;
-  flex-shrink: 0;
+  width: 100%;
+  /* 16:9-ish aspect — suits the wide landscape illustrations perfectly */
+  aspect-ratio: 16 / 9;
+  background: var(--img-bg);
   overflow: hidden;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 0.5px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: border-color 0.3s ease;
+  position: relative;
+  /* Bottom border separates panel from text */
+  border-bottom: 0.5px solid var(--border);
+  flex-shrink: 0;
 }
 
-.ps-card:hover .ps-card-img-wrap {
-  border-color: var(--border-hover);
+/* Thin dark tint over the white illustration — ties it to the dark theme */
+.ps-card-img-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 12, 11, 0.08);
+  transition: background 0.4s ease;
+  pointer-events: none;
+}
+
+.ps-card:hover .ps-card-img-wrap::after {
+  background: rgba(12, 12, 11, 0);
 }
 
 .ps-card-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  opacity: 0.7;
-  filter: grayscale(30%);
-  transition: opacity 0.3s ease, filter 0.3s ease;
+  object-fit: contain;       /* show the full illustration, no cropping */
+  object-position: center;
+  display: block;
+  padding: 8%;               /* breathing room so illustration never touches edges */
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
 }
 
 .ps-card:hover .ps-card-img {
-  opacity: 1;
-  filter: grayscale(0%);
+  transform: scale(1.04);
 }
 
-/* Card text */
+/* ── Text body ── */
 .ps-card-body {
+  padding: clamp(20px, 3vw, 32px);
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   flex: 1;
+}
+
+.ps-card-index {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
 }
 
 .ps-card-title {
   font-family: var(--serif);
-  font-size: clamp(22px, 2.5vw, 30px);
+  font-size: clamp(22px, 2.4vw, 30px);
   font-weight: 400;
   letter-spacing: -0.01em;
   color: var(--ink);
@@ -156,52 +167,41 @@
 
 .ps-card-desc {
   font-family: var(--sans);
-  font-size: clamp(13px, 1.2vw, 15px);
+  font-size: clamp(13px, 1.1vw, 15px);
   font-weight: 300;
   color: var(--ink-2);
   line-height: 1.7;
   margin: 0;
-  max-width: 400px;
 }
 
-/* Bottom rule — slides in on hover */
-.ps-card-rule {
+/* ── Bottom accent line — slides in on hover ── */
+.ps-card-accent {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 0;
   height: 0.5px;
+  width: 0;
   background: var(--ink-3);
-  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.ps-card:hover .ps-card-rule {
+.ps-card:hover .ps-card-accent {
   width: 100%;
 }
 
-/* ── Responsive ──────────────────────────────────── */
+/* ── Responsive ── */
 @media (max-width: 768px) {
   .ps-grid {
     grid-template-columns: 1fr;
   }
-
-  .ps-card {
-    padding: 32px 24px;
-  }
 }
 
-@media (max-width: 480px) {
-  .ps-title {
-    font-size: clamp(36px, 10vw, 52px);
-  }
-}
-
-/* ── Reduced motion ──────────────────────────────── */
+/* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
   .ps-card,
   .ps-card-img,
-  .ps-card-img-wrap,
-  .ps-card-rule {
+  .ps-card-img-wrap::after,
+  .ps-card-accent {
     transition: none !important;
   }
 }
