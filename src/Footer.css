@@ -1,0 +1,228 @@
+/* ─────────────────────────────────────────────────
+   Portfolio Footer · Dark Editorial · 2026
+   Mirrors Header.css design tokens & conventions
+   All classes namespaced pf-* — no global bleed
+───────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap');
+
+/* ── Tokens (identical to ph-* set) ─────────────── */
+.pf {
+  --bg:      #dfdfdf;
+  --border:  rgba(255, 255, 255, 0.07);
+  --ink:     #343434;
+  --ink-2:   rgba(48, 48, 48, 0.55);
+  --ink-3:   rgba(20, 20, 20, 0.28);
+  --green:   #4ade80;
+  --serif:   'Instrument Serif', Georgia, serif;
+  --sans:    'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+/* ── Shell ───────────────────────────────────────── */
+.pf {
+  position: relative;
+  background: var(--bg);
+  font-family: var(--sans);
+  overflow: hidden;
+  isolation: isolate;
+  padding: 0 clamp(28px, 7vw, 88px);
+}
+
+/* ── Spotlight ───────────────────────────────────── */
+.pf-spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+
+.pf-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  flex-shrink: 0;
+  animation: pf-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes pf-pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4); }
+  50%       { opacity: 0.6; box-shadow: 0 0 0 4px rgba(74, 222, 128, 0); }
+}
+
+.pf-loc {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* ── Main body ───────────────────────────────────── */
+.pf-body {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  column-gap: clamp(40px, 8vw, 120px);
+  padding: clamp(48px, 7vh, 80px) 0;
+  align-items: start;
+}
+
+/* ── Logo ────────────────────────────────────────── */
+.pf-brand {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.pf-logo {
+  height: 40px;
+  width: auto;
+  opacity: 0.75;
+  transition: opacity 0.2s;
+}
+
+.pf-logo:hover { opacity: 1; }
+
+/* ── Tagline ─────────────────────────────────────── */
+.pf-tagline {
+  grid-column: 1;
+  grid-row: 2;
+  margin: 20px 0 0;
+  font-family: var(--serif);
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.pf-tagline em {
+  font-style: italic;
+  color: var(--ink-2);
+}
+
+/* ── Columns ─────────────────────────────────────── */
+.pf-cols {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  display: flex;
+  gap: clamp(32px, 5vw, 72px);
+  align-self: start;
+  padding-top: 4px;
+}
+
+.pf-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pf-col-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* ── Links ───────────────────────────────────────── */
+.pf-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pf-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--ink-3);
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.pf-link svg {
+  width: 10px;
+  height: 10px;
+  opacity: 0;
+  transition: opacity 0.2s, transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.pf-link:hover {
+  color: var(--ink);
+}
+
+.pf-link:hover svg {
+  opacity: 1;
+  transform: translate(2px, -2px);
+}
+
+/* ── Bottom bar ──────────────────────────────────── */
+.pf-bottombar {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+  border-top: 0.5px solid var(--border);
+}
+
+.pf-copy,
+.pf-made {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--ink-3);
+}
+
+.pf-made em {
+  font-style: italic;
+  font-family: var(--serif);
+  color: var(--ink-2);
+}
+
+/* ── Mobile ──────────────────────────────────────── */
+@media (max-width: 640px) {
+  .pf-body {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  .pf-cols {
+    grid-column: 1;
+    grid-row: 3;
+    margin-top: 40px;
+  }
+
+  .pf-tagline {
+    font-size: clamp(24px, 8vw, 36px);
+  }
+
+  .pf-bottombar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
+
+/* ── Reduced motion ──────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .pf *, .pf *::before, .pf *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

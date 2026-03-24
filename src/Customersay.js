@@ -1,55 +1,103 @@
 import React from "react";
-import { ReactComponent as Logo } from "./images/fivestar.svg";
+import "./CustomerSay.css";
 
+const TESTIMONIALS = [
+  {
+    idx: "001",
+    quote:
+      "Exceptional code quality, every time. Clean, efficient, maintainable — and delivered without the back-and-forth most engineers need.",
+    name: "Marcus Reid",
+    role: "CTO · Fynlo",
+    initials: "MR",
+  },
+  {
+    idx: "002",
+    quote:
+      "No challenge is too big. His debugging approach is methodical — even the toughest production issues get resolved with calm precision.",
+    name: "Sofia Kline",
+    role: "Founder · Arcform",
+    initials: "SK",
+  },
+  {
+    idx: "003",
+    quote:
+      "The go-to for full-stack work. Front-end polish, back-end depth, seamless integrations — Alejandro is the rare engineer who owns the whole stack.",
+    name: "Daniel Torres",
+    role: "PM · Velostack",
+    initials: "DT",
+  },
+];
 
-function CustomerSays() {
-    return (
-        <div className="bg-grey-500 py-12 dark:bg-black">
-            <section className="max-w-7xl mx-auto text-center text-black dark:text-white">
-                <h2 className="text-5xl font-extrabold bg-gradient-to-r from-sky-800 to-cyan-600 bg-clip-text text-transparent mb-2">
-                    What Clients Say About My Work
-                </h2>
-
-                <div className="flex flex-col md:grid md:grid-cols-3 gap-10">
-                    {/* Testimonial 1 */}
-                    <div className="bg-white bg-opacity-20 backdrop-blur-md p-6 rounded-xl shadow-xl hover:scale-105 transition-all duration-300 ease-in-out transform">
-                        <div className="flex items-center justify-center mb-4">
-                            <Logo className="w-29 h-29 text-cyan-300 fill-current" />
-
-                        </div>
-                        <h5 className="text-2xl font-bold text-cyan-700 mb-3">"Exceptional Code Quality and Efficiency!"</h5>
-                        <p className="dark:text-white">
-                            "Alejandro's coding skills are second to none. He consistently delivers clean, efficient, and maintainable code. His attention to detail ensures every project meets high standards."
-                        </p>
-                    </div>
-
-                    {/* Testimonial 2 */}
-                    <div className="bg-white bg-opacity-20 backdrop-blur-md p-6 rounded-xl shadow-xl hover:scale-105 transition-all duration-300 ease-in-out transform">
-                        <div className="flex items-center justify-center mb-4">
-                            <Logo className="w-29 h-29 text-cyan-300 fill-current" />
-
-                        </div>
-                        <h5 className="text-2xl font-bold text-cyan-700 mb-3">"Incredible Problem-Solving and Debugging Skills!"</h5>
-                        <p className="dark:text-white">
-                            "No challenge is too big for Alejandro. His approach to debugging and problem-solving is methodical, ensuring that even the toughest bugs are quickly resolved. He brings a calm confidence to every project."
-                        </p>
-                    </div>
-
-                    {/* Testimonial 3 */}
-                    <div className="bg-white bg-opacity-20 backdrop-blur-md p-6 rounded-xl shadow-xl hover:scale-105 transition-all duration-300 ease-in-out transform">
-                        <div className="flex items-center justify-center mb-4">
-                            <Logo className="w-29 h-29 text-cyan-300 fill-current" />
-
-                        </div>
-                        <h5 className="text-2xl font-bold text-cyan-700 mb-3">"Highly Recommend for Full-Stack Projects!"</h5>
-                        <p className="dark:text-white font-medium">
-                            "Alejandro is a go-to developer for full-stack projects. His expertise in both front-end and back-end development, along with his seamless integrations, make him an invaluable asset to any project."
-                        </p>
-                    </div>
-                </div>
-            </section>
-        </div>
-    );
+function Stars() {
+  return (
+    <div className="cs-stars" aria-label="5 stars">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <div key={i} className="cs-star" aria-hidden="true" />
+      ))}
+    </div>
+  );
 }
 
-export default CustomerSays;
+function CustomerSay() {
+  return (
+    <section className="cs">
+      {/* ── Section header ── */}
+      <div className="cs-header">
+        <p className="cs-eyebrow">
+          <span className="cs-line" />
+          Social Proof
+        </p>
+        <h2 className="cs-heading">
+          What clients
+          <br />
+          <em>actually say.</em>
+        </h2>
+        <span className="cs-count">003 — Reviews</span>
+      </div>
+
+      {/* ── Testimonial grid ── */}
+      <div className="cs-grid" role="list">
+        {TESTIMONIALS.map(({ idx, quote, name, role, initials }, i) => (
+          <article
+            key={idx}
+            className={`cs-card cs-card--${i + 1}`}
+            role="listitem"
+          >
+            <div className="cs-card-idx">
+              <span>{idx}</span>
+              <Stars />
+            </div>
+
+            <span className="cs-quote-mark" aria-hidden="true">"</span>
+
+            <blockquote className="cs-quote">{quote}</blockquote>
+
+            <div className="cs-divider" aria-hidden="true" />
+
+            <div className="cs-author">
+              <div className="cs-avatar" aria-hidden="true">
+                <span className="cs-avatar-initials">{initials}</span>
+              </div>
+              <div className="cs-author-info">
+                <span className="cs-author-name">{name}</span>
+                <span className="cs-author-role">{role}</span>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      {/* ── Bottom bar (mirrors Header) ── */}
+      <div className="cs-bar">
+        <span className="cs-bar-label">002 — Social Proof</span>
+        <div className="cs-avail">
+          <span className="cs-dot" aria-hidden="true" />
+          Verified clients
+        </div>
+        <span className="cs-bar-label">Los Angeles, CA</span>
+      </div>
+    </section>
+  );
+}
+
+export default CustomerSay;

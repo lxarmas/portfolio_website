@@ -45,12 +45,7 @@ function Header() {
     <header className="ph" ref={headerRef}>
       <div className="ph-spotlight" ref={spotlightRef} aria-hidden="true" />
 
-      {/* Index mark */}
-      <div className="ph-index" aria-hidden="true">
-        <span>001</span>
-        <span>HERO</span>
-      </div>
-
+  
       {/* Main content */}
       <div className="ph-body">
         <p className="ph-eyebrow">
@@ -70,7 +65,7 @@ function Header() {
         </h1>
 
         <p className="ph-sub">
-          React · Node.js · AWS — architected end-to-end.
+          React · Node.js · Neon4js — architected end-to-end.
           <br />
           I build systems that scale and interfaces people remember.
         </p>
@@ -92,11 +87,9 @@ function Header() {
               <path d="M3 13L13 3M13 3H6M13 3V10"
                 stroke="currentColor" strokeWidth="1.25"
                 strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            </svg> 
           </button>
-          <a href="/resume.pdf" className="ph-btn-ghost" download>
-            Résumé
-          </a>
+         
         </div>
       </div>
 

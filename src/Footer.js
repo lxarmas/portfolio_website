@@ -1,105 +1,124 @@
-import React from "react";
-import alex_logo from "./images/logo.png"; // Main logo image
+import React, { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import alex_logo from "./images/logo.png";
+import "./Footer.css";
+
+const NAV_LINKS = [
+  { label: "Work",    href: "/work" },
+  { label: "About",   href: "/about" },
+  { label: "Contact", href: "/contact" },
+];
+
+const SOCIAL_LINKS = [
+  { label: "GitHub",   href: "https://github.com/" },
+  { label: "LinkedIn", href: "https://linkedin.com/in/" },
+  { label: "Email",    href: "mailto:hello@example.com" },
+];
 
 function Footer() {
-    const stampSize = 180; // size of each stamp in px
-    const rows = 8;        // rows of stamps
-    const cols = 12;       // columns of stamps
+  const navigate   = useNavigate();
+  const footerRef  = useRef(null);
+  const spotRef    = useRef(null);
 
-    return (
-        <footer
-            className="py-12 px-6 md:px-16 bg-white dark:bg-black text-gray-800 dark:text-gray-200 border-none relative overflow-hidden min-h-[400px]"
-        >
-            {/* Overlay to soften the pattern */}
-            <div className="absolute inset-0 bg-white dark:bg-black opacity-90 z-0"></div>
+  // Cursor spotlight — mirrors Header behaviour
+  useEffect(() => {
+    const footer = footerRef.current;
+    const spot   = spotRef.current;
+    if (!footer || !spot) return;
 
-            {/* Diamond pattern logo stamps in background */}
-            <div
-                className="absolute top-0 left-0 w-full h-full grid pointer-events-none z-0"
-                style={{
-                    gridTemplateColumns: `repeat(${cols}, ${stampSize}px)`,
-                    gridAutoRows: `${stampSize}px`,
-                }}
-            >
-                {[...Array( rows )].map( ( _, rowIndex ) =>
-                    [...Array( cols )].map( ( _, colIndex ) => {
-                        const isOddRow = rowIndex % 2 === 1;
-                        return (
-                            <img
-                                key={`${rowIndex}-${colIndex}`}
-                                src={alex_logo}
-                                alt="Logo Stamp"
-                                className="opacity-20"
-                                style={{
-                                    gridColumnStart: colIndex + 1,
-                                    gridRowStart: rowIndex + 1,
-                                    width: `${stampSize}px`,
-                                    height: `${stampSize}px`,
-                                    objectFit: "contain",
-                                    transform: isOddRow
-                                        ? `translateX(${stampSize / 2}px) rotate(45deg)`
-                                        : "rotate(45deg)",
-                                }}
-                            />
-                        );
-                    } )
-                )}
-            </div>
+    let raf;
+    let tx = window.innerWidth  / 2;
+    let ty = window.innerHeight / 2;
+    let cx = tx, cy = ty;
 
-            {/* Footer Content */}
-            <div className="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
-                {/* Logo */}
-                <div className="flex items-center gap-4">
-                    <img
-                        src={alex_logo}
-                        alt="Alex Logo"
-                        className="h-[120px] w-auto max-w-full"
-                    />
-                </div>
+    const onMove = (e) => {
+      const rect = footer.getBoundingClientRect();
+      tx = e.clientX - rect.left;
+      ty = e.clientY - rect.top;
+    };
 
-                {/* Contact Info */}
-                <div className="text-center md:text-left mt-6 md:mt-0">
-                    <h4 className="text-2xl font-extrabold bg-gradient-to-r from-sky-800 to-cyan-600 bg-clip-text text-transparent mb-2">
-                        Contact
-                    </h4>
-                    <p className="mt-2 text-sm">📞 <b>+646 875 7574</b></p>
-                    <p className="mt-1 text-sm">📧 <b>lxarmas@gmail.com</b></p>
-                </div>
+    const animate = () => {
+      cx += (tx - cx) * 0.07;
+      cy += (ty - cy) * 0.07;
+      spot.style.background = `radial-gradient(500px circle at ${cx}px ${cy}px, rgba(255,255,255,0.05) 0%, transparent 70%)`;
+      raf = requestAnimationFrame(animate);
+    };
 
-                {/* Social Media */}
-                {/* Social Media */}
-                <div className="text-center md:text-left mt-6 md:mt-0">
-                    <h4 className="text-2xl font-extrabold bg-gradient-to-r from-sky-800 to-cyan-600 bg-clip-text text-transparent mb-2">
-                        Follow Me
-                    </h4>
-                    <div className="flex justify-center md:justify-start gap-6 mt-3">
-                        <a
-                            href="https://www.instagram.com/westlaportraits/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-gray-700 dark:text-gray-400 transition-colors duration-300 hover:text-blue-600 dark:hover:text-blue-400"
-                        >
-                            Instagram
-                        </a>
-                        <a
-                            href="https://www.linkedin.com/in/alejandroarmas66/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-gray-700 dark:text-gray-400 transition-colors duration-300 hover:text-blue-600 dark:hover:text-blue-400"
-                        >
-                            LinkedIn
-                        </a>
-                    </div>
-                </div>
+    footer.addEventListener("mousemove", onMove);
+    raf = requestAnimationFrame(animate);
+    return () => {
+      footer.removeEventListener("mousemove", onMove);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
 
-            </div>
+  const year = new Date().getFullYear();
 
-            {/* Footer Bottom */}
-            <div className="relative z-10 text-center mt-10 text-sm text-gray-500 dark:text-gray-400">
-                © {new Date().getFullYear()} Alejandro Armas | All Rights Reserved.
-            </div>
-        </footer>
-    );
+  return (
+    <footer className="pf" ref={footerRef}>
+      {/* Spotlight */}
+      <div className="pf-spotlight" ref={spotRef} />
+
+      {/* Top divider bar */}
+    
+
+      {/* Main content */}
+      <div className="pf-body">
+       
+
+        {/* Tagline */}
+        <p className="pf-tagline">
+          Building things that <em>matter.</em>
+        </p>
+
+        {/* Nav + Social columns */}
+        <div className="pf-cols">
+          <div className="pf-col">
+            <span className="pf-col-label">Navigation</span>
+            <ul className="pf-links">
+              {NAV_LINKS.map(({ label, href }) => (
+                <li key={label}>
+                  <button
+                    className="pf-link"
+                    onClick={() => navigate(href)}
+                  >
+                    {label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="pf-col">
+            <span className="pf-col-label">Connect</span>
+            <ul className="pf-links">
+              {SOCIAL_LINKS.map(({ label, href }) => (
+                <li key={label}>
+                  <a
+                    className="pf-link"
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {label}
+                    <svg viewBox="0 0 10 10" fill="none" aria-hidden="true">
+                      <path d="M2 8L8 2M8 2H4M8 2v4" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="pf-bottombar">
+        <span className="pf-copy">© {year} · All rights reserved</span>
+        <span className="pf-made">Designed &amp; built by <em>Alejandro Armas</em></span>
+      </div>
+    </footer>
+  );
 }
 
 export default Footer;

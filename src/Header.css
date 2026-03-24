@@ -8,12 +8,12 @@
 
 /* ── Tokens ─────────────────────────────────────── */
 .ph {
-  --bg:        #e4e4e4;
-  --surface:   #9c9c9b;
+  --bg:        #d0d0d0;
+  --surface:   #181818;
   --border:    rgba(255, 255, 255, 0.07);
   --ink:       #343434;
   --ink-2:     rgba(48, 48, 48, 0.55);
-  --ink-3:     rgba(240, 237, 230, 0.28);
+  --ink-3:     rgba(50, 50, 50, 0.28);
   --accent:    #848484;
   --green:     #4ade80;
   --serif:     'Instrument Serif', Georgia, serif;
@@ -21,41 +21,54 @@
 }
 
 /* ── Shell ───────────────────────────────────────── */
+/* ── Shell ───────────────────────────────────────── */
 .ph {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-height: 100vh;
+  width: 100%;                    /* ← full bleed */
   background: var(--bg);
-  padding: clamp(60px, 10vh, 100px) clamp(28px, 7vw, 88px);
+  padding: clamp(40px, 10vh, 100px) 0;  /* ← no horizontal padding here */
   overflow: hidden;
   font-family: var(--sans);
   isolation: isolate;
 }
 
-/* ── Cursor spotlight ────────────────────────────── */
-.ph-spotlight {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-  /* initial position set by JS */
-  background: radial-gradient(600px circle at 50% 40%,
-    rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+/* ── All inner sections carry the side padding ───── */
+.ph-body {
+  position: relative;
+  z-index: 10;
+  max-width: 860px;
+  display: flex;
+  flex-direction: column;
+  padding-left:  clamp(28px, 7vw, 88px);   /* ← moved here */
+  padding-right: clamp(28px, 7vw, 88px);
 }
 
-/* ── Index mark (top-left corner label) ─────────── */
+/* ph-bar already has its own padding, so it's fine */
+.ph-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px clamp(28px, 7vw, 88px);   /* ← unchanged, already correct */
+  border-top: 0.5px solid var(--border);
+  opacity: 0;
+  animation: ph-fade 0.5s ease forwards 1.2s;
+}
+
+/* ph-index is absolute, so it positions itself correctly already */
 .ph-index {
   position: absolute;
   top: clamp(20px, 3vh, 36px);
-  left: clamp(28px, 7vw, 88px);
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  z-index: 10;
-  opacity: 0;
-  animation: ph-fade 0.4s ease forwards 1.4s;
+  left: clamp(28px, 7vw, 88px);   /* ← still fine, absolute positioning */
+  
 }
 
 .ph-index span {

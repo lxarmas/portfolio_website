@@ -3,7 +3,7 @@ import React from "react";
 import { useTheme } from "./context/ThemeContext"; // Import the custom hook
 import Header from "./Header";
 import PortfolioShowcase from "./PortfolioShowcase";
-import CustomerSays from "./Customersay";
+import CustomerSay from "./CustomerSay";
 import PersonalStory from "./PersonalStory";
 import { FaArrowUp } from "react-icons/fa";
 
@@ -22,7 +22,7 @@ function HomePage() {
       <div className="homepage-container">
         <Header />
         <PortfolioShowcase />
-        <CustomerSays />
+        <CustomerSay/>
         <PersonalStory />
       </div>
       <button className="scroll-to-top" onClick={scrollToTop}>
