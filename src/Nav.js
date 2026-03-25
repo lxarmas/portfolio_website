@@ -54,7 +54,7 @@ function Nav() {
         </Link>
 
         {/* CENTER — desktop nav links */}
-        <ul className="pn-links">
+        <ul >
           {LINKS.map(({ label, to }) => (
             <li key={to}>
               <Link
@@ -91,7 +91,7 @@ function Nav() {
 
       {/* Mobile drawer */}
       <div className="pn-drawer" aria-hidden={!menuOpen}>
-        <ul className="pn-drawer-list" role="list">
+        <ul>
           {LINKS.map(({ label, to }, i) => (
             <li key={to} style={{ '--i': i }}>
               <Link
