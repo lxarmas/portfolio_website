@@ -2,7 +2,7 @@ import React from "react";
 import Nav from "./Nav";
 import Main from "./Main";
 import Footer from "./Footer";
-import { ThemeProvider, useTheme } from "./context/ThemeContext";
+
 
 
 

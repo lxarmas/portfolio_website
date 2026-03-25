@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import alex_logo from "./images/logo.png";
+
 import "./Footer.css";
 
 const NAV_LINKS = [

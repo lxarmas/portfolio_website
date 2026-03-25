@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+
 import worthyreads   from "./images/worthyreads.png";
 import ninjagame     from "./images/visigraph.png";
 import sportsSupply  from "./images/deliberateBodyWork.png";

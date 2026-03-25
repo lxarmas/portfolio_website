@@ -54,7 +54,7 @@ function Nav() {
         </Link>
 
         {/* CENTER — desktop nav links */}
-        <ul className="pn-links" role="list">
+        <ul className="pn-links">
           {LINKS.map(({ label, to }) => (
             <li key={to}>
               <Link
