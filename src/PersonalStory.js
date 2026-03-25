@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import about from "./images/ale_headshot.png";
 import "./PersonalStory.css";
 
@@ -16,48 +16,75 @@ const STATS = [
 ];
 
 function PersonalStory() {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const animatedEls = section.querySelectorAll(".ps-animate");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("ps-animate--in");
+            observer.unobserve(entry.target); // fire once
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    animatedEls.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="ps">
-    {/* ── Two-column layout ── */}
+    <section className="ps" ref={sectionRef}>
+
+      {/* ── Two-column layout ── */}
       <div className="ps-layout">
 
         {/* LEFT — narrative */}
         <div className="ps-left">
-  <h2 className="ps-heading">
-  Why I am{" "}
-  <em>here.</em>
-</h2>
-          <div className="ps-chapter">
+
+          <h2 className="ps-heading ps-animate">
+            Why I am <em>here.</em>
+          </h2>
+
+          <div className="ps-chapter ps-animate" style={{ "--delay": "0.1s" }}>
             <span className="ps-chapter-num">Act I — The Lens</span>
             <span className="ps-chapter-tick" aria-hidden="true" />
           </div>
 
-          <p className="ps-body ps-body--1">
+          <p className="ps-body ps-body--1 ps-animate" style={{ "--delay": "0.2s" }}>
             Alejandro Armas spent fifteen years behind a camera, building a
             commercial photography practice that taught him composition, light,
             and the discipline of making something beautiful under pressure.
           </p>
 
-          <p className="ps-body ps-body--2">
+          <p className="ps-body ps-body--2 ps-animate" style={{ "--delay": "0.3s" }}>
             When the pandemic halted everything, he didn't stop — he pivoted.
             Coding became the next craft: the same instinct for structure, now
             expressed in systems and interfaces that ship.
           </p>
 
-          <blockquote className="ps-pull">
+          <blockquote className="ps-pull ps-animate" style={{ "--delay": "0.4s" }}>
             "Technology, art, and commerce — I've always been at the
             intersection. I just changed the tool."
           </blockquote>
 
-          <div className="ps-tags">
+          <div className="ps-tags ps-animate" style={{ "--delay": "0.5s" }}>
             {TAGS.map((t) => (
               <span key={t} className="ps-tag">{t}</span>
             ))}
           </div>
+
         </div>
 
         {/* RIGHT — photo + stats */}
-        <div className="ps-right">
+        <div className="ps-right ps-animate" style={{ "--delay": "0.15s" }}>
           <div className="ps-img-frame">
             <img
               src={about}
@@ -82,8 +109,8 @@ function PersonalStory() {
 
       </div>
 
-      {/* ── Bottom bar (mirrors Header + CustomerSay) ── */}
-      <div className="ps-bar">
+      {/* ── Bottom bar ── */}
+      <div className="ps-bar ps-animate" style={{ "--delay": "0.6s" }}>
         <span className="ps-bar-label">003 — Personal</span>
         <div className="ps-avail">
           <span className="ps-dot" aria-hidden="true" />
