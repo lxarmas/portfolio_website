@@ -28,7 +28,8 @@ const updateTimes = (state, action) => {
 
 function Main() {
   const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
-  const { isDarkMode } = useTheme(); // Using context hook
+const { isDarkMode } = useTheme() || { isDarkMode: false };
+
 
   return (
     <main
