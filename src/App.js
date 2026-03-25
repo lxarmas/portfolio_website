@@ -3,20 +3,14 @@ import Nav from "./Nav";
 import Main from "./Main";
 import Footer from "./Footer";
 
-
-
-
 const App = () => {
   return (
-    <ThemeProvider>
-      <div className="App">
-        <Nav/>
-        <Main />
-        <Footer />
- 
-      </div>
-    </ThemeProvider>
+    <div className="App">
+      <Nav />
+      <Main />
+      <Footer />
+    </div>
   );
 };
 
-export default App
+export default App;
