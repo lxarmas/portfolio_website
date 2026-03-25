@@ -62,10 +62,7 @@ function PortfolioShowcase() {
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
-        <p className="ps-eyebrow">
-          <span className="ps-rule" />
-          Skills &amp; Expertise
-        </p>
+      
         <h2 className="ps-title">
           What I bring<br />to the <em>table.</em>
         </h2>

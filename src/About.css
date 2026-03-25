@@ -7,10 +7,10 @@
 /* ── Tokens ─────────────────────────────────────── */
 .pa {
   --bg:     #e4e4e4;
-  --border: rgba(255, 255, 255, 0.07);
+  --border: rgba(52, 52, 52, 0.15);
   --ink:    #343434;
   --ink-2:  rgba(48, 48, 48, 0.55);
-  --ink-3:  rgba(240, 237, 230, 0.28);
+  --ink-3:  rgba(48, 48, 48, 0.38);
   --green:  #4ade80;
   --serif:  'Instrument Serif', Georgia, serif;
   --sans:   'Plus Jakarta Sans', system-ui, sans-serif;
@@ -254,7 +254,7 @@
   margin-bottom: 14px;
 }
 
-/* ── Stack chips (mirrors ph-chip) ───────────────── */
+/* ── Stack chips ─────────────────────────────────── */
 .pa-stack {
   display: flex;
   flex-wrap: wrap;
@@ -268,19 +268,19 @@
   font-size: 11px;
   font-weight: 400;
   letter-spacing: 0.06em;
-  color: var(--ink-3);
-  border: 0.5px solid var(--border);
+  color: var(--ink-2);
+  border: 0.5px solid rgba(52, 52, 52, 0.2);
   border-radius: 100px;
   padding: 4px 12px;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(52, 52, 52, 0.05);
   cursor: default;
   transition: color 0.2s, border-color 0.2s, background 0.2s;
 }
 
 .pa-chip:hover {
   color: var(--ink);
-  border-color: rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(52, 52, 52, 0.4);
+  background: rgba(52, 52, 52, 0.09);
 }
 
 /* ── Bottom bar ──────────────────────────────────── */

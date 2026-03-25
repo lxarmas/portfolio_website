@@ -18,22 +18,15 @@ const STATS = [
 function PersonalStory() {
   return (
     <section className="ps">
-
-      {/* ── Eyebrow ── */}
-      <p className="ps-eyebrow">
-        <span className="ps-line" />
-        The Origin
-      </p>
-
-      {/* ── Two-column layout ── */}
+    {/* ── Two-column layout ── */}
       <div className="ps-layout">
 
         {/* LEFT — narrative */}
         <div className="ps-left">
-          <h2 className="ps-heading">
-            Why I<br />am <em>here.</em>
-          </h2>
-
+  <h2 className="ps-heading">
+  Why I am{" "}
+  <em>here.</em>
+</h2>
           <div className="ps-chapter">
             <span className="ps-chapter-num">Act I — The Lens</span>
             <span className="ps-chapter-tick" aria-hidden="true" />

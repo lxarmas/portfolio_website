@@ -53,13 +53,6 @@ function About() {
     <section className="pa" ref={sectionRef}>
       {/* Spotlight */}
       <div className="pa-spotlight" ref={spotRef} />
-
-      {/* Index mark */}
-      <div className="pa-index">
-        <span>02</span>
-        <span>About</span>
-      </div>
-
       <div className="pa-body">
 
         {/* Left col — text */}
@@ -117,14 +110,7 @@ function About() {
         </div>
       </div>
 
-      {/* Bottom bar */}
-      <div className="pa-bar">
-        <span className="pa-avail">
-          <span className="pa-dot" />
-          Open to opportunities
-        </span>
-        <span className="pa-loc">Los Angeles, CA</span>
-      </div>
+     
     </section>
   );
 }
