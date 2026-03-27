@@ -120,13 +120,7 @@ function Header() {
                 />
               </svg>
             </button>
-            <button
-              type="button"
-              className="ph-btn-ghost"
-              onClick={() => navigate("/contact")}
-            >
-              Get in touch
-            </button>
+          
           </div>
         </div>
 
