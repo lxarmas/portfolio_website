@@ -62,13 +62,13 @@ function PersonalStory() {
             Alejandro Armas spent fifteen years behind a camera, building a
             commercial photography practice that taught him composition, light,
             and the discipline of making something beautiful under pressure.
-          </p>
-
-          <p className="ps-body ps-body--2 ps-animate" style={{ "--delay": "0.3s" }}>
             When the pandemic halted everything, he didn't stop — he pivoted.
             Coding became the next craft: the same instinct for structure, now
             expressed in systems and interfaces that ship.
           </p>
+
+       
+       
 
           <blockquote className="ps-pull ps-animate" style={{ "--delay": "0.4s" }}>
             "Technology, art, and commerce — I've always been at the
