@@ -9,6 +9,7 @@ const App = () => {
     <ThemeProvider>
       <div className="App">
         <Nav />
+       
         <Main />
         <Footer />
       </div>

@@ -1,216 +1,258 @@
-/* ─────────────────────────────────────────────────
-   Portfolio Nav  ·  Dark Editorial  ·  2026
-   Single-row · 3-col grid: logo | links | actions
-   Tokens mirror ph-* / cs-* / ps-* system
-   Namespace: pn-*  — no global bleed
-   ───────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap');
+/* ─────────────────────────────────────────────────────────────────────────────
+   Nav · Continuous Minimal · 2026
+   Strategy: single sticky bar — no reflows on scroll.
+   All motion on transform/opacity (compositor thread only).
+   Ink-line slides between links via CSS custom-property offset.
+   ───────────────────────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
 
-/* ── Tokens ── */
+/* ── Design tokens ─────────────────────────────────────────────────────────── */
 .pn {
-  --bg:        #e4e4e4;
-  --bg-scroll: rgba(228, 228, 228, 0.94);
-  --border:    rgba(52, 52, 52, 0.10);
-  --border-hi: rgba(52, 52, 52, 0.20);
-  --ink:       #343434;
-  --ink-2:     rgba(48, 48, 48, 0.50);
-  --ink-3:     rgba(48, 48, 48, 0.28);
-  --green:     #4ade80;
-  --serif:     'Instrument Serif', Georgia, serif;
-  --sans:      'Plus Jakarta Sans', system-ui, sans-serif;
+  /* palette */
+  --c-bg:      #EBEBEB;
+  --c-glass:   rgba(235, 235, 235, 0.82);
+  --c-ink:     #1A1A1A;
+  --c-mid:     rgba(26, 26, 26, 0.38);
+  --c-faint:   rgba(26, 26, 26, 0.10);
+  --c-green:   #3ECF6E;
 
+  /* type */
+  --f-serif:   'Cormorant', Georgia, serif;
+  --f-sans:    'DM Sans', system-ui, sans-serif;
+
+  /* geometry */
+  --h-bar:     58px;
+  --r-pill:    100px;
+  --pad-x:     clamp(24px, 5.5vw, 80px);
+
+  /* easing */
+  --ease-out:  cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in:   cubic-bezier(0.7, 0, 0.84, 0);
+
+  /* ── layout ── */
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 900;
   width: 100%;
-  background: var(--bg);
-  font-family: var(--sans);
-  border-bottom: 0.5px solid var(--border);
-  transition: background 0.35s ease, border-color 0.35s ease;
+  font-family: var(--f-sans);
+
+  /* paint only — no layout properties changed later */
+  will-change: backdrop-filter;
 }
 
-/* Frosted glass on scroll */
-.pn--scrolled {
-  background: var(--bg-scroll);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-color: var(--border-hi);
+/* ── Bar surface ─────────────────────────────────────────────────────────────
+   background + border live on a separate ::before pseudo so they can
+   transition without triggering layout on the flex children.            */
+.pn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--c-bg);
+  border-bottom: 0.5px solid var(--c-faint);
+  transition:
+    background      0.5s var(--ease-out),
+    border-color    0.5s var(--ease-out),
+    backdrop-filter 0.5s var(--ease-out);
+  pointer-events: none;
 }
 
-/* ── Single inner row — 3-column grid ── */
+.pn--scrolled::before {
+  background: var(--c-glass);
+  backdrop-filter: blur(22px) saturate(1.6);
+  -webkit-backdrop-filter: blur(22px) saturate(1.6);
+  border-color: rgba(26, 26, 26, 0.14);
+}
+
+/* ── Inner row ──────────────────────────────────────────────────────────────── */
 .pn-inner {
-  height: 64px;
-  max-width: 1400px;
+  position: relative;          /* above ::before */
+  height: var(--h-bar);
+  max-width: 1360px;
   margin: 0 auto;
+  padding: 0 var(--pad-x);
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  padding: 0 clamp(28px, 7vw, 88px);
 }
 
-/* ── LEFT — logo ── */
+/* ── Logo ───────────────────────────────────────────────────────────────────── */
 .pn-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 9px;
   text-decoration: none;
+  /* enter: slides up from 8px */
   opacity: 0;
-  animation: pn-fade 0.5s ease forwards 0.05s;
+  transform: translateY(8px);
+  animation: pn-enter 0.6s var(--ease-out) 0.05s forwards;
 }
 
-/* Placeholder box — replace contents with <img src={logo} alt="..." /> */
-.pn-logo-img {
-  width: 32px;
-  height: 32px;
-  border-radius: 4px;
-  background: var(--ink);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.pn-logo-mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 3px;
+  background: var(--c-ink);
+  display: grid;
+  place-items: center;
   flex-shrink: 0;
-  transition: opacity 0.2s;
+  transition: transform 0.35s var(--ease-out);
 }
 
-.pn-logo:hover .pn-logo-img { opacity: 0.75; }
+.pn-logo:hover .pn-logo-mark {
+  transform: rotate(-8deg) scale(1.06);
+}
 
-/* When using real logo.png instead of the placeholder div:
-   .pn-logo img {
-     height: 32px;
-     width: auto;
-     display: block;
-     mix-blend-mode: multiply;   <- removes white PNG background on light surface
-   }
-*/
-
-.pn-logo-img span {
-  font-size: 9px;
+.pn-logo-mark span {
+  font-family: var(--f-sans);
+  font-size: 8px;
   font-weight: 500;
-  letter-spacing: 0.08em;
-  color: var(--bg);
+  letter-spacing: 0.1em;
+  color: var(--c-bg);
   text-transform: uppercase;
+  line-height: 1;
 }
 
 .pn-logo-name {
-  font-family: var(--serif);
+  font-family: var(--f-serif);
   font-style: italic;
-  font-size: 17px;
-  color: var(--ink);
-  letter-spacing: -0.01em;
+  font-weight: 300;
+  font-size: 18px;
+  letter-spacing: 0.01em;
+  color: var(--c-ink);
   line-height: 1;
   transition: color 0.2s;
 }
 
-.pn-logo:hover .pn-logo-name { color: var(--ink-2); }
+.pn-logo:hover .pn-logo-name { color: var(--c-mid); }
 
-/* ── CENTER — nav links ── */
+/* ── Desktop links + continuous ink line ─────────────────────────────────────
+   The "active line" is a single ::after on .pn-links that slides
+   between items using transform: translateX(). No per-link pseudo trick.
+   JS writes --line-left / --line-w to pn-links style.               */
 .pn-links {
   display: flex;
   align-items: center;
   list-style: none;
-  opacity: 0;
-  animation: pn-fade 0.5s ease forwards 0.18s;
-}
-
-.pn-link {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  text-decoration: none;
-  padding: 6px 20px;
+  margin: 0;
+  padding: 0;
   position: relative;
-  transition: color 0.2s;
-  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(8px);
+  animation: pn-enter 0.6s var(--ease-out) 0.15s forwards;
 }
 
-/* Vertical divider between links */
-.pn-link + .pn-link::before {
+/* The sliding ink underline — compositor-only (transform) */
+.pn-line {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  height: 0.5px;
+  background: var(--c-ink);
+  /* JS sets width + transform via inline style */
+  transform: translateX(var(--line-x, 0px));
+  width: var(--line-w, 0px);
+  transition:
+    transform 0.42s var(--ease-out),
+    width     0.42s var(--ease-out),
+    opacity   0.25s ease;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.pn-links:has(.pn-link--active) .pn-line,
+.pn-links:hover .pn-line { opacity: 1; }
+
+/* individual link */
+.pn-link {
+  font-size: 10.5px;
+  font-weight: 400;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  color: var(--c-mid);
+  text-decoration: none;
+  padding: 6px 18px;
+  white-space: nowrap;
+  transition: color 0.2s;
+  position: relative;
+}
+
+/* hairline divider — pseudo on the list item wrapper */
+.pn-links li + li .pn-link::before {
   content: '';
   position: absolute;
   left: 0;
   top: 50%;
   transform: translateY(-50%);
   width: 0.5px;
-  height: 10px;
-  background: var(--border);
+  height: 9px;
+  background: var(--c-faint);
 }
 
-/* Underline grows from center */
-.pn-link::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0.5px;
-  background: var(--ink);
-  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
+.pn-link:hover,
+.pn-link--active { color: var(--c-ink); }
 
-.pn-link:hover        { color: var(--ink); }
-.pn-link:hover::after { width: calc(100% - 40px); }
-
-.pn-link--active        { color: var(--ink); }
-.pn-link--active::after { width: calc(100% - 40px); }
-
-/* ── RIGHT — status + CTA ── */
+/* ── Right side ─────────────────────────────────────────────────────────────── */
 .pn-right {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 20px;
+  gap: 18px;
   opacity: 0;
-  animation: pn-fade 0.5s ease forwards 0.28s;
+  transform: translateY(8px);
+  animation: pn-enter 0.6s var(--ease-out) 0.25s forwards;
 }
 
-/* Status pill — mirrors .ph-avail / .cs-avail */
+/* Availability pill */
 .pn-status {
   display: flex;
   align-items: center;
-  gap: 7px;
-  font-size: 11px;
+  gap: 6px;
+  font-size: 10px;
   font-weight: 400;
-  letter-spacing: 0.10em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: var(--ink-3);
+  color: var(--c-mid);
+  white-space: nowrap;
+  cursor: default;
+  user-select: none;
 }
 
-/* Green dot — mirrors .ph-dot exactly */
 .pn-dot {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  background: var(--green);
+  background: var(--c-green);
   flex-shrink: 0;
-  animation: pn-pulse 2.4s ease-in-out infinite;
+  animation: pn-pulse 2.8s ease-in-out infinite;
 }
 
-/* CTA — mirrors .ph-btn-primary */
+/* CTA — magnetic hover handled in JS */
 .pn-cta {
-  font-family: var(--sans);
-  font-size: 11px;
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--f-sans);
+  font-size: 10.5px;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--bg);
-  background: var(--ink);
+  color: var(--c-bg);
+  background: var(--c-ink);
   border: none;
-  border-radius: 100px;
+  border-radius: var(--r-pill);
   padding: 8px 20px;
   cursor: pointer;
   text-decoration: none;
-  transition: opacity 0.2s, transform 0.2s;
   white-space: nowrap;
+  /* GPU layer for magnetic effect */
+  will-change: transform;
+  transition:
+    transform  0.4s var(--ease-out),
+    opacity    0.2s ease;
 }
 
-.pn-cta:hover {
-  opacity: 0.75;
-  transform: translateY(-1px);
-}
+.pn-cta:hover { opacity: 0.80; }
 
-/* ── Mobile toggle ── */
+/* ── Mobile toggle ──────────────────────────────────────────────────────────── */
 .pn-toggle {
   display: none;
   flex-direction: column;
@@ -229,88 +271,115 @@
   display: block;
   width: 100%;
   height: 0.5px;
-  background: var(--ink-2);
+  background: var(--c-mid);
   border-radius: 1px;
   transform-origin: center;
-  transition: transform 0.25s ease, background 0.2s;
+  transition: transform 0.3s var(--ease-out), opacity 0.2s;
 }
 
-.pn-toggle:hover .pn-bar { background: var(--ink); }
+.pn-toggle:hover .pn-bar { background: var(--c-ink); }
 
-.pn--open .pn-bar:nth-child(1) { transform: translateY(2.5px)  rotate(45deg);  }
-.pn--open .pn-bar:nth-child(2) { transform: translateY(-2.5px) rotate(-45deg); }
+/* X morph */
+.pn--open .pn-bar:nth-child(1) { transform: translateY(2.75px) rotate(45deg);  }
+.pn--open .pn-bar:nth-child(2) { transform: translateY(-2.75px) rotate(-45deg); }
 
-/* ── Mobile drawer ── */
+/* ── Mobile drawer ──────────────────────────────────────────────────────────── */
 .pn-drawer {
   display: none;
   overflow: hidden;
   max-height: 0;
-  transition: max-height 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: max-height 0.45s var(--ease-out);
+  /* frosted underside */
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
 }
 
-.pn--open .pn-drawer { max-height: 360px; }
+.pn--open .pn-drawer { max-height: 400px; }
 
 .pn-drawer-list {
   list-style: none;
-  padding: 8px clamp(28px, 7vw, 88px) 20px;
+  margin: 0;
+  padding: 6px var(--pad-x) 22px;
 }
 
 .pn-drawer-list li {
   opacity: 0;
-  transform: translateY(6px);
+  transform: translateX(-10px);
   transition:
-    opacity   0.26s ease calc(var(--i, 0) * 0.055s + 0.06s),
-    transform 0.26s ease calc(var(--i, 0) * 0.055s + 0.06s);
+    opacity    0.3s var(--ease-out) calc(var(--i, 0) * 0.06s + 0.04s),
+    transform  0.3s var(--ease-out) calc(var(--i, 0) * 0.06s + 0.04s);
 }
 
 .pn--open .pn-drawer-list li {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0);
 }
 
 .pn-drawer-link {
-  display: block;
-  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
   font-weight: 300;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ink-2);
+  color: var(--c-mid);
   text-decoration: none;
-  padding: 13px 0;
-  border-bottom: 0.5px solid var(--border);
-  transition: color 0.2s;
+  padding: 14px 0;
+  border-bottom: 0.5px solid var(--c-faint);
+  transition: color 0.2s, padding-left 0.25s var(--ease-out);
 }
 
 .pn-drawer-list li:last-child .pn-drawer-link { border-bottom: none; }
-.pn-drawer-link:hover,
-.pn-drawer-link.active         { color: var(--ink); }
-.pn-drawer-link--cta           { color: var(--ink); font-weight: 500; }
 
-/* ── Responsive ── */
+.pn-drawer-link:hover,
+.pn-drawer-link.active {
+  color: var(--c-ink);
+  padding-left: 6px;
+}
+
+.pn-drawer-link--cta { color: var(--c-ink); font-weight: 500; }
+
+.pn-drawer-arrow {
+  font-size: 10px;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.2s, transform 0.25s var(--ease-out);
+}
+
+.pn-drawer-link:hover .pn-drawer-arrow,
+.pn-drawer-link--cta .pn-drawer-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .pn-inner {
     grid-template-columns: 1fr auto;
   }
-
   .pn-links,
-  .pn-right  { display: none; }
-  .pn-toggle { display: flex; }
-  .pn-drawer { display: block; }
+  .pn-status  { display: none; }
+  .pn-right   { gap: 10px; }
+  .pn-toggle  { display: flex; }
+  .pn-drawer  { display: block; }
 }
 
-/* ── Keyframes ── */
-@keyframes pn-fade { to { opacity: 1; } }
+/* ── Keyframes ──────────────────────────────────────────────────────────────── */
+@keyframes pn-enter {
+  to { opacity: 1; transform: translateY(0); }
+}
 
 @keyframes pn-pulse {
-  0%, 100% { opacity: 1;   box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4); }
-  50%       { opacity: 0.6; box-shadow: 0 0 0 4px rgba(74, 222, 128, 0); }
+  0%, 100% { opacity: 1;   transform: scale(1);    box-shadow: 0 0 0 0   rgba(62,207,110,0.5); }
+  50%       { opacity: 0.7; transform: scale(0.85); box-shadow: 0 0 0 4px rgba(62,207,110,0);   }
 }
 
-/* ── Reduced motion ── */
+/* ── Reduced motion ─────────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .pn *, .pn *::before, .pn *::after {
-    animation-duration: 0.01ms !important;
-    animation-delay:    0.01ms !important;
-    transition-duration: 0.01ms !important;
+    animation-duration:    0.01ms !important;
+    animation-delay:       0.01ms !important;
+    transition-duration:   0.01ms !important;
   }
 }

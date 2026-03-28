@@ -1,7 +1,7 @@
 // src/Main.js
 import React, { useReducer } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { useTheme } from './context/ThemeContext';
+
 
 
 import HomePage from './HomePage';
@@ -28,14 +28,12 @@ const updateTimes = (state, action) => {
 
 function Main() {
   const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
-const { isDarkMode } = useTheme() || { isDarkMode: false };
+
 
 
   return (
     <main
-      className={`min-h-screen transition-colors duration-300 ${
-        isDarkMode ? 'bg-black text-white' : 'bg-white text-black'
-      }`}
+      
     >
  
 

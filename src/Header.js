@@ -8,6 +8,7 @@ const SKILLS = [
     name: "Frontend Engineering",
     desc: "Pixel-precise UIs with fluid motion and zero layout debt.",
     tags: ["React", "TypeScript", "Tailwind", "Framer Motion"],
+    href:"/photography"
   },
   {
     icon: "◈",

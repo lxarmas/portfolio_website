@@ -57,56 +57,68 @@ const Arrow = memo(() => (
   </svg>
 ));
 
-/* ── Tagline animation hook ──────────────────────────────────────────────── */
+/* ── Tagline animation hook — fires on scroll into view ─────────────────── */
 function useTaglineAnim(taglineRef, underRef) {
   const timerIds = useRef([]);
 
   useEffect(() => {
-    const ids = timerIds.current;
+    const ids  = timerIds.current;
     const root = taglineRef.current;
     if (!root) return;
 
-    const words = root.querySelectorAll('.pf-tagline-word');
-    const emEl  = root.querySelector('.pf-tagline-em');
-    const under = underRef.current;
+    function runAnimation() {
+      const words = root.querySelectorAll('.pf-tagline-word');
+      const emEl  = root.querySelector('.pf-tagline-em');
+      const under = underRef.current;
 
-    const schedule = (fn, ms) => {
-      const id = setTimeout(fn, ms);
-      ids.push(id);
-    };
+      const schedule = (fn, ms) => { const id = setTimeout(fn, ms); ids.push(id); };
 
-    /* double-rAF: guarantee styles commit before transitions fire */
-    const r1 = requestAnimationFrame(() => {
-      const r2 = requestAnimationFrame(() => {
+      /* double-rAF: guarantee styles commit before transitions fire */
+      const r1 = requestAnimationFrame(() => {
+        const r2 = requestAnimationFrame(() => {
 
-        words.forEach((w, i) => {
+          words.forEach((w, i) => {
+            schedule(() => {
+              w.style.transition = `transform 0.7s ${EASE}, opacity 0.6s ease`;
+              w.style.opacity    = '1';
+              w.style.transform  = 'translateY(0)';
+            }, BASE_DELAY + i * STAGGER);
+          });
+
+          const emDelay = BASE_DELAY + words.length * STAGGER;
+
           schedule(() => {
-            w.style.transition = `transform 0.7s ${EASE}, opacity 0.6s ease`;
-            w.style.opacity    = '1';
-            w.style.transform  = 'translateY(0)';
-          }, BASE_DELAY + i * STAGGER);
+            if (!emEl) return;
+            emEl.style.transition = `transform 0.7s ${EASE}, opacity 0.6s ease`;
+            emEl.style.opacity    = '1';
+            emEl.style.transform  = 'translateY(0)';
+          }, emDelay);
+
+          schedule(() => {
+            under?.classList.add('pf-tagline-under--drawn');
+          }, emDelay + 120);
         });
-
-        const emDelay = BASE_DELAY + words.length * STAGGER;
-
-        schedule(() => {
-          if (!emEl) return;
-          emEl.style.transition = `transform 0.7s ${EASE}, opacity 0.6s ease`;
-          emEl.style.opacity    = '1';
-          emEl.style.transform  = 'translateY(0)';
-        }, emDelay);
-
-        schedule(() => {
-          under?.classList.add('pf-tagline-under--drawn');
-        }, emDelay + 120);
+        ids.push(r2);
       });
-      ids.push(r2);
-    });
-    ids.push(r1);
+      ids.push(r1);
+    }
 
-    return () => ids.forEach(id =>
-      id < 1e6 ? cancelAnimationFrame(id) : clearTimeout(id)
+    /* Fire once when ≥20% of the footer enters the viewport */
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        observer.disconnect();   // run once only
+        runAnimation();
+      },
+      { threshold: 0.2 }
     );
+
+    observer.observe(root);
+
+    return () => {
+      observer.disconnect();
+      ids.forEach(id => id < 1e6 ? cancelAnimationFrame(id) : clearTimeout(id));
+    };
   }, [taglineRef, underRef]);
 }
 
