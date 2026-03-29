@@ -88,18 +88,18 @@ function Header() {
           </p>
 
           <h1 className="ph-title">
-            <span className="ph-word ph-word--1">Code</span>
+            <span className="ph-word ph-word--1">From</span>
             <span className="ph-word ph-word--2">
-              that <em>ships.</em>
+               <em>concept.</em>
             </span>
-            <span className="ph-word ph-word--3">Design</span>
+            <span className="ph-word ph-word--3">To deployed</span>
             <span className="ph-word ph-word--4">
-              that <em>lands.</em>
+             <em>fast.</em>
             </span>
           </h1>
 
           <p className="ph-sub">
-            React · Node.js · Neo4j — architected end-to-end.
+          Architect end-to-end.
             <br />
             I build systems that scale and interfaces people remember.
           </p>

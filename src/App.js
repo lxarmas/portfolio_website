@@ -2,6 +2,7 @@ import React from "react";
 import Nav from "./Nav";
 import Main from "./Main";
 import Footer from "./Footer";
+
 import { ThemeProvider } from "./context/ThemeContext";
 
 const App = () => {
@@ -9,7 +10,6 @@ const App = () => {
     <ThemeProvider>
       <div className="App">
         <Nav />
-       
         <Main />
         <Footer />
       </div>

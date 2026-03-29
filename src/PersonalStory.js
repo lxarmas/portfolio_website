@@ -91,33 +91,23 @@ function PersonalStory() {
               alt="Alejandro Armas — photographer turned engineer"
               className="ps-img"
             />
-            <div className="ps-img-label" aria-hidden="true">
-              <span>002</span>
-              <span>Portrait</span>
-            </div>
+            
           </div>
+           
 
-          <div className="ps-stats">
+           <div className="ps-stats">
             {STATS.map(({ val, label }) => (
               <div key={label} className="ps-stat">
                 <span className="ps-stat-val">{val}</span>
                 <span className="ps-stat-label">{label}</span>
               </div>
             ))}
-          </div>
+          </div> 
         </div>
 
       </div>
 
-      {/* ── Bottom bar ── */}
-      <div className="ps-bar ps-animate" style={{ "--delay": "0.6s" }}>
-        <span className="ps-bar-label">003 — Personal</span>
-        <div className="ps-avail">
-          <span className="ps-dot" aria-hidden="true" />
-          Open to offers
-        </div>
-        <span className="ps-bar-label">Los Angeles, CA</span>
-      </div>
+   
 
     </section>
   );
