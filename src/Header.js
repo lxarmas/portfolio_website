@@ -1,176 +1,170 @@
-import React, { useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
-import "./Header.css";
+import React from 'react';
+import './Header.css';
 
-const SKILLS = [
-  {
-    icon: "⬡",
-    name: "Frontend Engineering",
-    desc: "Pixel-precise UIs with fluid motion and zero layout debt.",
-    tags: ["React", "TypeScript", "Tailwind", "Framer Motion"],
-    href:"/photography"
-  },
-  {
-    icon: "◈",
-    name: "Backend & APIs",
-    desc: "Scalable REST & GraphQL services built to handle real load.",
-    tags: ["Node.js", "GraphQL", "PostgreSQL", "Redis"],
-  },
-  {
-    icon: "△",
-    name: "Cloud & Infrastructure",
-    desc: "CI/CD pipelines, serverless functions, and container deployments.",
-    tags: ["AWS", "Docker", "GitHub Actions", "Terraform"],
-  },
-  {
-    icon: "◎",
-    name: "Available for Projects",
-    desc: "Open to freelance, contracts, and full-time roles.",
-    tags: ["Remote-first", "Fast turnaround"],
-    available: true,
-  },
+const tickerItems = [
+  'Available for work',
+  'Full-stack engineer',
+  'Portrait photographer',
+  'Based in Los Angeles',
+  'Remote friendly',
+  'React • Node • PostgreSQL',
 ];
 
-function Header() {
-  const navigate = useNavigate();
-  const spotlightRef = useRef(null);
-  const headerRef = useRef(null);
-
-  useEffect(() => {
-    const header = headerRef.current;
-    const spotlight = spotlightRef.current;
-    if (!header || !spotlight) return;
-
-    let raf;
-    let tx = window.innerWidth / 2;
-    let ty = window.innerHeight / 2;
-    let cx = tx;
-    let cy = ty;
-
-    const onMove = (e) => {
-      const rect = header.getBoundingClientRect();
-      tx = e.clientX - rect.left;
-      ty = e.clientY - rect.top;
-    };
-
-    const animate = () => {
-      cx += (tx - cx) * 0.07;
-      cy += (ty - cy) * 0.07;
-      spotlight.style.background = `radial-gradient(700px circle at ${cx}px ${cy}px, rgba(255,255,255,0.07) 0%, transparent 70%)`;
-      raf = requestAnimationFrame(animate);
-    };
-
-    header.addEventListener("mousemove", onMove);
-    raf = requestAnimationFrame(animate);
-    return () => {
-      header.removeEventListener("mousemove", onMove);
-      cancelAnimationFrame(raf);
-    };
-  }, []);
-
+function TickerGroup({ ariaHidden = false }) {
   return (
-    <header className="ph" ref={headerRef}>
-      <div className="ph-spotlight" ref={spotlightRef} aria-hidden="true" />
+    <div className="ph-ticker-group" aria-hidden={ariaHidden}>
+      {tickerItems.map((item, index) => (
+        <React.Fragment key={`${item}-${index}`}>
+          <span className="ph-ticker-item">
+            {index === 0 && <span className="ph-dot" aria-hidden="true" />}
+            {item}
+          </span>
+          {index !== tickerItems.length - 1 && (
+            <span className="ph-ticker-sep" aria-hidden="true">
+              ✦
+            </span>
+          )}
+        </React.Fragment>
+      ))}
+    </div>
+  );
+}
 
-      {/* Index label */}
-      <div className="ph-index" aria-hidden="true">
-        <span>01 / Introduction</span>
+export default function Header() {
+  return (
+    <header className="ph">
+      <div className="ph-spotlight" aria-hidden="true" />
+
+      <div className="ph-index">
+        <span>
+          Portfolio
+          <br />
+          2026
+        </span>
       </div>
 
-      {/* Two-column body */}
       <div className="ph-body">
-
-        {/* ── Left ── */}
         <div className="ph-left">
-          <p className="ph-eyebrow">
-            <span className="ph-line" />
-            Full Stack Engineer
-          </p>
-
-          <h1 className="ph-title">
-            <span className="ph-word ph-word--1">From</span>
-            <span className="ph-word ph-word--2">
-               <em>concept.</em>
+          <div className="ph-eyebrow">
+            <span className="ph-line" aria-hidden="true" />
+            <span>Business & Systems Analyst | Full-Stack & AI Engineer 
             </span>
-            <span className="ph-word ph-word--3">To deployed</span>
-            <span className="ph-word ph-word--4">
-             <em>fast.</em>
+          </div>
+
+          <h1 className="ph-title" aria-label="From prototype to deployed fast.">
+            <span className="ph-word-wrap">
+              <span className="ph-word ph-word--1">From</span>
+            </span>
+
+            <span className="ph-word-wrap">
+              <span className="ph-word ph-word--2">
+                <em>prototype</em>
+              </span>
+            </span>
+
+            <span className="ph-word-wrap">
+              <span className="ph-word ph-word--3">to</span>
+            </span>
+
+            <span className="ph-word-wrap">
+              <span className="ph-word ph-word--4">deployed</span>
+            </span>
+
+            <span className="ph-word-wrap">
+              <span className="ph-word ph-word--5">
+                <em>fast.</em>
+              </span>
             </span>
           </h1>
 
           <p className="ph-sub">
-          Architect end-to-end.
-            <br />
-            I build systems that scale and interfaces people remember.
+            I build polished web experiences with clean frontend systems,
+            thoughtful motion, and backend foundations that are ready to ship.
           </p>
 
           <div className="ph-actions">
-            <button
-              type="button"
-              className="ph-btn-primary"
-              onClick={() => navigate("/menu")}
-            >
-              <span>View Projects</span>
-              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <button className="ph-btn-primary" type="button">
+              View projects
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path
-                  d="M3 13L13 3M13 3H6M13 3V10"
+                  d="M7 17L17 7M17 7H9M17 7V15"
                   stroke="currentColor"
-                  strokeWidth="1.25"
+                  strokeWidth="1.8"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
               </svg>
             </button>
-          
+
+            <button className="ph-btn-ghost" type="button">
+              Contact
+            </button>
           </div>
         </div>
 
-        {/* ── Right — Skills panel ── */}
-        <div className="ph-right" aria-label="Skills and services">
-          <p className="ph-right-label">What I bring</p>
+        <aside className="ph-right" aria-label="Capabilities">
+          <div className="ph-right-label">Selected capabilities</div>
 
-          {SKILLS.map((skill) => (
-            <div className="ph-skill-card" key={skill.name}>
-              <div className="ph-skill-top">
-                <div className="ph-skill-icon" aria-hidden="true">
-                  {skill.icon}
+          <article className="ph-skill-card">
+            <div className="ph-skill-top">
+              <div className="ph-skill-icon" aria-hidden="true">✦</div>
+              <div className="ph-skill-meta">
+                <div className="ph-skill-name">Frontend systems</div>
+                <div className="ph-skill-desc">
+                  Responsive interfaces with strong layout, motion, and UX detail.
                 </div>
-                <div className="ph-skill-meta">
-                  <div className="ph-skill-name">{skill.name}</div>
-                  <div className="ph-skill-desc">{skill.desc}</div>
-                </div>
-                {skill.available && (
-                  <span className="ph-skill-badge">
-                    <span className="ph-skill-badge-dot" aria-hidden="true" />
-                    Open
-                  </span>
-                )}
-              </div>
-              <div className="ph-skill-tags">
-                {skill.tags.map((t) => (
-                  <span className="ph-tag" key={t}>{t}</span>
-                ))}
               </div>
             </div>
-          ))}
-        </div>
+            <div className="ph-skill-tags">
+              <span className="ph-tag">React</span>
+              <span className="ph-tag">CSS</span>
+              <span className="ph-tag">Animation</span>
+            </div>
+          </article>
+
+          <article className="ph-skill-card">
+            <div className="ph-skill-top">
+              <div className="ph-skill-icon" aria-hidden="true">◼</div>
+              <div className="ph-skill-meta">
+                <div className="ph-skill-name">Backend delivery</div>
+                <div className="ph-skill-desc">
+                  APIs, databases, and deploy-ready architecture built for real products.
+                </div>
+              </div>
+            </div>
+            <div className="ph-skill-tags">
+              <span className="ph-tag">Node.js</span>
+              <span className="ph-tag">PostgreSQL</span>
+              <span className="ph-tag">Prisma</span>
+            </div>
+          </article>
+
+          <article className="ph-skill-card">
+            <div className="ph-skill-top">
+              <div className="ph-skill-icon" aria-hidden="true">●</div>
+              <div className="ph-skill-meta">
+                <div className="ph-skill-name">Currently available</div>
+                <div className="ph-skill-desc">
+                  Open to freelance, contract, and full-time opportunities.
+                </div>
+              </div>
+              <span className="ph-skill-badge">
+                <span className="ph-skill-badge-dot" aria-hidden="true" />
+                Open
+              </span>
+            </div>
+          </article>
+        </aside>
       </div>
 
-      {/* Bottom bar */}
       <div className="ph-bar">
-        <div className="ph-avail">
-          <span className="ph-dot" aria-hidden="true" />
-          Available for work
-        </div>
-        <div className="ph-scroll" aria-hidden="true">
-          <div className="ph-scroll-track">
-            <div className="ph-scroll-thumb" />
+        <div className="ph-ticker" aria-label="Status ticker">
+          <div className="ph-ticker-track">
+            <TickerGroup />
+            <TickerGroup ariaHidden />
           </div>
         </div>
-        <span className="ph-loc">Based in · Remote</span>
       </div>
     </header>
   );
 }
-
-export default Header;

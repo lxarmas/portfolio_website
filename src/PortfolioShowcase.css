@@ -68,14 +68,13 @@ position: relative;
   line-height: 1.01;
   letter-spacing: -0.02em;
   padding-left: rem;
-  color: #3f3838;
-
+  color: #000000;
   margin: 0;
 }
 
 .ps-title em {
   font-style: italic;
- color: rgba(116, 116, 116, 0.6);
+ color:  rgb(30, 57, 122);
 }
 
 /* ── Grid — 2 col, auto rows ── */
