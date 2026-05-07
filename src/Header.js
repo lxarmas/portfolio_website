@@ -42,13 +42,7 @@ export default function Header() {
     <header className="ph">
       <div className="ph-spotlight" aria-hidden="true" />
 
-      <div className="ph-index">
-        <span>
-          Portfolio
-          <br />
-          2026
-        </span>
-      </div>
+      
 
       <div className="ph-body">
         <div className="ph-left">
