@@ -136,7 +136,7 @@ function Footer() {
             <div className="pf-mark-box" aria-hidden="true">
               <span>AA</span>
             </div>
-            <span className="pf-mark-name">Alejandro Armas</span>
+            <span className="pf-mark-name">ALEJANDRO ARMAS</span>
           </Link>
 
           {/* Animated tagline */}

@@ -81,7 +81,7 @@
 
 .ps-heading em {
   font-style: italic;
-  color: var(--ink-2);
+  color: rgb(92, 228, 255);;
 
   /* Underline draw animation */
   position: relative;

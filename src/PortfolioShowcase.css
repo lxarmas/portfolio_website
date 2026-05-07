@@ -63,18 +63,19 @@ position: relative;
 
 .ps-title {
   font-family: var(--serif);
-  font-size: clamp(44px, 6.5vw, 80px);
+  font-size: clamp(88px, 6.5vw, 100px);
   font-weight: 400;
   line-height: 1.01;
   letter-spacing: -0.02em;
-  padding-left: rem;
   color: #000000;
   margin: 0;
+  margin-left: 2em; /* optical kerning for that extra tight look */
 }
 
 .ps-title em {
+  
   font-style: italic;
- color:  rgb(30, 57, 122);
+ color:  rgb(92, 228, 255);;
 }
 
 /* ── Grid — 2 col, auto rows ── */

@@ -1,7 +1,14 @@
 import React from 'react';
 import './Header.css';
+import { Link } from 'react-router-dom';
 
 const tickerItems = [
+  'Available for work',
+  'Full-stack engineer',
+  'Portrait photographer',
+  'Based in Los Angeles',
+  'Remote friendly',
+  'React • Node • PostgreSQL',
   'Available for work',
   'Full-stack engineer',
   'Portrait photographer',
@@ -72,7 +79,7 @@ export default function Header() {
 
             <span className="ph-word-wrap">
               <span className="ph-word ph-word--5">
-                <em>fast.</em>
+                <em>fast and easy!!.</em>
               </span>
             </span>
           </h1>
@@ -83,23 +90,23 @@ export default function Header() {
           </p>
 
           <div className="ph-actions">
-            <button className="ph-btn-primary" type="button">
-              View projects
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path
-                  d="M7 17L17 7M17 7H9M17 7V15"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
+  <Link to="/menu" className="ph-btn-primary">
+    View projects
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M7 17L17 7M17 7H9M17 7V15"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  </Link>
 
-            <button className="ph-btn-ghost" type="button">
-              Contact
-            </button>
-          </div>
+  <Link to="/booking" className="ph-btn-ghost">
+    Contact
+  </Link>
+</div>
         </div>
 
         <aside className="ph-right" aria-label="Capabilities">
@@ -148,10 +155,7 @@ export default function Header() {
                   Open to freelance, contract, and full-time opportunities.
                 </div>
               </div>
-              <span className="ph-skill-badge">
-                <span className="ph-skill-badge-dot" aria-hidden="true" />
-                Open
-              </span>
+            
             </div>
           </article>
         </aside>

@@ -107,7 +107,7 @@
 
 .pf-mark-name {
   font-family: var(--serif);
-  font-style: italic;
+  font-style: helvertica; /* fallback for non-italic-capable browsers */
   font-weight: 300;
   font-size: 17px;
   color: var(--ink);
@@ -116,6 +116,7 @@
 
 /* Tagline */
 .pf-tagline {
+
   font-family: var(--serif);
   font-weight: 300;
   font-size: clamp(30px, 4.5vw, 50px);
@@ -132,6 +133,7 @@
 
 /* Word atom — clips to baseline, slides up on enter */
 .pf-tagline-word {
+
   display: inline-block;
   opacity: 0;
   transform: translateY(110%);
@@ -146,7 +148,7 @@
 
 .pf-tagline-em {
   font-style: italic;
-  color: var(--ink-2);
+    color:rgb(92, 228, 255);
   display: inline-block;
   opacity: 0;
   transform: translateY(110%);
