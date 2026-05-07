@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
 
-/* ─────────────────────────────────────────────────────────────────────────────
-   Header.css
-   Portfolio hero — optimized
-   ───────────────────────────────────────────────────────────────────────────── */
 
 .ph {
   --bg: #e8e8e4;
@@ -50,6 +46,7 @@
 
 /* ── Index label ──────────────────────────────────────────────────────────── */
 .ph-index {
+  margin-bottom:12px;
   position: absolute;
   top: 6px;
   left: clamp(28px, 7vw, 88px);
